@@ -1,9 +1,11 @@
-var Mongoose = require('mongoose');
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var passportLocalMongoose = require('passport-local-mongoose');
 
-var user = Mongoose.Schema({
+var User = new Schema({
   username: String,
-  password: String,
   email: String,
+  password: String,
   institutions: [{//can also add one from profile
     name: String,
     dateGraduated: String
@@ -11,8 +13,8 @@ var user = Mongoose.Schema({
   //above this, from login. Below, dynamically added.
   friends: [{
     name: String,
-    friendId: "their _id",
-    dateCreated: {default: Date.now()},
+    friendId: String, //their _id
+    // dateCreated: {default: Date.now()},
   }],
   bio: String,
   currentJob: String,
@@ -30,5 +32,6 @@ var user = Mongoose.Schema({
   quora: String,
 });
 
-var User = Mongoose.model('User', user);
-module.exports = User;
+User.plugin(passportLocalMongoose);
+
+module.exports = mongoose.model('User', User);

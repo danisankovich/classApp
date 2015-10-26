@@ -20,7 +20,9 @@
     "morgan": "~1.5.3",
     "passport": "latest",
     "passport-google-oauth": "^0.2.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^3.1.0",
     "serve-favicon": "~2.2.1",
     "twitter": "latest"
-  },
+  }
 }
