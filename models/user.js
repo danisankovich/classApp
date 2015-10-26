@@ -13,6 +13,7 @@ var User = new Schema({
   //above this, from login. Below, dynamically added.
   friends: [{
     name: String,
+    sharedInstitution: String,
     friendId: String, //their _id
     // dateCreated: {default: Date.now()},
   }],

@@ -25,8 +25,9 @@ router.get('/register', function(req, res) {
 });
 
 router.post('/register', function(req, res) {
+  console.log("reqajsdflkjadsfg", req.body);
   User.register(new User({
-    username: req.body.username, email: req.body.email}),
+    username: req.body.username, email: req.body.email, institutions: {name: req.body.institution, dateGraduated: req.body.dateGraduated}}),
     req.body.password, function(err, user) {
       if (err) {
         console.error(err);
@@ -34,7 +35,12 @@ router.post('/register', function(req, res) {
       passport.authenticate('local')(req, res, function() {
         res.redirect('/#/');
       });
-  });
+   });
+  //then(function(user) {
+  //   console.log("look, a user", user);
+  //   user.institutions[0] = {name: req.body.institution, dateGraduated: req.body.dateGraduated};
+  //   user.save();
+  // });
 });
 
 router.get('/login', function(req, res) {
