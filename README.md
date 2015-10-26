@@ -2,7 +2,7 @@
 
 
 MEAN stack app providing users with the ability to connect with fellow alumni.
-----------
+
 ~ Features
 - Create Account
 - Login
