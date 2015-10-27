@@ -10,6 +10,14 @@ router.get('/', function(req, res, next) {
   res.send();
 });
 
+//Add full name to users on register.
+//Add full name to users on register.
+//Add full name to users on register.
+//Add full name to users on register.
+//Add full name to users on register.
+//Add full name to users on register.
+//Add full name to users on register.
+
 router.get('/user', function(req, res, next) {
   User.findById(req.user.id, function(err, user) {
     if (err) {
