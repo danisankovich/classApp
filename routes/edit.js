@@ -5,20 +5,6 @@ var logout = require('express-passport-logout');
 var User = require('../models/user');
 var Institution = require('../models/institution');
 
-router.post('/username', function(req, res) {
-  console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
-    if (err) {
-      console.error(err);
-    }
-    else {
-      user.username = req.body.username;
-      user.save();
-      res.send(user);
-    }
-  });
-});
 router.post('/email', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
   User.findById("562f1f88531578b89a64f3cf", function(err, user) {
@@ -230,7 +216,7 @@ router.post('/angelist', function(req, res) {
     }
   });
 });
-router.post('/stackOverflow', function(req, res) {
+router.post('/stackoverflow', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
   User.findById("562f1f88531578b89a64f3cf", function(err, user) {
   // User.findById(req.user.id, function(err, user) {

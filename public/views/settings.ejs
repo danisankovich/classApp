@@ -24,10 +24,20 @@ If you click on another, the old one hides, and the new input shows up
       <div class="col-sm-4">
         <h2>Contact Info</h2>
         <h4>Email: {{user.email}}</h4>
-        <h4>Email: {{user.facebook}}</h4>
-        <h4>Phone: 201-213-0126</h4>
-        <h4>City/State: Fremont, California</h4>
-        <h4>Employer: Coding House</h4>
+        <h4>Phone: {{user.phoneNumber}}</h4>
+        <h4>City/State: {{user.address}}</h4>
+        <h4>Employer: {{user.currentJob}}</h4>
+        <h4>facebook: {{user.facebook}}</h4>
+        <h4>twitter: {{user.twitter}}</h4>
+        <h4>github: {{user.github}}</h4>
+        <h4>quora: {{user.quora}}</h4>
+        <h4>angelist: {{user.angelist}}</h4>
+        <h4>blog: {{user.blog}}</h4>
+        <h4>site: {{user.personalWebsite}}</h4>
+        <h4>hireable: {{user.hireable}}</h4>
+        <h4>hiring: {{user.hiring}}</h4>
+        <h4>linkedIn: {{user.linkedIn}}</h4>
+        <h4>Bio: {{user.bio}}</h4>
       </div>
       <div class="col-sm-4">
         block of stuff
@@ -51,8 +61,128 @@ If you click on another, the old one hides, and the new input shows up
     </div>
   </div>
 
+
+  <form role="form" ng-submit="editEmail(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="email" class="col-lg-2 col-lg-offset-1 control-label">Email</label>
+        <div class="col-lg-7">
+          <input type="text" id="email" name="email" ng-model="user.email" placeholder="Enter New Email" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editfullName(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="fullName" class="col-lg-2 col-lg-offset-1 control-label">Full Name</label>
+        <div class="col-lg-7">
+          <input type="text" id="fullName" name="fullName" ng-model="user.fullName" placeholder="Enter New Full Name" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editBio(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="bio" class="col-lg-2 col-lg-offset-1 control-label">Bio</label>
+        <div class="col-lg-7">
+          <input type="text" id="bio" name="bio" ng-model="user.bio" placeholder="Enter New Bio" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editCurrentJob(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="currentJob" class="col-lg-2 col-lg-offset-1 control-label">Current Job</label>
+        <div class="col-lg-7">
+          <input type="text" id="currentJob" name="currentJob" ng-model="user.currentJob" placeholder="Enter Current Job" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editHireable(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="hireable" class="col-lg-2 col-lg-offset-1 control-label">Are You For Hire?</label>
+        <div class="col-lg-7">
+          <input type="text" id="hireable" name="hireable" ng-model="user.hireable" placeholder="Are you For Hire?" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editHiring(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="hiring" class="col-lg-2 col-lg-offset-1 control-label">Are you Hiring?</label>
+        <div class="col-lg-7">
+          <input type="text" id="hiring" name="hiring" ng-model="user.hiring" placeholder="Are you Hiring?" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editPhoneNumber(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="phoneNumber" class="col-lg-2 col-lg-offset-1 control-label">Phone Number</label>
+        <div class="col-lg-7">
+          <input type="text" id="phoneNumber" name="phoneNumber" ng-model="user.phoneNumber" placeholder="New Phone Number" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editAddress(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="address" class="col-lg-2 col-lg-offset-1 control-label">Address</label>
+        <div class="col-lg-7">
+          <input type="text" id="address" name="address" ng-model="user.address" placeholder="New Address" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
   <form role="form" ng-submit="editFacebook(user)">
-  <!-- <form role="form" action="/edit/facebook" method="post"> -->
     <fieldset>
       <div class="form-group">
         <label for="facebook" class="col-lg-2 col-lg-offset-1 control-label">Facebook Url</label>
@@ -63,7 +193,126 @@ If you click on another, the old one hides, and the new input shows up
       <div class="col-lg-4 col-lg-offset-8">
         <button type="submit" class="btn btn-default">Submit</button>&nbsp;
         <button type="button" class="btn btn-primary">Cancel</button>
-        <!-- <a ui-sref="/settings"><button type="button" class="btn btn-primary">Cancel</button></a> -->
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editLinkedIn(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="linkedIn" class="col-lg-2 col-lg-offset-1 control-label">linkedIn Url</label>
+        <div class="col-lg-7">
+          <input type="text" id="linkedIn" name="linkedIn" ng-model="user.linkedIn" placeholder="Enter linkedIn Url" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editTwitter(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="twitter" class="col-lg-2 col-lg-offset-1 control-label">Twitter Url</label>
+        <div class="col-lg-7">
+          <input type="text" id="twitter" name="twitter" ng-model="user.twitter" placeholder="Enter Twitter Url" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editPersonalWebsite(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="personalWebsite" class="col-lg-2 col-lg-offset-1 control-label">Personal Website Url</label>
+        <div class="col-lg-7">
+          <input type="text" id="personalWebsite" name="personalWebsite" ng-model="user.personalWebsite" placeholder="Enter Personal Website Url" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editBlog(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="blog" class="col-lg-2 col-lg-offset-1 control-label">Blog Url</label>
+        <div class="col-lg-7">
+          <input type="text" id="blog" name="blog" ng-model="user.blog" placeholder="Enter Blog Url" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editGitHub(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="github" class="col-lg-2 col-lg-offset-1 control-label">GitHub Url</label>
+        <div class="col-lg-7">
+          <input type="text" id="github" name="github" ng-model="user.github" placeholder="Enter GitHub Url" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editAngelist(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="angelist" class="col-lg-2 col-lg-offset-1 control-label">Angelist Url</label>
+        <div class="col-lg-7">
+          <input type="text" id="angelist" name="angelist" ng-model="user.angelist" placeholder="Enter Angelist Url" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editStackOverflow(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="stackOverflow" class="col-lg-2 col-lg-offset-1 control-label">StackOverflow Url</label>
+        <div class="col-lg-7">
+          <input type="text" id="stackOverflow" name="stackOverflow" ng-model="user.stackOverflow" placeholder="Enter Stack Overflow Url" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form role="form" ng-submit="editQuora(user)">
+    <fieldset>
+      <div class="form-group">
+        <label for="quora" class="col-lg-2 col-lg-offset-1 control-label">Quora Url</label>
+        <div class="col-lg-7">
+          <input type="text" id="quora" name="quora" ng-model="user.quora" placeholder="Enter Quora Url" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-8">
+        <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary">Cancel</button>
       </div>
     </fieldset>
   </form>
