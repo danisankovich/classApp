@@ -10,14 +10,6 @@ router.get('/', function(req, res, next) {
   res.send();
 });
 
-//Add full name to users on register.
-//Add full name to users on register.
-//Add full name to users on register.
-//Add full name to users on register.
-//Add full name to users on register.
-//Add full name to users on register.
-//Add full name to users on register.
-
 router.get('/user', function(req, res, next) {
   User.findById(req.user.id, function(err, user) {
     if (err) {
@@ -38,6 +30,7 @@ router.post('/register', function(req, res) {
   User.register(new User({
     username: req.body.username,
     email: req.body.email,
+    fullName: req.body.fullName,
     institutions: {
       name: req.body.institution,
       dateGraduated: req.body.dateGraduated
