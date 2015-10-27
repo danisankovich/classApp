@@ -71,4 +71,11 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
   res.redirect('/');
 });
 
+router.get('/institutions', function(req, res) {
+  Institution.find({}, function(err, institution) {
+    res.json(institution);
+  });
+
+});
+
 module.exports = router;
