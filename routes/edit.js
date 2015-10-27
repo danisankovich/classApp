@@ -7,8 +7,7 @@ var Institution = require('../models/institution');
 
 router.post('/email', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -21,8 +20,7 @@ router.post('/email', function(req, res) {
 });
 router.post('/fullname', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -36,8 +34,7 @@ router.post('/fullname', function(req, res) {
 
 router.post('/bio', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -50,8 +47,7 @@ router.post('/bio', function(req, res) {
 });
 router.post('/currentjob', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -64,8 +60,7 @@ router.post('/currentjob', function(req, res) {
 });
 router.post('/hireable', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -78,8 +73,7 @@ router.post('/hireable', function(req, res) {
 });
 router.post('/hiring', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -92,8 +86,7 @@ router.post('/hiring', function(req, res) {
 });
 router.post('/phonenumber', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -106,8 +99,7 @@ router.post('/phonenumber', function(req, res) {
 });
 router.post('/address', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -120,8 +112,7 @@ router.post('/address', function(req, res) {
 });
 router.post('/facebook', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -134,8 +125,7 @@ router.post('/facebook', function(req, res) {
 });
 router.post('/personal', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -148,8 +138,7 @@ router.post('/personal', function(req, res) {
 });
 router.post('/linkedin', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -162,8 +151,7 @@ router.post('/linkedin', function(req, res) {
 });
 router.post('/twitter', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -176,8 +164,7 @@ router.post('/twitter', function(req, res) {
 });
 router.post('/blog', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -190,8 +177,7 @@ router.post('/blog', function(req, res) {
 });
 router.post('/github', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -204,8 +190,7 @@ router.post('/github', function(req, res) {
 });
 router.post('/angelist', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -218,8 +203,7 @@ router.post('/angelist', function(req, res) {
 });
 router.post('/stackoverflow', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
@@ -232,8 +216,7 @@ router.post('/stackoverflow', function(req, res) {
 });
 router.post('/quora', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
-  User.findById("562f1f88531578b89a64f3cf", function(err, user) {
-  // User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, user) {
     if (err) {
       console.error(err);
     }
