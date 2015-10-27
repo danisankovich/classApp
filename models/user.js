@@ -24,6 +24,7 @@ var User = new Schema({
   hiring: Boolean,
   phoneNumber: String,
   address: String,
+  facebook: String,
   linkedIn: String,
   twitter: String,
   personalWebsite: String,

@@ -26,5 +26,12 @@ app.controller('settingsCtrl', function($scope, $state, $http){
       console.log($scope.userId);
     }
   });
-  
+  $scope.openLinkedInEdit = function() {
+
+  };
+  $scope.editLinkedIn = function() {
+    $http.post('http://localhost:3000/edit/linkedin').success(function(user) {
+      console.log(user);
+    });
+  };
 });
