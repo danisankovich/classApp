@@ -4,6 +4,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
   $urlRouterProvider.otherwise('/');
   $stateProvider
   .state('/', { url: '/', templateUrl: 'views/home.ejs', controller: 'mainCtrl' })
+  .state('settings', { url: '/settings', templateUrl: 'views/settings.ejs', controller: 'mainCtrl' })
+  .state('profile', { url: '/profile', templateUrl: 'views/profile.ejs', controller: 'mainCtrl' })
   .state('login', { url: '/login', templateUrl: 'views/login.ejs', controller: 'mainCtrl' })
   .state('register', { url: '/register', templateUrl: 'views/register.ejs', controller: 'mainCtrl' });
 }]);

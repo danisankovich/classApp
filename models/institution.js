@@ -3,9 +3,7 @@ var Mongoose = require('mongoose');
 var institution = Mongoose.Schema({
   //added when user adds a new one (upsert?)
   name: {type: String, unique: true},
-  alumni: [{
-    alumniId: String, //user _id
-  }],
+  alumni: [],
   events: [{
     when: Date,
     whoCanAttend: String,
@@ -14,5 +12,5 @@ var institution = Mongoose.Schema({
   }]
 });
 
-var Intstitution = Mongoose.model('Intstitution', institution);
+var Institution = Mongoose.model('Intstitution', institution);
 module.exports = Institution;
