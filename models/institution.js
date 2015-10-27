@@ -12,5 +12,5 @@ var institution = Mongoose.Schema({
   }]
 });
 
-var Institution = Mongoose.model('Intstitution', institution);
+var Institution = Mongoose.model('Institution', institution);
 module.exports = Institution;
