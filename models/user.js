@@ -23,7 +23,12 @@ var User = new Schema({
   hireable: Boolean,
   hiring: Boolean,
   phoneNumber: String,
-  address: String,
+  address: [{
+    street: String,
+    city: String,
+    state: String,
+    zip: String
+  }],
   facebook: String,
   linkedIn: String,
   twitter: String,
