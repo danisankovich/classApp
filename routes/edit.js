@@ -12,7 +12,7 @@ router.post('/email', function(req, res) {
       console.error(err);
     }
     else {
-      user.username = req.body.email;
+      user.email = req.body.email;
       user.save();
       res.send(user);
     }

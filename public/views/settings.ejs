@@ -15,7 +15,7 @@ If you click on another, the old one hides, and the new input shows up
         <div class="col-sm-6 col-sm-offset-1">
           <br>
           <br>
-          <h1>{{user.fullName}}</h1>
+          <h1>{{user.fullName}}</h1><button ng-click="showName()">edit</button>
           <h2>({{currentUser}})</h2>
         </div>
       </div>
@@ -23,24 +23,26 @@ If you click on another, the old one hides, and the new input shows up
     <div class="col-sm-12">
       <div class="col-sm-4">
         <h2>Contact Info</h2>
-        <h4>Email: {{user.email}}</h4>
-        <h4>Phone: {{user.phoneNumber}}</h4>
-        <h4>City/State: {{user.address}}</h4>
-        <h4>Employer: {{user.currentJob}}</h4>
-        <h4>facebook: {{user.facebook}}</h4>
-        <h4>twitter: {{user.twitter}}</h4>
-        <h4>github: {{user.github}}</h4>
-        <h4>quora: {{user.quora}}</h4>
-        <h4>angelist: {{user.angelist}}</h4>
-        <h4>blog: {{user.blog}}</h4>
-        <h4>site: {{user.personalWebsite}}</h4>
-        <h4>hireable: {{user.hireable}}</h4>
-        <h4>hiring: {{user.hiring}}</h4>
-        <h4>linkedIn: {{user.linkedIn}}</h4>
-        <h4>Bio: {{user.bio}}</h4>
+        <h4>Email: {{user.email}}<span><button ng-click="showEmail()">edit</button></span></h4>
+        <h4>Phone: {{user.phoneNumber}}<span><button ng-click="showPhone()">edit</button></span></h4>
+        <h4>City/State: {{user.address}}<span><button ng-click="showAddress()">edit</button></span></h4>
+        <h4>Employer: {{user.currentJob}}<span><button ng-click="showCurrentJob()">edit</button></span></h4>
+        <h4>facebook: {{user.facebook}}<span><button ng-click="showFacebook()">edit</button></span></h4>
+        <h4>twitter: {{user.twitter}}<span><button ng-click="showTwitter()">edit</button></span></h4>
+        <h4>github: {{user.github}}<span><button ng-click="showGitHub()">edit</button></span></h4>
+        <h4>quora: {{user.quora}}<span><button ng-click="showQuora()">edit</button></span></h4>
+        <h4>angelist: {{user.angelist}}<span><button ng-click="showAngelist()">edit</button></span></h4>
+        <h4>blog: {{user.blog}}<span><button ng-click="showBlog()">edit</button></span></h4>
+        <h4>site: {{user.personalWebsite}}<span><button ng-click="showPersonalWebsite()">edit</button></span></h4>
+        <h4>hireable: {{user.hireable}}<span><button ng-click="showHireable()">edit</button></span></h4>
+        <h4>hiring: {{user.hiring}}<span><button ng-click="showHiring()">edit</button></span></h4>
+        <h4>linkedIn: {{user.linkedIn}}<span><button ng-click="showLinkedIn()">edit</button></span></h4>
+        <h4>Bio: {{user.bio}}<span><button ng-click="showBio()">edit</button></span></h4>
       </div>
+
+
       <div class="col-sm-8">
-        <form role="form" ng-submit="editEmail(user)">
+        <form ng-show="showEmailForm" role="form" ng-submit="editEmail(user)">
           <fieldset>
             <div class="form-group">
               <label for="email" class="col-lg-2 col-lg-offset-1 control-label">Email</label>
@@ -55,7 +57,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editFullName(user)">
+        <form ng-show="showNameForm" role="form" ng-submit="editFullName(user)">
           <fieldset>
             <div class="form-group">
               <label for="fullName" class="col-lg-2 col-lg-offset-1 control-label">Full Name</label>
@@ -70,7 +72,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editBio(user)">
+        <form ng-show="showBioForm" role="form" ng-submit="editBio(user)">
           <fieldset>
             <div class="form-group">
               <label for="bio" class="col-lg-2 col-lg-offset-1 control-label">Bio</label>
@@ -85,7 +87,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editCurrentJob(user)">
+        <form ng-show="showJobForm" role="form" ng-submit="editCurrentJob(user)">
           <fieldset>
             <div class="form-group">
               <label for="currentJob" class="col-lg-2 col-lg-offset-1 control-label">Current Job</label>
@@ -100,7 +102,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editHireable(user)">
+        <form ng-show="showHireableForm" role="form" ng-submit="editHireable(user)">
           <fieldset>
             <div class="form-group">
               <label for="hireable" class="col-lg-2 col-lg-offset-1 control-label">Are You For Hire?</label>
@@ -115,7 +117,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editHiring(user)">
+        <form ng-show="showHiringForm" role="form" ng-submit="editHiring(user)">
           <fieldset>
             <div class="form-group">
               <label for="hiring" class="col-lg-2 col-lg-offset-1 control-label">Are you Hiring?</label>
@@ -130,7 +132,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editPhoneNumber(user)">
+        <form ng-show="showPhoneForm" role="form" ng-submit="editPhoneNumber(user)">
           <fieldset>
             <div class="form-group">
               <label for="phoneNumber" class="col-lg-2 col-lg-offset-1 control-label">Phone Number</label>
@@ -145,7 +147,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editAddress(user)">
+        <form ng-show="showAddressForm" role="form" ng-submit="editAddress(user)">
           <fieldset>
             <div class="form-group">
               <label for="address" class="col-lg-2 col-lg-offset-1 control-label">Address</label>
@@ -160,7 +162,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editFacebook(user)">
+        <form ng-show="showFacebookForm" role="form" ng-submit="editFacebook(user)">
           <fieldset>
             <div class="form-group">
               <label for="facebook" class="col-lg-2 col-lg-offset-1 control-label">Facebook Url</label>
@@ -175,7 +177,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editLinkedIn(user)">
+        <form ng-show="showLinkedInForm" role="form" ng-submit="editLinkedIn(user)">
           <fieldset>
             <div class="form-group">
               <label for="linkedIn" class="col-lg-2 col-lg-offset-1 control-label">linkedIn Url</label>
@@ -190,7 +192,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editTwitter(user)">
+        <form ng-show="showTwitterForm" role="form" ng-submit="editTwitter(user)">
           <fieldset>
             <div class="form-group">
               <label for="twitter" class="col-lg-2 col-lg-offset-1 control-label">Twitter Url</label>
@@ -205,7 +207,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editPersonalWebsite(user)">
+        <form ng-show="showPersonalWebsiteForm" role="form" ng-submit="editPersonalWebsite(user)">
           <fieldset>
             <div class="form-group">
               <label for="personalWebsite" class="col-lg-2 col-lg-offset-1 control-label">Personal Website Url</label>
@@ -220,7 +222,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editBlog(user)">
+        <form ng-show="showBlogForm" role="form" ng-submit="editBlog(user)">
           <fieldset>
             <div class="form-group">
               <label for="blog" class="col-lg-2 col-lg-offset-1 control-label">Blog Url</label>
@@ -235,7 +237,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editGitHub(user)">
+        <form ng-show="showGitHubForm" role="form" ng-submit="editGitHub(user)">
           <fieldset>
             <div class="form-group">
               <label for="github" class="col-lg-2 col-lg-offset-1 control-label">GitHub Url</label>
@@ -250,7 +252,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editAngelist(user)">
+        <form ng-show="showAngelistForm" role="form" ng-submit="editAngelist(user)">
           <fieldset>
             <div class="form-group">
               <label for="angelist" class="col-lg-2 col-lg-offset-1 control-label">Angelist Url</label>
@@ -265,7 +267,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editStackOverflow(user)">
+        <form ng-show="showStackOverflowForm" role="form" ng-submit="editStackOverflow(user)">
           <fieldset>
             <div class="form-group">
               <label for="stackOverflow" class="col-lg-2 col-lg-offset-1 control-label">StackOverflow Url</label>
@@ -280,7 +282,7 @@ If you click on another, the old one hides, and the new input shows up
           </fieldset>
         </form>
 
-        <form role="form" ng-submit="editQuora(user)">
+        <form ng-show="showQuoraForm" role="form" ng-submit="editQuora(user)">
           <fieldset>
             <div class="form-group">
               <label for="quora" class="col-lg-2 col-lg-offset-1 control-label">Quora Url</label>
