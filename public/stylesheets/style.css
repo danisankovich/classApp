@@ -1,5 +1,4 @@
 body {
-  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -12,9 +11,6 @@ label {
 }
 
 .profilePic {
-  /*width: 200px;
-  height: 200px;
-  background-color: red;*/
   margin-left: 0px;
   margin-top: 20px;
 }
@@ -50,6 +46,6 @@ label {
   float: right;
 }
 
-li {
-
+.right-border {
+  border-right: 1px black solid;
 }
