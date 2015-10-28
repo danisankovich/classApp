@@ -49,3 +49,15 @@ label {
 .right-border {
   border-right: 1px black solid;
 }
+
+.institutionbox {
+  border: 3px solid black;
+}
+
+.institutionbox .institutedisplay {
+  text-align: center;
+  border-bottom: 2px black solid;
+}
+.institutionbox h2 {
+  text-align: center;
+}

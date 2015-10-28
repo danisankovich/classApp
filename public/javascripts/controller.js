@@ -15,4 +15,7 @@ app.controller('institutionCtrl', function($scope, $state, $http){
       $scope.institutions = institution;
       console.log($scope.institutions);
   });
+  $scope.showOneInstitute = function(instituteId) {
+    $state.go('institute', {assignmentId:assignmentId});
+  };
 });
