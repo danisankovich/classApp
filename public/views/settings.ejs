@@ -31,53 +31,41 @@
     <div class="col-sm-12">
       <div class="col-sm-4 right-border">
         <h2>Contact Info</h2>
-        <!-- <div ng-show="showEmailForm"><h4>Email: {{user.email}}<span><button ng-click="showEmail()">edit</button></span></h4></div>
-        <div ng-show="showPhoneForm"><h4>Phone: {{user.phoneNumber}}<span><button ng-click="showPhone()">edit</button></span></h4></div>
-        <div ng-show="showAddressForm"><h4>City/State: {{user.address}}<span><button ng-click="showAddress()">edit</button></span></h4></div>
-        <div ng-show="showJobForm"><h4>Employer: {{user.currentJob}}<span><button ng-click="showCurrentJob()">edit</button></span></h4></div>
-        <div ng-show="showFacebookForm"><h4>facebook: {{user.facebook}}<span><button ng-click="showFacebook()">edit</button></span></h4></div>
-        <div ng-show="showTwitterForm"><h4>twitter: {{user.twitter}}<span><button ng-click="showTwitter()">edit</button></span></h4></div>
-        <div ng-show="showGitHubForm"><h4>github: {{user.github}}<span><button ng-click="showGitHub()">edit</button></span></h4></div>
-        <div ng-show="showQuoraForm"><h4>quora: {{user.quora}}<span><button ng-click="showQuora()">edit</button></span></h4></div>
-        <div ng-show="showAngelistForm"><h4>angelist: {{user.angelist}}<span><button ng-click="showAngelist()">edit</button></span></h4></div>
-        <div ng-show="showBlogForm"><h4>blog: {{user.blog}}<span><button ng-click="showBlog()">edit</button></span></h4></div>
-        <div ng-show="showPersonalWebsiteForm"><h4>site: {{user.personalWebsite}}<span><button ng-click="showPersonalWebsite()">edit</button></span></h4></div>
-        <div ng-show="showHireableForm"><h4>hireable: {{user.hireable}}<span><button ng-click="showHireable()">edit</button></span></h4></div>
-        <div ng-show="showHiringForm"><h4>hiring: {{user.hiring}}<span><button ng-click="showHiring()">edit</button></span></h4></div>
-        <div ng-show="showLinkedInForm"><h4>linkedIn: {{user.linkedIn}}<span><button ng-click="showLinkedIn()">edit</button></span></h4></div>
-        <div ng-show="showBioForm"><h4>Bio: {{user.bio}}<span><button ng-click="showBio()">edit</button></span></h4></div> -->
-        <div ng-show="true"><h4>Email: {{user.email}}<span><button ng-click="showEmail()">edit</button></span></h4></div>
-        <div ng-show="true"><h4>Phone: {{user.phoneNumber}}<span><button ng-click="showPhone()">edit</button></span></h4></div>
-        <div ng-show="true"><h4>City/State: {{user.address}}<span><button ng-click="showAddress()">edit</button></span></h4></div>
-        <div ng-show="true"><h4>Employer: {{user.currentJob}}<span><button ng-click="showCurrentJob()">edit</button></span></h4></div>
-        <div ng-show="true"><h4>facebook: {{user.facebook}}<span><button ng-click="showFacebook()">edit</button></span></h4></div>
-        <div ng-show="true"><h4>twitter: {{user.twitter}}<span><button ng-click="showTwitter()">edit</button></span></h4></div>
-        <div ng-show="true"><h4>github: {{user.github}}<span><button ng-click="showGitHub()">edit</button></span></h4></div>
-        <div ng-show="true"><h4>quora: {{user.quora}}<span><button ng-click="showQuora()">edit</button></span></h4></div>
-        <div ng-show="true"><h4>angelist: {{user.angelist}}<span><button ng-click="showAngelist()">edit</button></span></h4></div>
-        <div ng-show="true"><h4>blog: {{user.blog}}<span><button ng-click="showBlog()">edit</button></span></h4></div>
-        <div ng-show="true"><h4>site: {{user.personalWebsite}}<span><button ng-click="showPersonalWebsite()">edit</button></span></h4></div>
-        <div ng-show="true"><h4>hireable: {{user.hireable}}<span><button ng-click="showHireable()">edit</button></span></h4></div>
-        <div ng-show="true"><h4>hiring: {{user.hiring}}<span><button ng-click="showHiring()">edit</button></span></h4></div>
-        <div ng-show="true"><h4>linkedIn: {{user.linkedIn}}<span><button ng-click="showLinkedIn()">edit</button></span></h4></div>
-        <div ng-show="true"><h4>Bio: {{user.bio}}<span><button ng-click="showBio()">edit</button></span></h4></div>
+        <div ng-hide="showEmailForm">
+          <h4>Email: {{user.email}}<span><button ng-click="showEmail()">edit</button></span></h4>
+          <form ng-show="showEmailForm" role="form" ng-submit="editEmail(user)">
+            <fieldset>
+              <div class="form-group">
+                <label for="email" class="col-lg-2 col-lg-offset-1 control-label">Email</label>
+                <div class="col-lg-7">
+                  <input type="text" id="email" name="email" ng-model="user.email" placeholder="Enter New Email" class="form-control"/>
+                </div>
+              </div>
+              <div class="col-lg-1 col-lg-offset-8">
+                <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div ng-hide="showPhoneForm"><h4>Phone: {{user.phoneNumber}}<span><button ng-click="showPhone()">edit</button></span></h4></div>
+        <div ng-hide="showAddressForm"><h4>City/State: {{user.address}}<span><button ng-click="showAddress()">edit</button></span></h4></div>
+        <div ng-hide="showJobForm"><h4>Employer: {{user.currentJob}}<span><button ng-click="showCurrentJob()">edit</button></span></h4></div>
+        <div ng-hide="showFacebookForm"><h4>facebook: {{user.facebook}}<span><button ng-click="showFacebook()">edit</button></span></h4></div>
+        <div ng-hide="showTwitterForm"><h4>twitter: {{user.twitter}}<span><button ng-click="showTwitter()">edit</button></span></h4></div>
+        <div ng-hide="showGitHubForm"><h4>github: {{user.github}}<span><button ng-click="showGitHub()">edit</button></span></h4></div>
+        <div ng-hide="showQuoraForm"><h4>quora: {{user.quora}}<span><button ng-click="showQuora()">edit</button></span></h4></div>
+        <div ng-hide="showAngelistForm"><h4>angelist: {{user.angelist}}<span><button ng-click="showAngelist()">edit</button></span></h4></div>
+        <div ng-hide="showBlogForm"><h4>blog: {{user.blog}}<span><button ng-click="showBlog()">edit</button></span></h4></div>
+        <div ng-hide="showPersonalWebsiteForm"><h4>site: {{user.personalWebsite}}<span><button ng-click="showPersonalWebsite()">edit</button></span></h4></div>
+        <div ng-hide="showHireableForm"><h4>hireable: {{user.hireable}}<span><button ng-click="showHireable()">edit</button></span></h4></div>
+        <div ng-hide="showHiringForm"><h4>hiring: {{user.hiring}}<span><button ng-click="showHiring()">edit</button></span></h4></div>
+        <div ng-hide="showLinkedInForm"><h4>linkedIn: {{user.linkedIn}}<span><button ng-click="showLinkedIn()">edit</button></span></h4></div>
+        <div ng-hide="showBioForm"><h4>Bio: {{user.bio}}<span><button ng-click="showBio()">edit</button></span></h4></div>
       </div>
 
 
       <div class="col-sm-8">
-        <form ng-show="showEmailForm" role="form" ng-submit="editEmail(user)">
-          <fieldset>
-            <div class="form-group">
-              <label for="email" class="col-lg-2 col-lg-offset-1 control-label">Email</label>
-              <div class="col-lg-7">
-                <input type="text" id="email" name="email" ng-model="user.email" placeholder="Enter New Email" class="form-control"/>
-              </div>
-            </div>
-            <div class="col-lg-1 col-lg-offset-8">
-              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
-            </div>
-          </fieldset>
-        </form>
+
 
         <form ng-show="showBioForm" role="form" ng-submit="editBio(user)">
           <fieldset>
