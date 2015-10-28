@@ -1,5 +1,4 @@
 body {
-  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -54,4 +53,8 @@ h2 {
 
 .icons {
   float: right;
+}
+
+.right-border {
+  border-right: 1px black solid;
 }
