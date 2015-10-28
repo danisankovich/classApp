@@ -15,7 +15,18 @@ app.controller('institutionCtrl', function($scope, $state, $http){
       $scope.institutions = institution;
       console.log($scope.institutions);
   });
-  $scope.showOneInstitute = function(instituteId) {
-    $state.go('institute', {assignmentId:assignmentId});
+  $scope.showOneInstitute = function() {
+    instituteId = this.institution._id;
+    console.log(instituteId);
+    $state.go('institute', {instituteId:instituteId});
+    console.log("yes");
   };
+});
+
+app.controller('oneInstitutionCtrl', function($scope, $state, $http){
+  $http.get('http://localhost:3000/institute/' + $state.params.instituteId).success(function(institution) {
+    $scope.institution = institution;
+    console.log(institution);
+    // institution.alumni.forEach(function(e) {});
+  });
 });

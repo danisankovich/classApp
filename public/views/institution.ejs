@@ -1,3 +1,9 @@
 <div>
-  {{institution.name}}
+  <h1>{{institution.name}}</h1>
+  <h1>{{institution.events}}</h1>
+  <img ng-src="{{institution.picUrl}}" alt="">
+  <div ng-repeat="alum in institution.alumni">
+    <!-- {{institution.alum}} -->
+    {{alum}}
+  </div>
 </div>

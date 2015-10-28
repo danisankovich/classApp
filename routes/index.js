@@ -75,7 +75,16 @@ router.get('/institutions', function(req, res) {
   Institution.find({}, function(err, institution) {
     res.json(institution);
   });
-
 });
+
+router.get('/institute/:id', function(req, res) {
+  console.log(req.params.id);
+  Institution.findById(req.params.id, function(err, institution) {
+    console.log("here is the institution", institution);
+    res.json(institution);
+  });
+});
+
+
 
 module.exports = router;
