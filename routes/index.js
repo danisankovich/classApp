@@ -85,6 +85,12 @@ router.get('/institute/:id', function(req, res) {
   });
 });
 
+router.get('/:id', function(req, res) {
+  User.findById(req.params.id, function(err, user) {
+    res.json(user);
+  });
+});
+
 
 
 module.exports = router;
