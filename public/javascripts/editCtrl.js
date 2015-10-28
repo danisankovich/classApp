@@ -114,7 +114,7 @@ app.controller('settingsCtrl', function($scope, $state, $http) {
   };
 
   $scope.showName = function() {
-    if ($scope.showNameForm === true) { $scope.showNameForm = false;
+    if ($scope.showNameForm === true) { return $scope.showNameForm = false;
     } else { return $scope.showNameForm = true; }
   };
 
