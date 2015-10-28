@@ -10,6 +10,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var edit = require('./routes/edit');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/edit', edit);
 
 var User = require('./models/user');
 passport.use(new LocalStrategy(User.authenticate()));
@@ -41,7 +43,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //connect to mongo
-mongoose.connect('mongodb://localhost/cthulu');
+mongoose.connect('mongodb://localhost/classApp');
 
 var logout = function(req, res){
   if (req.isAuthenticated()){
