@@ -3,13 +3,13 @@ var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 
 var User = new Schema({
-  username: String,
-  email: String,
-  fullName: String,
+  username: {type: String, required: true},
+  email: {type: String, required: true},
+  fullName: {type: String, required: true},
   password: String,
   institutions: [{//can also add one from profile
-    name: String,
-    dateGraduated: String
+    name: {type: String, required: true},
+    dateGraduated: {type: String, required: true}
   }],
   //above this, from login. Below, dynamically added.
   friends: [{
