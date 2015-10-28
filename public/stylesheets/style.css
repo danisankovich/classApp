@@ -11,35 +11,41 @@ label {
   margin-top: 1%;
 }
 
-.profilePic {
+.mainDiv {
+  padding: 10px;
+}
+
+h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.about-me, .profile-pic, .icons {
+  text-align: center;
+  margin: auto;
+}
+
+#user-heading {
+  margin: auto;
+}
+
+.profile-pic {
   /*width: 200px;
   height: 200px;
   background-color: red;*/
-  margin-left: 0px;
-  margin-top: 20px;
+  height: 150px;
+  width: 150px;
 }
 
-.iconthingone {
-  width: 50px;
-  height: 50px;
+.comments {
+  margin: auto;
+  text-align: right;
 }
 
 .iconthing {
-  width: 50px;
-  height: 50px;
-}
-
-.iconthingtwo {
-  width: 50px;
-  height: 50px;
-}
-.iconthingthree {
-  width: 50px;
-  height: 50px;
-}
-.iconthingfour {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
+  margin: 5px;
 }
 
 .iconpadding {
@@ -48,8 +54,4 @@ label {
 
 .icons {
   float: right;
-}
-
-li {
-
 }
