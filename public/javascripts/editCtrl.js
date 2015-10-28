@@ -13,6 +13,7 @@ app.controller('settingsCtrl', function($scope, $state, $http){
   $scope.editFullName = function(user) {
     $http.post('http://localhost:3000/edit/fullname', user).success(function(response) {
       console.log(response);
+      $scope.showName();
     });
   };
   $scope.editEmail = function(user) {
@@ -97,8 +98,8 @@ app.controller('settingsCtrl', function($scope, $state, $http){
   };
 
   $scope.showName = function() {
-    if ($scope.showNameForm === true) { return $scope.showNameForm = false; }
-    else { return $scope.showNameForm = true; }
+    if ($scope.showNameForm === true) { $scope.showNameForm = false; }
+    else { $scope.showNameForm = true; }
   };
   $scope.showEmail = function() {
     if ($scope.showEmailForm === true) { return $scope.showEmailForm = false; }

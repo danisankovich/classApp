@@ -10,6 +10,302 @@
         <div class="col-sm-6 col-sm-offset-1">
           <br>
           <br>
+          <div ng-hide="showNameForm"><h1>{{user.fullName}}</h1><button ng-click="showName()">edit</button></div>
+          <form ng-show="showNameForm" role="form" ng-submit="editFullName(user)">
+            <fieldset>
+              <div class="form-group">
+                <label for="fullName" class="col-lg-2 col-lg-offset-1 control-label">Full Name</label>
+                <div class="col-lg-8">
+                  <input type="text" id="fullName" name="fullName" ng-model="user.fullName" placeholder="Enter New Full Name" class="form-control"/>
+                </div>
+              </div>
+              <div class="col-lg-6 col-lg-offset-2">
+                <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+              </div>
+            </fieldset>
+          </form>
+          <h2>({{currentUser}})</h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="col-sm-4 right-border">
+        <h2>Contact Info</h2>
+        <!-- <div ng-show="showEmailForm"><h4>Email: {{user.email}}<span><button ng-click="showEmail()">edit</button></span></h4></div>
+        <div ng-show="showPhoneForm"><h4>Phone: {{user.phoneNumber}}<span><button ng-click="showPhone()">edit</button></span></h4></div>
+        <div ng-show="showAddressForm"><h4>City/State: {{user.address}}<span><button ng-click="showAddress()">edit</button></span></h4></div>
+        <div ng-show="showJobForm"><h4>Employer: {{user.currentJob}}<span><button ng-click="showCurrentJob()">edit</button></span></h4></div>
+        <div ng-show="showFacebookForm"><h4>facebook: {{user.facebook}}<span><button ng-click="showFacebook()">edit</button></span></h4></div>
+        <div ng-show="showTwitterForm"><h4>twitter: {{user.twitter}}<span><button ng-click="showTwitter()">edit</button></span></h4></div>
+        <div ng-show="showGitHubForm"><h4>github: {{user.github}}<span><button ng-click="showGitHub()">edit</button></span></h4></div>
+        <div ng-show="showQuoraForm"><h4>quora: {{user.quora}}<span><button ng-click="showQuora()">edit</button></span></h4></div>
+        <div ng-show="showAngelistForm"><h4>angelist: {{user.angelist}}<span><button ng-click="showAngelist()">edit</button></span></h4></div>
+        <div ng-show="showBlogForm"><h4>blog: {{user.blog}}<span><button ng-click="showBlog()">edit</button></span></h4></div>
+        <div ng-show="showPersonalWebsiteForm"><h4>site: {{user.personalWebsite}}<span><button ng-click="showPersonalWebsite()">edit</button></span></h4></div>
+        <div ng-show="showHireableForm"><h4>hireable: {{user.hireable}}<span><button ng-click="showHireable()">edit</button></span></h4></div>
+        <div ng-show="showHiringForm"><h4>hiring: {{user.hiring}}<span><button ng-click="showHiring()">edit</button></span></h4></div>
+        <div ng-show="showLinkedInForm"><h4>linkedIn: {{user.linkedIn}}<span><button ng-click="showLinkedIn()">edit</button></span></h4></div>
+        <div ng-show="showBioForm"><h4>Bio: {{user.bio}}<span><button ng-click="showBio()">edit</button></span></h4></div> -->
+        <div ng-show="true"><h4>Email: {{user.email}}<span><button ng-click="showEmail()">edit</button></span></h4></div>
+        <div ng-show="true"><h4>Phone: {{user.phoneNumber}}<span><button ng-click="showPhone()">edit</button></span></h4></div>
+        <div ng-show="true"><h4>City/State: {{user.address}}<span><button ng-click="showAddress()">edit</button></span></h4></div>
+        <div ng-show="true"><h4>Employer: {{user.currentJob}}<span><button ng-click="showCurrentJob()">edit</button></span></h4></div>
+        <div ng-show="true"><h4>facebook: {{user.facebook}}<span><button ng-click="showFacebook()">edit</button></span></h4></div>
+        <div ng-show="true"><h4>twitter: {{user.twitter}}<span><button ng-click="showTwitter()">edit</button></span></h4></div>
+        <div ng-show="true"><h4>github: {{user.github}}<span><button ng-click="showGitHub()">edit</button></span></h4></div>
+        <div ng-show="true"><h4>quora: {{user.quora}}<span><button ng-click="showQuora()">edit</button></span></h4></div>
+        <div ng-show="true"><h4>angelist: {{user.angelist}}<span><button ng-click="showAngelist()">edit</button></span></h4></div>
+        <div ng-show="true"><h4>blog: {{user.blog}}<span><button ng-click="showBlog()">edit</button></span></h4></div>
+        <div ng-show="true"><h4>site: {{user.personalWebsite}}<span><button ng-click="showPersonalWebsite()">edit</button></span></h4></div>
+        <div ng-show="true"><h4>hireable: {{user.hireable}}<span><button ng-click="showHireable()">edit</button></span></h4></div>
+        <div ng-show="true"><h4>hiring: {{user.hiring}}<span><button ng-click="showHiring()">edit</button></span></h4></div>
+        <div ng-show="true"><h4>linkedIn: {{user.linkedIn}}<span><button ng-click="showLinkedIn()">edit</button></span></h4></div>
+        <div ng-show="true"><h4>Bio: {{user.bio}}<span><button ng-click="showBio()">edit</button></span></h4></div>
+      </div>
+
+
+      <div class="col-sm-8">
+        <form ng-show="showEmailForm" role="form" ng-submit="editEmail(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="email" class="col-lg-2 col-lg-offset-1 control-label">Email</label>
+              <div class="col-lg-7">
+                <input type="text" id="email" name="email" ng-model="user.email" placeholder="Enter New Email" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-1 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showBioForm" role="form" ng-submit="editBio(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="bio" class="col-lg-2 col-lg-offset-1 control-label">Bio</label>
+              <div class="col-lg-7">
+                <input type="text" id="bio" name="bio" ng-model="user.bio" placeholder="Enter New Bio" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showJobForm" role="form" ng-submit="editCurrentJob(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="currentJob" class="col-lg-2 col-lg-offset-1 control-label">Current Job</label>
+              <div class="col-lg-7">
+                <input type="text" id="currentJob" name="currentJob" ng-model="user.currentJob" placeholder="Enter Current Job" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showHireableForm" role="form" ng-submit="editHireable(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="hireable" class="col-lg-2 col-lg-offset-1 control-label">Are You For Hire?</label>
+              <div class="col-lg-7">
+                <input type="text" id="hireable" name="hireable" ng-model="user.hireable" placeholder="Are you For Hire?" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showHiringForm" role="form" ng-submit="editHiring(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="hiring" class="col-lg-2 col-lg-offset-1 control-label">Are you Hiring?</label>
+              <div class="col-lg-7">
+                <input type="text" id="hiring" name="hiring" ng-model="user.hiring" placeholder="Are you Hiring?" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showPhoneForm" role="form" ng-submit="editPhoneNumber(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="phoneNumber" class="col-lg-2 col-lg-offset-1 control-label">Phone Number</label>
+              <div class="col-lg-7">
+                <input type="text" id="phoneNumber" name="phoneNumber" ng-model="user.phoneNumber" placeholder="New Phone Number" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showAddressForm" role="form" ng-submit="editAddress(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="address" class="col-lg-2 col-lg-offset-1 control-label">Address</label>
+              <div class="col-lg-7">
+                <input type="text" id="address" name="address" ng-model="user.address" placeholder="New Address" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showFacebookForm" role="form" ng-submit="editFacebook(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="facebook" class="col-lg-2 col-lg-offset-1 control-label">Facebook Url</label>
+              <div class="col-lg-7">
+                <input type="text" id="facebook" name="facebook" ng-model="user.facebook" placeholder="Enter Facebook Url" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showLinkedInForm" role="form" ng-submit="editLinkedIn(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="linkedIn" class="col-lg-2 col-lg-offset-1 control-label">linkedIn Url</label>
+              <div class="col-lg-7">
+                <input type="text" id="linkedIn" name="linkedIn" ng-model="user.linkedIn" placeholder="Enter linkedIn Url" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showTwitterForm" role="form" ng-submit="editTwitter(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="twitter" class="col-lg-2 col-lg-offset-1 control-label">Twitter Url</label>
+              <div class="col-lg-7">
+                <input type="text" id="twitter" name="twitter" ng-model="user.twitter" placeholder="Enter Twitter Url" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showPersonalWebsiteForm" role="form" ng-submit="editPersonalWebsite(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="personalWebsite" class="col-lg-2 col-lg-offset-1 control-label">Personal Website Url</label>
+              <div class="col-lg-7">
+                <input type="text" id="personalWebsite" name="personalWebsite" ng-model="user.personalWebsite" placeholder="Enter Personal Website Url" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showBlogForm" role="form" ng-submit="editBlog(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="blog" class="col-lg-2 col-lg-offset-1 control-label">Blog Url</label>
+              <div class="col-lg-7">
+                <input type="text" id="blog" name="blog" ng-model="user.blog" placeholder="Enter Blog Url" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showGitHubForm" role="form" ng-submit="editGitHub(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="github" class="col-lg-2 col-lg-offset-1 control-label">GitHub Url</label>
+              <div class="col-lg-7">
+                <input type="text" id="github" name="github" ng-model="user.github" placeholder="Enter GitHub Url" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showAngelistForm" role="form" ng-submit="editAngelist(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="angelist" class="col-lg-2 col-lg-offset-1 control-label">Angelist Url</label>
+              <div class="col-lg-7">
+                <input type="text" id="angelist" name="angelist" ng-model="user.angelist" placeholder="Enter Angelist Url" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showStackOverflowForm" role="form" ng-submit="editStackOverflow(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="stackOverflow" class="col-lg-2 col-lg-offset-1 control-label">StackOverflow Url</label>
+              <div class="col-lg-7">
+                <input type="text" id="stackOverflow" name="stackOverflow" ng-model="user.stackOverflow" placeholder="Enter Stack Overflow Url" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+
+        <form ng-show="showQuoraForm" role="form" ng-submit="editQuora(user)">
+          <fieldset>
+            <div class="form-group">
+              <label for="quora" class="col-lg-2 col-lg-offset-1 control-label">Quora Url</label>
+              <div class="col-lg-7">
+                <input type="text" id="quora" name="quora" ng-model="user.quora" placeholder="Enter Quora Url" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-8">
+              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-sm-4">
+        <div class="profilePic">
+          <img src="http://www.placehold.it/200x200" alt="">
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="col-sm-6 col-sm-offset-1">
+          <br>
+          <br>
           <h1>{{user.fullName}}</h1><button ng-click="showName()">edit</button>
           <form ng-show="showNameForm" role="form" ng-submit="editFullName(user)">
             <fieldset>
@@ -277,4 +573,4 @@
     </div>
   </div>
 
-</div>
+</div> -->
