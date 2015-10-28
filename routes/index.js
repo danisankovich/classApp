@@ -87,7 +87,7 @@ router.get('/institutions', function(req, res) {
 router.get('/institute/:id', function(req, res) {
   console.log(req.params.id);
   Institution.findById(req.params.id, function(err, institution) {
-    console.log("here is the institution", institution);
+    // console.log("here is the institution", institution);
     res.json(institution);
   });
 });
@@ -98,6 +98,25 @@ router.get('/:id', function(req, res) {
   });
 });
 
+router.post("/institution/newalumni/:id", function(req, res) {
+  Institution.findById(req.params.id, function(err, institution) {
+    institution.alumni.push(req.user._id);
+    institution.save();
+    res.send(institution);
+  });
+});
 
+router.post("/alumni/newinstitution/:id", function(req, res) {
+  console.log(req.body);
+  Institution.findById(req.params.id, function(err, institution) {
+    User.findByIdAndUpdate(
+      req.user._id,
+      {$push: {"institutions": {name: institution.name, dateGraduated: req.body.dateGraduated}}},
+      {safe: true, upsert: true},
+      function(err, user) {
+        // console.log(user);
+    });
+  });
+});
 
 module.exports = router;

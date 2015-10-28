@@ -34,4 +34,10 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
       });
     });
   });
+  $scope.joinInstitution = function(user) {
+    console.log($state.params.instituteId);
+    $http.post("http://localhost:3000/institution/newalumni/" + $state.params.instituteId).success(function() {
+      $http.post("http://localhost:3000/alumni/newinstitution/" + $state.params.instituteId);
+    });
+  };
 });
