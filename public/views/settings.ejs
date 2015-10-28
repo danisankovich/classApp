@@ -16,6 +16,20 @@ If you click on another, the old one hides, and the new input shows up
           <br>
           <br>
           <h1>{{user.fullName}}</h1><button ng-click="showName()">edit</button>
+          <form ng-show="showNameForm" role="form" ng-submit="editFullName(user)">
+            <fieldset>
+              <div class="form-group">
+                <label for="fullName" class="col-lg-2 col-lg-offset-1 control-label">Full Name</label>
+                <div class="col-lg-8">
+                  <input type="text" id="fullName" name="fullName" ng-model="user.fullName" placeholder="Enter New Full Name" class="form-control"/>
+                </div>
+              </div>
+              <div class="col-lg-6 col-lg-offset-2">
+                <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+                <button type="button" class="btn btn-primary">Cancel</button>
+              </div>
+            </fieldset>
+          </form>
           <h2>({{currentUser}})</h2>
         </div>
       </div>
@@ -48,21 +62,6 @@ If you click on another, the old one hides, and the new input shows up
               <label for="email" class="col-lg-2 col-lg-offset-1 control-label">Email</label>
               <div class="col-lg-7">
                 <input type="text" id="email" name="email" ng-model="user.email" placeholder="Enter New Email" class="form-control"/>
-              </div>
-            </div>
-            <div class="col-lg-4 col-lg-offset-8">
-              <button type="submit" class="btn btn-default">Submit</button>&nbsp;
-              <button type="button" class="btn btn-primary">Cancel</button>
-            </div>
-          </fieldset>
-        </form>
-
-        <form ng-show="showNameForm" role="form" ng-submit="editFullName(user)">
-          <fieldset>
-            <div class="form-group">
-              <label for="fullName" class="col-lg-2 col-lg-offset-1 control-label">Full Name</label>
-              <div class="col-lg-7">
-                <input type="text" id="fullName" name="fullName" ng-model="user.fullName" placeholder="Enter New Full Name" class="form-control"/>
               </div>
             </div>
             <div class="col-lg-4 col-lg-offset-8">
