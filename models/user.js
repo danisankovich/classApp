@@ -38,6 +38,7 @@ var User = new Schema({
   angelist: String,
   stackOverflow: String,
   quora: String,
+  profilePic: {type: String, default: "http://www.placehold.it/200x200"}
 });
 
 User.plugin(passportLocalMongoose);

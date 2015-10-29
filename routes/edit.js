@@ -159,5 +159,14 @@ router.post('/quora', function(req, res) {
       console.log(user);
   });
 });
+router.post('/profilepic', function(req, res) {
+  User.findByIdAndUpdate(
+    req.user._id,
+    {"profilePic": req.body.profilePic},
+    {safe: true, upsert: true},
+    function(err, user) {
+      console.log(user);
+  });
+});
 
 module.exports = router;

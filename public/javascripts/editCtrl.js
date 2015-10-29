@@ -112,6 +112,11 @@ app.controller('settingsCtrl', function($scope, $state, $http) {
       console.log(response);
     });
   };
+  $scope.editProfilePic = function(user) {
+    $http.post('http://localhost:3000/edit/profilepic', user).success(function(response) {
+      console.log(response);
+    });
+  };
 
   $scope.showName = function() {
     if ($scope.showNameForm === true) { return $scope.showNameForm = false;
@@ -196,6 +201,10 @@ app.controller('settingsCtrl', function($scope, $state, $http) {
   $scope.showQuora = function() {
     if ($scope.showQuoraForm === true) { $scope.showQuoraForm = false;
     } else { return $scope.showQuoraForm = true; }
+  };
+  $scope.showProfilePic = function() {
+    if ($scope.showProfilePicForm === true) { $scope.showProfilePicForm = false;
+    } else { return $scope.showProfilePicForm = true; }
   };
 
 });
