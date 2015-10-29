@@ -10,11 +10,13 @@ app.controller('mainCtrl', function($scope, $state, $http){
   });
 });
 app.controller('institutionCtrl', function($scope, $state, $http){
+  $scope.alumni = [];
   $http.get('http://localhost:3000/institutions').success(function(institution) {
       console.log("institution", institution);
       $scope.institutions = institution;
       console.log($scope.institutions);
   });
+
   $scope.showOneInstitute = function() {
     instituteId = this.institution._id;
     console.log(instituteId);

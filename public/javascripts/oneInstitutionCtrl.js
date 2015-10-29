@@ -15,4 +15,8 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
       $http.post("http://localhost:3000/alumni/newinstitution/" + $state.params.instituteId);
     });
   };
+  $scope.showOneUser = function() {
+    console.log(this.alumni._id);
+    $state.go('oneUser', {alumniId:this.alumni._id});
+  };
 });

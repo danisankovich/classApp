@@ -1,5 +1,6 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #FAFFFD;
 }
 
 a {
@@ -29,9 +30,6 @@ h2 {
 }
 
 .profile-pic {
-  /*width: 200px;
-  height: 200px;
-  background-color: red;*/
   height: 150px;
   width: 150px;
 }
