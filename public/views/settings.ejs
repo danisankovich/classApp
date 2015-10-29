@@ -76,21 +76,77 @@
           </div>
 
 
+
+
           <div>
-            <h4 ng-hide="showAddressForm">City/State: {{user.address}}<span><button ng-click="showAddress()">edit</button></span></h4>
-            <form ng-show="showAddressForm" role="form" ng-submit="editAddress(user)">
+            <h4 ng-hide="showStreetForm">Street: {{user.street}}<span><button ng-click="showStreet()">edit</button></span></h4>
+            <form ng-show="showStreetForm" role="form" ng-submit="editStreet(user)">
               <fieldset>
                 <div class="form-group">
-                  <label for="address" class="col-lg-2 col-lg-offset-1 control-label">Address</label>
+                  <label for="street" class="col-lg-2 col-lg-offset-1 control-label">Street</label>
                   <div class="col-lg-7">
-                    <input type="text" id="address" name="address" ng-model="user.address" placeholder="New Address" class="form-control"/>
-                    <button ng-click="showAddressForm = false" type="submit" class="btn btn-success">Submit</button>&nbsp;
-                    <button ng-click="showAddressForm = false" class="btn btn-danger">cancel</button>
+
+                    <input type="text" id="street" name="street" ng-model="user.street" placeholder="New Street" class="form-control"/>
+                    <button ng-click="showStreetForm = false" type="submit" class="btn btn-success">Submit</button>&nbsp;
+                    <button ng-click="showStreetForm = false" class="btn btn-danger">cancel</button>
+
                   </div>
                 </div>
               </fieldset>
             </form>
           </div>
+          <div>
+            <h4 ng-hide="showCityForm">City: {{user.city}}<span><button ng-click="showCity()">edit</button></span></h4>
+            <form ng-show="showCityForm" role="form" ng-submit="editCity(user)">
+              <fieldset>
+                <div class="form-group">
+                  <label for="street" class="col-lg-2 col-lg-offset-1 control-label">Street</label>
+                  <div class="col-lg-7">
+
+                    <input type="text" id="city" name="city" ng-model="user.city" placeholder="New City" class="form-control"/>
+                    <button ng-click="showCityForm = false" type="submit" class="btn btn-success">Submit</button>&nbsp;
+                    <button ng-click="showCityForm = false" class="btn btn-danger">cancel</button>
+
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <div>
+            <h4 ng-hide="showStateForm">State: {{user.state}}<span><button ng-click="showState()">edit</button></span></h4>
+            <form ng-show="showStateForm" role="form" ng-submit="editState(user)">
+              <fieldset>
+                <div class="form-group">
+                  <label for="street" class="col-lg-2 col-lg-offset-1 control-label">Street</label>
+                  <div class="col-lg-7">
+
+                    <input type="text" id="state" name="state" ng-model="user.state" placeholder="New State" class="form-control"/>
+                    <button ng-click="showStateForm = false" type="submit" class="btn btn-success">Submit</button>&nbsp;
+                    <button ng-click="showStateForm = false" class="btn btn-danger">cancel</button>
+
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <div>
+            <h4 ng-hide="showZipForm">Zip: {{user.zip}}<span><button ng-click="showZip()">edit</button></span></h4>
+            <form ng-show="showZipForm" role="form" ng-submit="editZip(user)">
+              <fieldset>
+                <div class="form-group">
+                  <label for="street" class="col-lg-2 col-lg-offset-1 control-label">Street</label>
+                  <div class="col-lg-7">
+
+                    <input type="text" id="zip" name="zip" ng-model="user.zip" placeholder="New Zip" class="form-control"/>
+                    <button ng-click="showZipForm = false" type="submit" class="btn btn-success">Submit</button>&nbsp;
+                    <button ng-click="showZipForm = false" class="btn btn-danger">cancel</button>
+
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+
           <div>
             <h4 ng-hide="showJobForm">Employer: {{user.currentJob}}<span><button ng-click="showCurrentJob()">edit</button></span></h4>
             <form ng-show="showJobForm" role="form" ng-submit="editCurrentJob(user)">

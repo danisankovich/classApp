@@ -53,8 +53,23 @@ app.controller('settingsCtrl', function($scope, $state, $http) {
     });
   };
 
-  $scope.editAddress = function(user) {
-    $http.post('http://localhost:3000/edit/address', user).success(function(response) {
+  $scope.editStreet = function(user) {
+    $http.post('http://localhost:3000/edit/street', user).success(function(response) {
+      console.log(response);
+    });
+  };
+  $scope.editCity = function(user) {
+    $http.post('http://localhost:3000/edit/city', user).success(function(response) {
+      console.log(response);
+    });
+  };
+  $scope.editState= function(user) {
+    $http.post('http://localhost:3000/edit/state', user).success(function(response) {
+      console.log(response);
+    });
+  };
+  $scope.editZip = function(user) {
+    $http.post('http://localhost:3000/edit/zip', user).success(function(response) {
       console.log(response);
     });
   };
@@ -153,9 +168,21 @@ app.controller('settingsCtrl', function($scope, $state, $http) {
     } else { return $scope.showPhoneForm = true; }
   };
 
-  $scope.showAddress = function() {
-    if ($scope.showAddressForm === true) { $scope.showAddressForm = false;
-    } else { return $scope.showAddressForm = true; }
+  $scope.showStreet= function() {
+    if ($scope.showStreetForm === true) { $scope.showStreetForm = false;
+    } else { return $scope.showStreetForm = true; }
+  };
+  $scope.showCity= function() {
+    if ($scope.showCityForm === true) { $scope.showCityForm = false;
+    } else { return $scope.showCityForm = true; }
+  };
+  $scope.showState= function() {
+    if ($scope.showStateForm === true) { $scope.showStateForm = false;
+    } else { return $scope.showStateForm = true; }
+  };
+  $scope.showZip= function() {
+    if ($scope.showZipForm === true) { $scope.showZipForm = false;
+    } else { return $scope.showZipForm = true; }
   };
 
   $scope.showPersonalWebsite = function() {

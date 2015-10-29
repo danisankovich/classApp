@@ -69,10 +69,41 @@ router.post('/phonenumber', function(req, res) {
       console.log(user);
   });
 });
-router.post('/address', function(req, res) {
+router.post('/street', function(req, res) {
+  console.log("buncha", req.body.street);
   User.findByIdAndUpdate(
     req.user._id,
-    {"address": req.body.address},
+    {"street": req.body.street},
+    {safe: true, upsert: true},
+    function(err, user) {
+      console.log(user);
+  });
+});
+router.post('/city', function(req, res) {
+  console.log("buncha", req.body.city);
+  User.findByIdAndUpdate(
+    req.user._id,
+    {"city": req.body.city},
+    {safe: true, upsert: true},
+    function(err, user) {
+      console.log(user);
+  });
+});
+router.post('/state', function(req, res) {
+  console.log("buncha", req.body.state);
+  User.findByIdAndUpdate(
+    req.user._id,
+    {"state": req.body.state},
+    {safe: true, upsert: true},
+    function(err, user) {
+      console.log(user);
+  });
+});
+router.post('/zip', function(req, res) {
+  console.log("buncha", req.body.zip);
+  User.findByIdAndUpdate(
+    req.user._id,
+    {"zip": req.body.zip},
     {safe: true, upsert: true},
     function(err, user) {
       console.log(user);
