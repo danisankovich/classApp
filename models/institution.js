@@ -7,6 +7,7 @@ var institution = Mongoose.Schema({
   picUrl: {type: String, default: "http://edukasyon.ph/assets/institution-default-logo-e8e6823adee81942cd3d2c9fd0161f87.png"},
   bannerUrl: {type: String, default: "http://edukasyon.ph/assets/institution-default-logo-e8e6823adee81942cd3d2c9fd0161f87.png"},
   events: [{
+    name: String,
     when: Date,
     whoCanAttend: String,
     price: Number,

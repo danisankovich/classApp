@@ -199,5 +199,65 @@ router.post('/profilepic', function(req, res) {
       console.log(user);
   });
 });
+router.post('/institutiontag/:id', function(req, res) {
+  Institution.findByIdAndUpdate(
+    req.params.id,
+    {"tag": req.body.tag},
+    {safe: true, upsert: true},
+    function(err, institution) {
+      console.log(institution);
+  });
+});
+router.post('/institutionpic/:id', function(req, res) {
+  console.log(req.body.picUrl);
+  Institution.findByIdAndUpdate(
+    req.params.id,
+    {"picUrl": req.body.picUrl},
+    {safe: true, upsert: true},
+    function(err, institution) {
+      console.log(institution);
+  });
+});
+router.post('/institutionbio/:id', function(req, res) {
+  console.log("myid", req.params.id);
+  console.log("bio stuff", req.body.bio);
+  Institution.findByIdAndUpdate(
+    req.params.id,
+    {"bio": req.body.bio},
+    {safe: true, upsert: true},
+    function(err, institution) {
+      console.log(institution);
+  });
+});
+router.post('/institutionalumni/:id/:alum', function(req, res) {
+    Institution.findById(req.params.id, function(err, institution) {
+      for (var i = 0; i < institution.alumni.length; i++) {
+        if (institution.alumni[i] == req.params.alum) {
+          console.log('hello');
+          var remove = institution.alumni.indexOf(institution.alumni[i]);
+          institution.alumni.splice(remove, 1);
+          console.log(institution.alumni);
+        }
+        institution.save();
+      }
+    });
+});
+router.post('/leaveinstitution/:id/:alum', function(req, res) {
+  console.log('TBC');
+  // User.findById(req.params.alum, function(err, user) {
+  //   Institution.findById(req.params.id, function(err, institution) {
+  //     for(var i = 0; i < user.institutions; i++) {
+  //       if (user.institutions[i].name == institution.name) {
+  //         console.log('hello');
+  //         var remove = user.institutions.alumni.indexOf(institution.alumni[i]);
+  //         institution.alumni.splice(remove, 1);
+  //         console.log(institution.alumni);
+  //       }
+  //       // user.save()
+  //     }
+  //   });
+  // });
+});
+
 
 module.exports = router;
