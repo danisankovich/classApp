@@ -1,0 +1,19 @@
+<div>
+<div id="banner">
+  <img src="http://www.lorempixel.com/800/200" alt="Banner">
+</div>
+<h1>Edit {{institution.name}}</h1>
+<img ng-src="{{institution.picUrl}}" alt="">
+<div ng-repeat="alumni in institutionAlumni">
+<h2>{{alumni.fullName}}</h2>
+</div>
+<h1>{{institution.events}}</h1>
+
+<div id="bio">
+  <header class="boxHeader">
+    <p>Bio</p>
+  </header>
+  <hr>
+</div>
+
+</div>

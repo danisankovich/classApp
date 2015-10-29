@@ -1,5 +1,6 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #FAFFFD;
 }
 
 a {
@@ -29,9 +30,6 @@ h2 {
 }
 
 .profile-pic {
-  /*width: 200px;
-  height: 200px;
-  background-color: red;*/
   height: 150px;
   width: 150px;
 }
@@ -59,15 +57,36 @@ h2 {
   border-right: 1px black solid;
 }
 
+.blurb {
+  padding: 15px 10px 15px 10px;
+}
+
 .institutionbox {
   border: 3px solid black;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px #888888;
+  margin-top: 15%;
+}
+
+.boxWrapper {
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .institutionbox .institutedisplay {
   text-align: center;
   border-bottom: 2px black solid;
 }
-.institutionbox h2 {
+.blurb {
+  height: 125px;
+}
+
+.blurb h2 {
+  font-size: 28px;
+  text-align: center;
+}
+.blurb h4 {
+  font-size: 20px;
   text-align: center;
 }
 
@@ -99,4 +118,8 @@ h2 {
 header p {
   padding-top: 10px;
   margin-left: 5px;
+}
+
+.toProfile:hover {
+  cursor: pointer;
 }

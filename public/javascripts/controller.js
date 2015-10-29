@@ -10,34 +10,17 @@ app.controller('mainCtrl', function($scope, $state, $http){
   });
 });
 app.controller('institutionCtrl', function($scope, $state, $http){
+  $scope.alumni = [];
   $http.get('http://localhost:3000/institutions').success(function(institution) {
       console.log("institution", institution);
       $scope.institutions = institution;
       console.log($scope.institutions);
   });
+
   $scope.showOneInstitute = function() {
     instituteId = this.institution._id;
     console.log(instituteId);
     $state.go('institute', {instituteId:instituteId});
     console.log("yes");
-  };
-});
-
-app.controller('oneInstitutionCtrl', function($scope, $state, $http){
-  $scope.institutionAlumni = [];
-  $http.get('http://localhost:3000/institute/' + $state.params.instituteId).success(function(institution) {
-    $scope.institution = institution;
-    console.log(institution);
-    institution.alumni.forEach(function(e) {
-      $http.get('http://localhost:3000/' + e).success(function(user) {
-        $scope.institutionAlumni.push(user);
-      });
-    });
-  });
-  $scope.joinInstitution = function(user) {
-    console.log($state.params.instituteId);
-    $http.post("http://localhost:3000/institution/newalumni/" + $state.params.instituteId).success(function() {
-      $http.post("http://localhost:3000/alumni/newinstitution/" + $state.params.instituteId);
-    });
   };
 });
