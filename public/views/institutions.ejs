@@ -6,7 +6,7 @@
       <div ng-repeat="institution in institutions | filter: searchText" class="boxWrapper">
         <div class="col-sm-4">
           <div class="institutionbox toProfile" ng-click="showOneInstitute()">
-            <div class="institutedisplay"><img ng-src="{{institution.picUrl}}"></div>
+            <div class="institutedisplay" style="height: 275px;"><img style="max-width: 100%" ng-src="{{institution.picUrl}}"></div>
             <div class="blurb">
               <h2>Institution: {{institution.name}}</h2>
               <h4>{{tag}}Coding Bootcamp</h4>
