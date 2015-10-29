@@ -1,8 +1,9 @@
 <div>
   <h1>{{institution.name}}</h1>
+  <button ng-click="showInstitutionEdit()">Edit</button>
   <!-- <img ng-src="{{institution.picUrl}}" alt=""> -->
   <div ng-repeat="alumni in institutionAlumni">
-  <h2 ng-click="showOneUser()">{{alumni.fullName}}</h2>
+  <h2 ng-click="showOneUser()" class="toProfile">{{alumni.fullName}}</h2>
 </div>
 <!-- <h1>{{institution.events}}</h1> -->
 <div id="banner">

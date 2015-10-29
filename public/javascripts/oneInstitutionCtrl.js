@@ -19,4 +19,10 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
     console.log(this.alumni._id);
     $state.go('oneUser', {alumniId:this.alumni._id});
   };
+  $scope.showInstitutionEdit = function() {
+    instituteId = this.institution._id;
+    console.log(instituteId);
+    $state.go('editinstitution', {instituteId:instituteId});
+    console.log("yes");
+  };
 });
