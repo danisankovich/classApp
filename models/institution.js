@@ -12,7 +12,8 @@ var institution = Mongoose.Schema({
     price: Number,
     address: String
   }],
-  bio: String
+  bio: String,
+  tag: String
 });
 
 var Institution = Mongoose.model('Institution', institution);
