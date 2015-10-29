@@ -74,3 +74,29 @@ h2 {
 .header {
   text-align: center;
 }
+#banner {
+  text-align: center;
+  width: 100%;
+  top: 0;
+}
+#bio {
+  border-radius: 10px;
+  background-color: rgb(235, 235, 235);
+  width: 30%;
+  height: 200px;
+  margin-left: 5%;
+}
+.boxHeader {
+  top: 0;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-bottom: 0%;
+}
+#bio hr {
+  margin-top: 5px;
+  color: black;
+}
+header p {
+  padding-top: 10px;
+  margin-left: 5px;
+}

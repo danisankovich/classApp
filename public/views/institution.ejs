@@ -1,18 +1,32 @@
 <div>
-  <h1>{{institution.name}}</h1>
-  <h1>{{institution.events}}</h1>
+  <!-- <h1>{{institution.name}}</h1>
   <img ng-src="{{institution.picUrl}}" alt="">
   <div ng-repeat="alumni in institutionAlumni">
-    {{alumni.fullName}}
-  </div>
-  <button ng-click="joinInstitutionOpen()">Join Institution</button>
-  <form ng-submit="joinInstitution(user)" role="form">
-    <div class="form-group">
-      <label for="dateGraduated" class="col-lg-2 col-lg-offset-1 control-label">Graduation Date</label>
-      <div class="col-lg-7">
-        <input type="date" name="dateGraduated" ng-model="user.institution.dateGraduated" id="dateGraduated" class="form-control"/>
-      </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-    </div>
-  </form>
+  {{alumni.fullName}}
+</div>
+<h1>{{institution.events}}</h1> -->
+<div id="banner">
+  <img src="http://www.lorempixel.com/800/200" alt="Banner">
+</div>
+
+<div id="bio">
+  <header class="boxHeader">
+    <p>Bio</p>
+  </header>
+  <hr>
+</div>
+
+
+
+
+<!-- <button ng-click="joinInstitutionOpen()">Join Institution</button>
+<form ng-submit="joinInstitution(user)" role="form">
+<div class="form-group">
+<label for="dateGraduated" class="col-lg-2 col-lg-offset-1 control-label">Graduation Date</label>
+<div class="col-lg-7">
+<input type="date" name="dateGraduated" ng-model="user.institution.dateGraduated" id="dateGraduated" class="form-control"/>
+</div>
+<button type="submit" class="btn btn-default">Submit</button>
+</div>
+</form> -->
 </div>
