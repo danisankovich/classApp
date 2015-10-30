@@ -39,7 +39,7 @@ router.post('/register', function(req, res) {
       if (err) {
         console.error(err);
       }
-      passport.authenticate('local')(req, res, function() {
+      passport.authenticate('local', {successRedirect: '/#/', failureRedirect: '/#/register'})(req, res, function() {
         Institution.find({name: req.body.institution}, function(err, institution) {
           if (institution[0] !== undefined) {
             institution[0].alumni.push(user._id);
@@ -61,24 +61,24 @@ router.post('/register', function(req, res) {
             });
           }
         });
-        res.redirect('/#/');
+        // res.redirect('/#/');
       });
    });
 });
 
 router.get('/login', function(req, res) {
-
 });
 
-router.post('/login', passport.authenticate('local'), function(req, res) {
-  res.redirect('/');
-});
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/#/',
+  failureRedirect: '/#/login' }
+));
 
 router.get('/logout', function(req, res) {
   if (req.isAuthenticated()){
     req.logout();
   }
-  res.redirect('/');
+  res.redirect('/#/');
 });
 
 router.get('/institutions', function(req, res) {
@@ -90,7 +90,6 @@ router.get('/institutions', function(req, res) {
 router.get('/institute/:id', function(req, res) {
   console.log(req.params.id);
   Institution.findById(req.params.id, function(err, institution) {
-    // console.log("here is the institution", institution);
     res.json(institution);
   });
 });
