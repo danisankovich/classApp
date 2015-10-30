@@ -1,19 +1,73 @@
 <div>
-<div id="banner">
-  <img src="http://www.lorempixel.com/800/200" alt="Banner">
-</div>
-<h1>Edit {{institution.name}}</h1>
-<img ng-src="{{institution.picUrl}}" alt="">
-<div ng-repeat="alumni in institutionAlumni">
-<h2>{{alumni.fullName}}</h2>
-</div>
-<h1>{{institution.events}}</h1>
-
-<div id="bio">
-  <header class="boxHeader">
-    <p>Bio</p>
-  </header>
-  <hr>
-</div>
+  <div id="banner">
+    <img src="http://www.lorempixel.com/800/200" alt="Banner">
+  </div>
+  <h1>Edit {{institution.name}}</h1>
+  <div>
+    <h1 ng-hide="showTagForm">tag: {{institution.tag}}</h1>
+    <button ng-click="showTag()">Edit</button>
+    <form ng-show="showTagForm" role="form" ng-submit="editTag(institution)">
+      <fieldset>
+        <div class="form-group">
+          <label for="tag" class="col-lg-2 control-label">Institution Tag</label>
+          <div class="col-lg-7">
+            <input type="text" id="tag" name="tag" ng-model="institution.tag" placeholder="Enter New Tag" class="form-control"/>
+            <button ng-click="showTagForm = false" type="submit" class="btn btn-success">Submit</button>&nbsp;
+            <button ng-click="showTagForm = false" class="btn btn-danger">cancel</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div>
+    <img ng-src="{{institution.picUrl}}" alt="">
+    <button ng-click="showPic()">Edit</button>
+    <form ng-show="showPicForm" role="form" ng-submit="editPic(institution)">
+      <fieldset>
+        <div class="form-group">
+          <label for="pic" class="col-lg-2 control-label">Profile Pic Url</label>
+          <div class="col-lg-7">
+            <input type="text" id="pic" name="picUrl" ng-model="institution.picUrl" placeholder="Enter New Profile Picture Url" class="form-control"/>
+            <button ng-click="showPicForm = false" type="submit" class="btn btn-success">Submit</button>&nbsp;
+            <button ng-click="showPicForm = false" class="btn btn-danger">cancel</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div>
+    <h1>Alumni List: </h1>
+    <div ng-repeat="alumni in institutionAlumni">
+      <h2>{{alumni.fullName}}<span><button ng-click="removeAlumni()">delete</button></span><h2>
+    </div>
+  </div>
+  <div ng-repeat="event in institution.events">
+    <h3>{{event.name}}</h3>
+    <h3>{{event.when}}</h3>
+    <h3>{{event.whoCanAttend}}</h3>
+    <h3>{{event.price}}</h3>
+    <h3>{{event.address}}</h3>
+  </div>
+  <div id="bio">
+    <header class="boxHeader">
+      <div>
+        <p ng-hide="showBioForm">Bio: {{institution.bio}}</p>
+        <button ng-hide="showBioForm" ng-click="showBio()">Edit</button>
+        <form ng-show="showBioForm" role="form" ng-submit="editBio(institution)">
+          <fieldset>
+            <div class="form-group">
+              <label for="bio" class="col-lg-2 control-label">Edit Bio</label>
+              <div class="col-lg-7">
+                <textarea rows="4" cols="50" type="text" id="bio" name="bio" ng-model="institution.bio" placeholder="Enter New Bio" class="form-control"/></textarea>
+                <button ng-click="showBioForm = false" type="submit" class="btn btn-success">Submit</button>&nbsp;
+                <button ng-click="showBioForm = false" class="btn btn-danger">cancel</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </header>
+    <hr>
+  </div>
 
 </div>
