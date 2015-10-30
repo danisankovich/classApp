@@ -22,12 +22,12 @@
             <h5>Contact Info</h5>
             <h6>Email: {{user.email}}</h6>
             <h6 ng-if="user.phone">Phone: {{user.phone}}</h6>
-            <h6 ng-if="user.address">City/State: {{user.address.city}}, {{user.address.state}}</h6>
+            <h6 ng-if="user.city && user.state">Location: {{user.city}}, {{user.state}}</h6>
             <h6 ng-if="user.employer">Employer: {{user.employer}}</h6>
           </div>
           <div class="col-sm-8">
             <div class="about-me">
-              <img src="http://www.placehold.it/450x100?text=About+Me+Section" alt="">
+              <img ng-if="!user.bio" src="http://www.placehold.it/450x100?text=About+Me+Section" alt="">
               <p>{{user.bio}}</p>
             </div>
           </div>
