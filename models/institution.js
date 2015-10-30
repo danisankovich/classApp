@@ -6,15 +6,17 @@ var institution = Mongoose.Schema({
   alumni: [],
   picUrl: {type: String, default: "http://edukasyon.ph/assets/institution-default-logo-e8e6823adee81942cd3d2c9fd0161f87.png"},
   bannerUrl: {type: String, default: "http://edukasyon.ph/assets/institution-default-logo-e8e6823adee81942cd3d2c9fd0161f87.png"},
-  events: [{
-    name: String,
-    when: Date,
-    whoCanAttend: String,
-    price: Number,
-    address: String
-  }],
+  events: [], //eventId
   bio: String,
-  tag: String
+  tag: String,
+  contactPhone: String,
+  contactEmail: String,
+  contactFax: String,
+  street: String,
+  city: String,
+  state: String,
+  zip: String,
+  companySite: String
 });
 
 var Institution = Mongoose.model('Institution', institution);

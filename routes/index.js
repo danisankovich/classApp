@@ -39,7 +39,7 @@ router.post('/register', function(req, res) {
       if (err) {
         console.error(err);
       }
-      passport.authenticate('local', {successRedirect: '/#/', failureRedirect: '/#/register'})(req, res, function() {
+      passport.authenticate('local')(req, res, function() {
         Institution.find({name: req.body.institution}, function(err, institution) {
           if (institution[0] !== undefined) {
             institution[0].alumni.push(user._id);
@@ -61,7 +61,7 @@ router.post('/register', function(req, res) {
             });
           }
         });
-        // res.redirect('/#/');
+        res.redirect('/#/');
       });
    });
 });
