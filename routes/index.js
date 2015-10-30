@@ -41,20 +41,23 @@ router.post('/register', function(req, res) {
       }
       passport.authenticate('local')(req, res, function() {
         Institution.find({name: req.body.institution}, function(err, institution) {
-          // console.log("req inst", req.body.institution);
-          // console.log("other inst", institution[0].name);
           if (institution[0] !== undefined) {
-            // institution.alumni.push(user._id);
-            // institution.save();
             institution[0].alumni.push(user._id);
             console.log("0 test", institution[0].alumni);
+            user.institutions[0].instId = institution[0]._id;
+            user.save();
             institution[0].save();
           }
           else {
             Institution.create({
               name: req.body.institution,
               alumni: [user._id],
-              // alumni: user._id,
+            }, function() {
+              Institution.find({name: req.body.institution}, function(err, inst) {
+                console.log('another inst for you man', inst[0]._id);
+                user.institutions[0].instId = inst[0]._id;
+                user.save();
+              });
             });
           }
         });
