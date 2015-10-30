@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="col-sm-8 mainDiv">
+    <div class="col-sm-12">
+
+
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="profile-pic">
+            <img src="http://www.placehold.it/150x150?text=Profile+Pic" alt="">
+            <!-- <img ng-src="user.image" alt=""> -->
+          </div>
+        </div>
+        <div class="col-sm-9" id="user-heading">
+          <h2>{{user.fullName}}</h2>
+          ({{currentUser}})
+          <h3 ng-repeat="n in user.institutions">Institution(s): {{n.name}}</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="col-sm-4">
+            <h5>Contact Info</h5>
+            <h6>Email: {{user.email}}</h6>
+            <h6 ng-if="user.phone">Phone: {{user.phone}}</h6>
+            <h6 ng-if="user.address">City/State: {{user.address.city}}, {{user.address.state}}</h6>
+            <h6 ng-if="user.employer">Employer: {{user.employer}}</h6>
+          </div>
+          <div class="col-sm-8">
+            <div class="about-me">
+              <img src="http://www.placehold.it/450x100?text=About+Me+Section" alt="">
+              <p>{{user.bio}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="col-sm-12">
+        <div class="events">
+          <img src="http://placehold.it/670x200?text=Events" alt="">
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="col-sm-3 col-sm-offset-1 rightBar">
+    <div class="icons">
+      <a href="#">
+        <img class="iconthing" src="https://cdn0.iconfinder.com/data/icons/social-flat-rounded-rects/512/facebook-256.png" alt="" />
+      </a>
+      <a href="#">
+        <img class="iconthing" src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg" alt="" />
+      </a>
+      <a href="#">
+        <img class="iconthing" src="http://icons.iconarchive.com/icons/martz90/circle/512/linkedin-icon.png" alt="" />
+      </a>
+      <a href="#">
+        <img class="iconthing" src="http://blogs.longwood.edu/ecoapril2015/files/2015/04/Twitter-Button.png" alt="" />
+      </a>
+    </div>
+    <div class="comments">
+      <img src="http://placehold.it/220x800" alt="">
+    </div>
+  </div>
+</div>

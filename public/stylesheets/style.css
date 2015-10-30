@@ -1,7 +1,134 @@
+* {
+  border: 1px solid red;
+}
+
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #FAFFFD;
 }
 
 a {
   color: #00B7FF;
 }
+
+label {
+  margin-top: 1%;
+}
+
+.mainDiv {
+  padding: 10px;
+}
+
+h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.about-me, .profile-pic, .icons {
+  text-align: center;
+  margin: auto;
+}
+
+#user-heading {
+  margin: auto;
+}
+
+.profile-pic {
+  height: 150px;
+  width: 150px;
+}
+
+.comments {
+  margin: auto;
+  text-align: right;
+}
+
+.iconthing {
+  width: 35px;
+  height: 35px;
+  margin: 5px;
+}
+
+.iconpadding {
+  margin-left: 10px;
+}
+
+.icons {
+  float: right;
+}
+
+.right-border {
+  border-right: 1px black solid;
+}
+
+.blurb {
+  padding: 15px 10px 15px 10px;
+}
+
+.institutionbox {
+  border: 3px solid black;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px #888888;
+  margin-top: 15%;
+}
+
+.boxWrapper {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.institutionbox .institutedisplay {
+  text-align: center;
+  border-bottom: 2px black solid;
+}
+.blurb {
+  height: 125px;
+}
+
+.blurb h2 {
+  font-size: 28px;
+  text-align: center;
+}
+.blurb h4 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+}
+#banner {
+  text-align: center;
+  width: 100%;
+  top: 0;
+}
+#bio {
+  border-radius: 10px;
+  background-color: rgb(235, 235, 235);
+  width: 100%;
+  height: 200px;
+  /*margin-left: 5%;*/
+}
+.boxHeader {
+  top: 0;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-bottom: 0%;
+}
+#bio hr {
+  margin-top: 5px;
+  color: black;
+}
+header p {
+  padding-top: 10px;
+  margin-left: 5px;
+}
+
+.toProfile:hover {
+  cursor: pointer;
+}
+#joinButton {
+  width: 100%;
+}
+>>>>>>> 1c98230ffd27445417f6d1a09475153e7779ca10

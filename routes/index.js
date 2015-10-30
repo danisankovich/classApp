@@ -3,6 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var logout = require('express-passport-logout');
 var User = require('../models/user');
+var Institution = require('../models/institution');
 
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
@@ -27,20 +28,42 @@ router.get('/register', function(req, res) {
 router.post('/register', function(req, res) {
   console.log("reqajsdflkjadsfg", req.body);
   User.register(new User({
-    username: req.body.username, email: req.body.email, institutions: {name: req.body.institution, dateGraduated: req.body.dateGraduated}}),
+    username: req.body.username,
+    email: req.body.email,
+    fullName: req.body.fullName,
+    institutions: {
+      name: req.body.institution,
+      dateGraduated: req.body.dateGraduated
+    }}),
     req.body.password, function(err, user) {
       if (err) {
         console.error(err);
       }
       passport.authenticate('local')(req, res, function() {
+        Institution.find({name: req.body.institution}, function(err, institution) {
+          if (institution[0] !== undefined) {
+            institution[0].alumni.push(user._id);
+            console.log("0 test", institution[0].alumni);
+            user.institutions[0].instId = institution[0]._id;
+            user.save();
+            institution[0].save();
+          }
+          else {
+            Institution.create({
+              name: req.body.institution,
+              alumni: [user._id],
+            }, function() {
+              Institution.find({name: req.body.institution}, function(err, inst) {
+                console.log('another inst for you man', inst[0]._id);
+                user.institutions[0].instId = inst[0]._id;
+                user.save();
+              });
+            });
+          }
+        });
         res.redirect('/#/');
       });
    });
-  //then(function(user) {
-  //   console.log("look, a user", user);
-  //   user.institutions[0] = {name: req.body.institution, dateGraduated: req.body.dateGraduated};
-  //   user.save();
-  // });
 });
 
 router.get('/login', function(req, res) {
@@ -49,6 +72,54 @@ router.get('/login', function(req, res) {
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
   res.redirect('/');
+});
+
+router.get('/logout', function(req, res) {
+  if (req.isAuthenticated()){
+    req.logout();
+  }
+  res.redirect('/');
+});
+
+router.get('/institutions', function(req, res) {
+  Institution.find({}, function(err, institution) {
+    res.json(institution);
+  });
+});
+
+router.get('/institute/:id', function(req, res) {
+  console.log(req.params.id);
+  Institution.findById(req.params.id, function(err, institution) {
+    // console.log("here is the institution", institution);
+    res.json(institution);
+  });
+});
+
+router.get('/:id', function(req, res) {
+  User.findById(req.params.id, function(err, user) {
+    res.json(user);
+  });
+});
+
+router.post("/institution/newalumni/:id", function(req, res) {
+  Institution.findById(req.params.id, function(err, institution) {
+    institution.alumni.push(req.user._id);
+    institution.save();
+    res.send(institution);
+  });
+});
+
+router.post("/alumni/newinstitution/:id", function(req, res) {
+  console.log(req.body);
+  Institution.findById(req.params.id, function(err, institution) {
+    User.findByIdAndUpdate(
+      req.user._id,
+      {$push: {"institutions": {name: institution.name, dateGraduated: req.body.dateGraduated}}},
+      {safe: true, upsert: true},
+      function(err, user) {
+        // console.log(user);
+    });
+  });
 });
 
 module.exports = router;
