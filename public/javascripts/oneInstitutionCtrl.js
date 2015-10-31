@@ -26,6 +26,9 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
       $http.post("http://localhost:3000/alumni/newinstitution/" + $state.params.instituteId);
     });
   };
+  $scope.joinInstitutionOpen = function() {
+    $scope.showJoinForm = true;
+  };
 
   $scope.leaveInstitution = function() {
     console.log($scope.user._id);

@@ -1,138 +1,110 @@
-<div>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div id="banner">
-        <img src="http://www.lorempixel.com/800/200" alt="Banner">
-      </div>
-      <h1>{{institution.name}}</h1>
-      <div>
-        <button ng-click="leaveInstitution()">Leave Institution</button></span><h2>
-        </div>
-        <button ng-click="showInstitutionEdit()">Edit</button>
-        <!-- <img ng-src="{{institution.picUrl}}" alt=""> -->
-        <div ng-repeat="alumni in institutionAlumni">
-          <h2 ng-click="showOneUser()" class="toProfile">{{alumni.fullName}}</h2>
-        </div>
-      </div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div id="banner">
+      <img src="http://www.lorempixel.com/800/200" alt="Banner">
     </div>
-
-
-    <div class="row">
-      <div class="col-md-4 col-md-offset-1">
-        <div id="bio">
-          <header class="boxHeader">
-            <p>Bio</p>
-          </header>
-          <hr>
-        </div>
-      </div>
-      <div class="col-md-4 col-md-offset-1">
-        <div id="ButtonArea">
-          <div class="socialMedia">
-            <div class="icons">
-              <a href="#">
-                <img class="iconthing" src="https://cdn0.iconfinder.com/data/icons/social-flat-rounded-rects/512/facebook-256.png" alt="" />
-              </a>
-              <a href="#">
-                <img class="iconthing" src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg" alt="" />
-              </a>
-              <a href="#">
-                <img class="iconthing" src="http://icons.iconarchive.com/icons/martz90/circle/512/linkedin-icon.png" alt="" />
-              </a>
-              <a href="#">
-                <img class="iconthing" src="http://blogs.longwood.edu/ecoapril2015/files/2015/04/Twitter-Button.png" alt="" />
-              </a>
-            </div>
-            <div class="joinButton">
-              <button class="btn btn-primary" id="joinButton">Join!</button>
-            </div>
-          </div>
-
-        </div>
-      </div>
+    <h1>{{institution.name}}</h1>
+    <div>
+      <button ng-click="leaveInstitution()">Leave Institution</button>
+      </span>
+      <h2>
     </div>
+    <button ng-click="showInstitutionEdit()">Edit</button>
+    <!-- <img ng-src="{{institution.picUrl}}" alt=""> -->
+    <div ng-repeat="alumni in institutionAlumni">
+      <h2 ng-click="showOneUser()" class="toProfile">{{alumni.fullName}}</h2>
+    </div>
+  </div>
+</div>
 
 
-
-    <!-- <h1>{{institution.events}}</h1> -->
-
+<div class="row">
+  <div class="col-md-4 col-md-offset-1">
     <div id="bio">
       <header class="boxHeader">
-        <p>Bio: {{institution.bio}}</p>
+        <p>Bio</p>
       </header>
       <hr>
     </div>
-
-
-    <div class="col-lg-12">
-      <form role="form" action="/events/new/" method="POST">
-      <!-- <form role="form" action="/events/new/'{{urlId}}'" method="POST"> -->
-      <!-- <form role="form" ng-submit="addEvent(newEvent)"> -->
-        <fieldset>
-          <div class="col-lg-10 col-lg-offset-2">
-            <legend>Add Event</legend>
-          </div>
-          <div class="form-group">
-            <label for="name" class="col-lg-2 col-lg-offset-1 control-label">name</label>
-            <div class="col-lg-7">
-              <input type="text" id="name" name="name" placeholder="Enter name" class="form-control"/>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="picUrl" class="col-lg-2 col-lg-offset-1 control-label">Picture Url</label>
-            <div class="col-lg-7">
-              <input type="text" id="picUrl" name="picUrl" placeholder="Enter Pic Url" class="form-control"/>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="price" class="col-lg-2 col-lg-offset-1 control-label">Price</label>
-            <div class="col-lg-7">
-              <input type="number" name="price" placeholder="Enter Price" id="price" class="form-control"/>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="when" class="col-lg-2 col-lg-offset-1 control-label">Date</label>
-            <div class="col-lg-7">
-              <input type="date" name="when" placeholder="when" id="when" class="form-control"/>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="description" class="col-lg-2 col-lg-offset-1 control-label">description</label>
-            <div class="col-lg-7">
-              <input type="text" name="description" placeholder="Enter description Name" id="description" class="form-control"/>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="whoCanAttend" class="col-lg-2 col-lg-offset-1 control-label">Who Can Attend</label>
-            <div class="col-lg-7">
-              <input type="text" name="whoCanAttend" id="whoCanAttend" class="form-control"/>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="sponsor" class="col-lg-2 col-lg-offset-1 control-label">Sponsoring Institution</label>
-            <div class="col-lg-7">
-              <input type="text" name="sponsor" id="sponsor" class="form-control"/>
-            </div>
-          </div>
-          <br>
-          <br>
-          <div class="col-lg-4 col-lg-offset-8">
-            <button type="submit" class="btn btn-default">Submit</button>&nbsp;
-            <a ui-sref="/"><button type="button" class="btn btn-primary">Cancel</button></a>
-          </div>
-        </form>
-      </fieldset>
-      <hr>
   </div>
+  <div class="col-md-4 col-md-offset-1">
+    <div id="ButtonArea">
+      <div class="socialMedia">
+        <div class="joinButton">
+          <button ng-hide="showJoinForm" ng-click="joinInstitutionOpen()" class="btn btn-primary" id="joinButton">Join!</button>
 
-    <button ng-click="joinInstitutionOpen()">Join Institution</button>
-    <form ng-submit="joinInstitution(user)" role="form">
-      <div class="form-group">
-        <label for="dateGraduated" class="col-lg-2 col-lg-offset-1 control-label">Graduation Date</label>
-        <div class="col-lg-7">
-          <input type="date" name="dateGraduated" ng-model="user.institution.dateGraduated" id="dateGraduated" class="form-control"/>
+          <form ng-show="showJoinForm" ng-submit="joinInstitution(user)" role="form">
+            <div class="form-group">
+              <label for="dateGraduated" class="col-lg-2 col-lg-offset-1 control-label">Graduation Date</label>
+              <div class="col-lg-7">
+                <input type="date" name="dateGraduated" ng-model="user.institution.dateGraduated" id="dateGraduated" class="form-control" />
+              </div>
+              <button ng-click="showJoinForm=false" type="submit" class="btn btn-default">Submit</button>
+              <button ng-click="showJoinForm=false" class="btn btn-danger">cancel</button>
+            </div>
+          </form>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
       </div>
-    </form>
+
+    </div>
   </div>
+</div>
+
+
+
+
+<!-- <h1>{{institution.events}}</h1> -->
+<button type="button" class="btn btn-skin" id="btnContactUs" data-toggle="modal" data-target="#myModal">
+  Add Event
+</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form class="form-horizontal" role="form" action="/events/new" method="POST">
+          <fieldset>
+            <legend>Add Event</legend>
+            <div class="form-group">
+              <label for="name" class="col-lg-4 control-label">Event Name</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="name" name="name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="picUrl" class="col-lg-4 control-label">Picture URL</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="picUrl" name="picUrl" placeholder="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="price" class="col-lg-4 control-label">Price</label>
+              <div class="col-lg-8">
+                <input type="number" class="form-control" id="price" name="price" placeholder="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="when" class="col-lg-4 control-label">Date</label>
+              <div class="col-lg-8">
+                <input type="date" class="form-control" id="when" name="when" placeholder="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="textArea" class="col-lg-4 control-label">Description</label>
+              <div class="col-lg-8">
+                <textarea class="form-control" rows="3" id="description" name="description"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-8 col-lg-offset-4">
+                <button type="reset" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+
+            </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,4 @@
 app.controller('mainCtrl', function($scope, $state, $http){
-
   $http.get('http://localhost:3000/user').success(function(user) {
     if(user) {
       console.log("user", user);
