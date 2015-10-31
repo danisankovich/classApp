@@ -21,6 +21,5 @@ app.controller('institutionCtrl', function($scope, $state, $http){
     instituteId = this.institution._id;
     console.log(instituteId);
     $state.go('institute', {instituteId:instituteId});
-    console.log("yes");
   };
 });

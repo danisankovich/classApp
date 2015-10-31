@@ -50,4 +50,10 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
     $state.go('editinstitution', {instituteId:instituteId});
     console.log("yes");
   };
+
+  $scope.submit = function(){
+    $state.go($state.current, {}, {
+      reload: true
+    });
+  }
 });

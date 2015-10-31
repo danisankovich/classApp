@@ -19,7 +19,8 @@ router.post('/new', function(req, res) {
     price: req.body.price,
     sponsor: req.body.sponsor
   }, function(err, newEvent) {
-    console.log('find way to make this refresh');
+    console.log('saved event', newEvent);
+    res.status(err ? 400 : 200).send(err || newEvent);
   });
 });
 
