@@ -9,7 +9,8 @@ var instituteEvent = Mongoose.Schema({
   description: String,
   whoCanAttend: String,
   price: Number,
-  address: String
+  address: String,
+  sponsor: String
 });
 
 var InstituteEvent = Mongoose.model('InstituteEvent', instituteEvent);

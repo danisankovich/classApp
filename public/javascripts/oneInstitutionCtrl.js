@@ -1,5 +1,7 @@
 app.controller('oneInstitutionCtrl', function($scope, $state, $http){
   $scope.institutionAlumni = [];
+  $scope.urlId = $state.params.instituteId;
+  console.log($scope.urlId);
   $http.get('http://localhost:3000/institute/' + $state.params.instituteId).success(function(institution) {
     $scope.institution = institution;
     console.log(institution);
@@ -29,6 +31,12 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
     console.log($scope.user._id);
     $http.post('http://localhost:3000/edit/institutionalumni/'+ $state.params.instituteId + "/" + $scope.user._id).success(function() {
       $http.post('http://localhost:3000/edit/leaveinstitution/' + $state.params.instituteId + "/" + $scope.user._id);
+    });
+  };
+
+  $scope.addEvent = function(newEvent) {
+    $http.post("http://localhost:3000/events/new/"+ $state.params.instituteId, newEvent).success(function(newEvent) {
+      console.log(newEvent);
     });
   };
 

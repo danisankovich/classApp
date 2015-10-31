@@ -16,9 +16,10 @@ router.post('/new', function(req, res) {
     when: req.body.when,
     description: req.body.description,
     whoCanAttend: req.body.whoCanAttend,
-    price: req.body.price
+    price: req.body.price,
+    sponsor: req.body.sponsor
   }, function(err, newEvent) {
-    res.json(newEvent);
+    console.log('find way to make this refresh');
   });
 });
 
