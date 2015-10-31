@@ -8,7 +8,7 @@ var InstituteEvent = require('../models/event');
 
 
 router.post('/new', function(req, res) {
-  console.log("reqajsdflkjadsfg", req.body);
+  console.log("event form data", req.body);
   InstituteEvent.create({
     name: req.body.name,
     creatorId: req.user._id,
