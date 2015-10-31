@@ -47,6 +47,7 @@ app.controller('editInstitutionCtrl', function($scope, $state, $http){
     $http.post('http://localhost:3000/edit/institutionalumni/'+ $state.params.instituteId + "/" + this.alumni._id).success(function() {
       $http.post('http://localhost:3000/edit/leaveinstitution/' + $state.params.instituteId + "/" + this.alumni._id);
     });
+    swal("Edit Success!", "You have removed "+ this.alumni.fullName + " from the institution", "success");
   };
 
 

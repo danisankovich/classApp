@@ -248,6 +248,7 @@ router.post('/institutionalumni/:id/:alum', function(req, res) {
           institution.save();
         }
       });
+      res.send(institution);
     });
 });
 router.post('/leaveinstitution/:id/:alum', function(req, res) {
