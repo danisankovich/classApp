@@ -49,4 +49,6 @@ app.controller('editInstitutionCtrl', function($scope, $state, $http){
     });
   };
 
+
+
 });
