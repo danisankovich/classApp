@@ -36,7 +36,9 @@ var User = new Schema({
   angelist: String,
   stackOverflow: String,
   quora: String,
-  profilePic: {type: String, default: "http://www.placehold.it/200x200"}
+  profilePic: {type: String, default: "http://www.placehold.it/200x200"},
+  unreadMessages: {type: Boolean, default: false},
+  //all messages are brought in by controller. Controller take all where recipient is the current user, and moves them into an array.
 });
 
 User.plugin(passportLocalMongoose);
