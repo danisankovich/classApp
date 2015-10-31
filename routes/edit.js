@@ -231,20 +231,29 @@ router.post('/institutionbio/:id', function(req, res) {
 });
 router.post('/institutionalumni/:id/:alum', function(req, res) {
     Institution.findById(req.params.id, function(err, institution) {
-      for (var i = 0; i < institution.alumni.length; i++) {
-        if (institution.alumni[i] == req.params.alum) {
-          console.log('hello');
-          var remove = institution.alumni.indexOf(institution.alumni[i]);
-          institution.alumni.splice(remove, 1);
-          console.log(institution.alumni);
+      User.findById(req.params.alum, function(err, user) {
+        for (var i = 0; i < institution.alumni.length; i++) {
+          if (institution.alumni[i] == req.params.alum) {
+            // console.log('hello');
+            var remove = institution.alumni.indexOf(institution.alumni[i]);
+            institution.alumni.splice(remove, 1);
+            for(var j = 0; j < user.institutions.length; j++) {
+              if(user.institutions[j].name == institution.name) {
+                var leave = institution.alumni.indexOf(institution.alumni[i]);
+                user.institutions.splice(leave, 1);
+                user.save();
+              }
+            }
+          }
+          institution.save();
         }
-        institution.save();
-      }
+      });
     });
 });
 router.post('/leaveinstitution/:id/:alum', function(req, res) {
   console.log('TBC');
-  // User.findById(req.params.alum, function(err, user) {
+  User.findById(req.params.alum, function(err, user) {
+    console.log("user removd", user);
   //   Institution.findById(req.params.id, function(err, institution) {
   //     for(var i = 0; i < user.institutions; i++) {
   //       if (user.institutions[i].name == institution.name) {
@@ -256,7 +265,7 @@ router.post('/leaveinstitution/:id/:alum', function(req, res) {
   //       // user.save()
   //     }
   //   });
-  // });
+  });
 });
 
 

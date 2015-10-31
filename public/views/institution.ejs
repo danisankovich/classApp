@@ -5,73 +5,75 @@
         <img src="http://www.lorempixel.com/800/200" alt="Banner">
       </div>
       <h1>{{institution.name}}</h1>
-      <button ng-click="showInstitutionEdit()">Edit</button>
-      <!-- <img ng-src="{{institution.picUrl}}" alt=""> -->
-      <div ng-repeat="alumni in institutionAlumni">
-        <h2 ng-click="showOneUser()" class="toProfile">{{alumni.fullName}}</h2>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="row">
-    <div class="col-md-4 col-md-offset-1">
-      <div id="bio">
-        <header class="boxHeader">
-          <p>Bio</p>
-        </header>
-        <hr>
-      </div>
-    </div>
-    <div class="col-md-4 col-md-offset-1">
-      <div id="ButtonArea">
-        <div class="socialMedia">
-        <div class="icons">
-          <a href="#">
-            <img class="iconthing" src="https://cdn0.iconfinder.com/data/icons/social-flat-rounded-rects/512/facebook-256.png" alt="" />
-          </a>
-          <a href="#">
-            <img class="iconthing" src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg" alt="" />
-          </a>
-          <a href="#">
-            <img class="iconthing" src="http://icons.iconarchive.com/icons/martz90/circle/512/linkedin-icon.png" alt="" />
-          </a>
-          <a href="#">
-            <img class="iconthing" src="http://blogs.longwood.edu/ecoapril2015/files/2015/04/Twitter-Button.png" alt="" />
-          </a>
-          </div>
-          <div class="joinButton">
-            <button class="btn btn-primary" id="joinButton">Join!</button>
-          </div>
+      <div>
+        <button ng-click="leaveInstitution()">Leave Institution</button></span><h2>
         </div>
-
+        <button ng-click="showInstitutionEdit()">Edit</button>
+        <!-- <img ng-src="{{institution.picUrl}}" alt=""> -->
+        <div ng-repeat="alumni in institutionAlumni">
+          <h2 ng-click="showOneUser()" class="toProfile">{{alumni.fullName}}</h2>
+        </div>
       </div>
     </div>
+
+
+    <div class="row">
+      <div class="col-md-4 col-md-offset-1">
+        <div id="bio">
+          <header class="boxHeader">
+            <p>Bio</p>
+          </header>
+          <hr>
+        </div>
+      </div>
+      <div class="col-md-4 col-md-offset-1">
+        <div id="ButtonArea">
+          <div class="socialMedia">
+            <div class="icons">
+              <a href="#">
+                <img class="iconthing" src="https://cdn0.iconfinder.com/data/icons/social-flat-rounded-rects/512/facebook-256.png" alt="" />
+              </a>
+              <a href="#">
+                <img class="iconthing" src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg" alt="" />
+              </a>
+              <a href="#">
+                <img class="iconthing" src="http://icons.iconarchive.com/icons/martz90/circle/512/linkedin-icon.png" alt="" />
+              </a>
+              <a href="#">
+                <img class="iconthing" src="http://blogs.longwood.edu/ecoapril2015/files/2015/04/Twitter-Button.png" alt="" />
+              </a>
+            </div>
+            <div class="joinButton">
+              <button class="btn btn-primary" id="joinButton">Join!</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- <h1>{{institution.events}}</h1> -->
+
+    <div id="bio">
+      <header class="boxHeader">
+        <p>Bio: {{institution.bio}}</p>
+      </header>
+      <hr>
+    </div>
+
+
+
+
+    <button ng-click="joinInstitutionOpen()">Join Institution</button>
+    <form ng-submit="joinInstitution(user)" role="form">
+      <div class="form-group">
+        <label for="dateGraduated" class="col-lg-2 col-lg-offset-1 control-label">Graduation Date</label>
+        <div class="col-lg-7">
+          <input type="date" name="dateGraduated" ng-model="user.institution.dateGraduated" id="dateGraduated" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </form>
   </div>
-
-
-
-  <!-- <h1>{{institution.events}}</h1> -->
-
-<div id="bio">
-  <header class="boxHeader">
-    <p>Bio: {{institution.bio}}</p>
-  </header>
-  <hr>
-</div>
-
-
-
-
-  <!-- <button ng-click="joinInstitutionOpen()">Join Institution</button>
-  <form ng-submit="joinInstitution(user)" role="form">
-  <div class="form-group">
-  <label for="dateGraduated" class="col-lg-2 col-lg-offset-1 control-label">Graduation Date</label>
-  <div class="col-lg-7">
-  <input type="date" name="dateGraduated" ng-model="user.institution.dateGraduated" id="dateGraduated" class="form-control"/>
-</div>
-<button type="submit" class="btn btn-default">Submit</button>
-</div>
-</form> -->
-</div>
