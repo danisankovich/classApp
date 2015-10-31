@@ -8,6 +8,11 @@ app.controller('mainCtrl', function($scope, $state, $http){
       console.log($scope.userId);
     }
   });
+  $scope.addEvent = function(newEvent) {
+    $http.post("http://localhost:3000/events/new", newEvent).success(function(newEvent) {
+      console.log(newEvent);
+    });
+  };
 });
 app.controller('institutionCtrl', function($scope, $state, $http){
   $scope.alumni = [];

@@ -32,10 +32,6 @@ router.post('/register', function(req, res) {
     email: req.body.email,
     fullName: req.body.fullName,
     institutions: []
-    // institutions: [{
-    //   name: req.body.institution,
-    //   dateGraduated: req.body.dateGraduated
-    // }]
   }),
     req.body.password, function(err, user) {
       if (err) {

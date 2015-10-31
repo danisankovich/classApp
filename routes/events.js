@@ -4,10 +4,22 @@ var passport = require('passport');
 var logout = require('express-passport-logout');
 var User = require('../models/user');
 var Institution = require('../models/institution');
+var InstituteEvent = require('../models/event');
 
-router.post('/new', function(res, req) {
-  console.log("this new event", req.body);
 
+router.post('/new', function(req, res) {
+  console.log("reqajsdflkjadsfg", req.body);
+  InstituteEvent.create({
+    name: req.body.name,
+    creatorId: req.user._id,
+    picUrl: req.body.picUrl,
+    when: req.body.when,
+    description: req.body.description,
+    whoCanAttend: req.body.whoCanAttend,
+    price: req.body.price
+  }, function(err, newEvent) {
+    res.json(newEvent);
+  });
 });
 
 module.exports = router;
