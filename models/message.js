@@ -5,6 +5,7 @@ var message = Mongoose.Schema({
   recipientId: String,
   subject: String,
   message: String,
+  read: {type: String, default: false}
 });
 
 var Message = Mongoose.model('Message', message);
