@@ -1,0 +1,27 @@
+<div class="containter">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+
+      <div class="messageBox">
+        <div class="senderLine">
+          <div class="col-sm-3">
+            <p>From: {{message.senderName}}</p>
+          </div>
+          <div class="col-sm-3">
+            Subject: {{message.subject}}
+          </div>
+          <div class="col-sm-2 col-sm-offset-4">
+            <p>{{message.sent | date:'MMM d, y'}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="oneMsgWrapper">
+          <div class="messageLine">
+            <p>{{message.message}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

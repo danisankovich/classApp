@@ -4,6 +4,7 @@ var passport = require('passport');
 var logout = require('express-passport-logout');
 var User = require('../models/user');
 var Institution = require('../models/institution');
+var Message = require('../models/message');
 
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
@@ -115,7 +116,5 @@ router.post("/alumni/newinstitution/:id", function(req, res) {
     });
   });
 });
-
-
 
 module.exports = router;

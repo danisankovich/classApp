@@ -131,3 +131,40 @@ header p {
 #joinButton {
   width: 100%;
 }
+
+.messageSubject {
+  border: 1px solid black;
+}
+
+.messageContent {
+  border: 1px solid black;
+}
+
+.messageBox {
+  border: 3px solid black;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px #888888;
+  height: 30px;
+  padding-top: 3px;
+  margin-top: 1%;
+}
+
+.messageBoxWrapper {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+}
+
+.messageBox .messageDisplay {
+  text-align: center;
+  border-bottom: 2px black solid;
+}
+
+.oneMsgWrapper {
+  border: 3px solid black;
+  height: 100%;
+  min-height: 100px;
+  padding: 15px 15px 15px 15px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px #888888;
+}

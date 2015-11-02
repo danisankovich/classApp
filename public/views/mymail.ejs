@@ -1,1 +1,53 @@
-My messages
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-sm-2 col-sm-offset-5">
+        <h1>My Mail</h1>
+      </div>
+    </div>
+    <div class="large-12 medium-12 small-12 columns">
+      <div class="col-sm-2">
+        <h2>Connections</h2>
+        <h3>Institutions</h3>
+        <ul><span>connections</span>
+          <li>Persons</li>
+          <li>Persons</li>
+          <li>Persons</li>
+          <li>Persons</li>
+        </ul>
+        <h3>Personal</h3>
+        <ul><span>personal</span>
+          <li>Persons</li>
+          <li>Persons</li>
+          <li>Persons</li>
+          <li>Persons</li>
+        </ul>
+      </div>
+      <div class="col-sm-10">
+        <div class="col-sm-12">
+          <div class="col-sm-8 col-sm-offset-1">
+            <label for="searchBar">Search</label>
+            <input ng-model="searchText" id="searchBar" type="text">
+          </div>
+        </div>
+        <div class="messageBoxWrapper">
+          <div ng-repeat="message in messages | filter: searchText">
+            <div class="messageBox toProfile" ng-click="showOneMessage()">
+              <div class="senderLine">
+                <div class="col-sm-3">
+                  <p>From: {{message.senderName}}</p>
+                </div>
+                <div class="col-sm-3">
+                  Subject: {{message.subject}}
+                </div>
+                <div class="col-sm-2 col-sm-offset-4">
+                  <p>{{message.sent | date:'MMM d, y'}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,32 +3,23 @@ app.controller('mailCtrl', function($scope, $state, $http){
   $http.get('http://localhost:3000/user').success(function(user) {
     $scope.user = user;
     $http.get('http://localhost:3000/mail/mymail').success(function(messages) {
-      // console.log("messages", messages);
-      // if (messages.length > 0) {
         messages.forEach(function(e) {
           if (e.recipientId === $scope.user._id) {
-            // console.log("messages", e);
             $http.get("http://localhost:3000/mail/sender/" + e.senderId).success(function(sender) {
-              console.log("senderName");
+              e.senderName = sender.fullName;
               $scope.messages.push(e);
-              console.log("messages", $scope.messages);
+              console.log(messages);
             });
           }
         });
-      // }
+      });
     });
-  });
 
   $scope.showOneMessage = function() {
     console.log(this);
     var msgId = this.message._id;
-    $state.go('mail/' + {msgId: msgId});
+    $state.go('oneMessage', {msgId: msgId});
   };
-
-  // $scope.sendMailForm = function() {
-  //   if ($scope.showNameForm === true) { return $scope.showNameForm = false;
-  //   } else { return $scope.showNameForm = true; }
-  // };
 
   $scope.sendMail = function() {
     //this may have to be in other controllers, based on how we are going to access another user's id.
@@ -37,4 +28,16 @@ app.controller('mailCtrl', function($scope, $state, $http){
       swal("Message Sent!", "Your message has been sent and will be delivered shortly!", "success");
     });
   };
+});
+
+app.controller('oneMsgCtrl', function($scope, $state, $http){
+  console.log($state.params.msgId);
+  $http.get('http://localhost:3000/mail/onemessage/' + $state.params.msgId).success(function(message) {
+    console.log(message);
+    $http.get("http://localhost:3000/mail/sender/" + message.senderId).success(function(sender) {
+      message.senderName = sender.fullName;
+      $scope.message = message;
+      console.log("this", $scope.message);
+    });
+  });
 });

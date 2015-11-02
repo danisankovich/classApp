@@ -7,19 +7,13 @@ var Institution = require('../models/institution');
 var Message = require('../models/message');
 
 router.get('/mymail', function(req, res) {
-  console.log("messagessgsg");
-  Message.find({}, function(err, messages) {
-    console.log("messages", messages);
-    res.json(messages);
-  });
   // User.findById(req.user._id, function(err, user) {
-  //   Message.find({recipient: user._id}, function(err, messages) {
-  //   // Message.find({recipient: username}, function(err, messages) { //if this is the route, you take.
-  //     console.log("messages", messages);
-  //     res.json(messages);
-  //   });
+    Message.find({recipientId: req.user._id}, function(err, messages) {
+    // Message.find({recipientId: user._id}, function(err, messages) {
+      console.log("messages", messages);
+      res.json(messages);
+    });
   // });
-
 });
 router.get('/markread/:id', function(req, res) { //when message is opened, mark unread/new messages as false.
   Message.findByIdAndUpdate(
@@ -48,7 +42,14 @@ router.post('/send/:id', function(req, res) { //:id --> if you are on the person
 
 router.get('/sender/:id', function(req, res) {
   User.findById(req.params.id, function(err, sender) {
+    console.log("sender", sender);
     res.send(sender);
+  });
+});
+
+router.get('/onemessage/:id', function(req, res) {
+  Message.findById(req.params.id, function(err, message) {
+    res.send(message);
   });
 });
 
