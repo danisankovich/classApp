@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <div class="col-sm-2 col-sm-offset-5">
+      <div class="col-sm-3 col-sm-offset-5">
         <h1>My Mail</h1>
       </div>
     </div>
@@ -31,16 +31,16 @@
           </div>
         </div>
         <div class="messageBoxWrapper">
-          <div ng-repeat="message in messages | filter: searchText">
+          <div ng-repeat="message in messages | filter: searchText | orderBy: 'sent':true">
             <div class="messageBox toProfile color-{{message.read}}" ng-click="showOneMessage()">
               <div class="senderLine">
                 <div class="col-sm-3">
                   <p>From: {{message.senderName}}</p>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-5">
                   Subject: {{message.subject}}
                 </div>
-                <div class="col-sm-2 col-sm-offset-4">
+                <div class="col-sm-3 col-sm-offset-1">
                   <p>{{message.sent | date:'MMM d, y'}}</p>
                 </div>
               </div>

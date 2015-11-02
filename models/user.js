@@ -7,16 +7,15 @@ var User = new Schema({
   email: {type: String, required: true},
   fullName: {type: String, required: true},
   password: String,
-  institutions: [{//can also add one from profile
+  institutions: [{
     name: {type: String, required: true},
     dateGraduated: {type: String, required: true}
   }],
-  //above this, from login. Below, dynamically added.
   friends: [{
     name: String,
     sharedInstitution: String,
-    friendId: String, //their _id
-    // dateCreated: {default: Date.now()},
+    friendId: String,
+    created_at: {type: Date, default: Date.now},
   }],
   bio: String,
   currentJob: String,
@@ -38,7 +37,6 @@ var User = new Schema({
   quora: String,
   profilePic: {type: String, default: "http://www.placehold.it/200x200"},
   unreadMessages: {type: Boolean, default: false},
-  //all messages are brought in by controller. Controller take all where recipient is the current user, and moves them into an array.
 });
 
 User.plugin(passportLocalMongoose);

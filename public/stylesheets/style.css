@@ -171,4 +171,16 @@ header p {
 
 .color-false {
   background-color: red;
+  font-weight: bolder;
+}
+
+.unread-true {
+  color: red !important;
+}
+.unread-false {
+  color: black !important;
+}
+
+.senderLine {
+  color: black;
 }

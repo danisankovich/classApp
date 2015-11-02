@@ -4,6 +4,7 @@ app.controller('mainCtrl', function($scope, $state, $http){
       console.log("user", user);
       $scope.user = user;
       $scope.currentUser = user.username;
+      $scope.unreadMessages = user.unreadMessages;
       $scope.userId = user._id;
       instvsInsts(user);
     }

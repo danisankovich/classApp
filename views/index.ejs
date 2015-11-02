@@ -28,7 +28,11 @@
           <ul class="nav navbar-nav navbar-right">
             <% if (user) { %>
               <li><a ui-sref="institutions">Institutions</a></li>
-              <li><a ui-sref="mymail">My Mail</a></li>
+              <% if (user.unreadMessages === true) { %>
+              <li><a ui-sref="mymail" class="unread-true">My Mail</a></li>
+              <% } else { %>
+                <li><a ui-sref="mymail">My Mail</a></li>
+                <% } %>
               <% } else { %>
                 <% } %>
                   <% if (user) { %>
