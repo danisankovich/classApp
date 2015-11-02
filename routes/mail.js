@@ -39,6 +39,20 @@ router.post('/send/:id', function(req, res) { //:id --> if you are on the person
     res.send(newMessage);
   });
 });
+router.post('/reply/:id', function(req, res) { //:id --> if you are on the person's profile, comes from the state params.
+//If you are sending from your navbar (friends list), you'll have to do a find to grab their user._id
+  console.log("reqbody", req.body);
+  Message.create({
+    senderId: req.user._id,
+    recipientId: req.params.id,
+    subject: "re: " + req.body.subject,
+    message: req.body.message
+  }, function(err, newMessage) {
+    // console.log('find way to make this refresh');
+    // console.log("newMessage", newMessage);
+    res.send(newMessage);
+  });
+});
 
 router.get('/sender/:id', function(req, res) {
   User.findById(req.params.id, function(err, sender) {
@@ -49,6 +63,8 @@ router.get('/sender/:id', function(req, res) {
 
 router.get('/onemessage/:id', function(req, res) {
   Message.findById(req.params.id, function(err, message) {
+    message.read = true;
+    message.save();
     res.send(message);
   });
 });

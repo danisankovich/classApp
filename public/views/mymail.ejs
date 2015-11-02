@@ -32,7 +32,7 @@
         </div>
         <div class="messageBoxWrapper">
           <div ng-repeat="message in messages | filter: searchText">
-            <div class="messageBox toProfile" ng-click="showOneMessage()">
+            <div class="messageBox toProfile color-{{message.read}}" ng-click="showOneMessage()">
               <div class="senderLine">
                 <div class="col-sm-3">
                   <p>From: {{message.senderName}}</p>
