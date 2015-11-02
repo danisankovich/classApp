@@ -5,6 +5,7 @@ var message = Mongoose.Schema({
   recipientId: String,
   subject: String,
   message: String,
+  sent: {type: Date, default: Date.now},
   read: {type: String, default: false}
 });
 

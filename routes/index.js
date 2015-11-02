@@ -116,4 +116,6 @@ router.post("/alumni/newinstitution/:id", function(req, res) {
   });
 });
 
+
+
 module.exports = router;

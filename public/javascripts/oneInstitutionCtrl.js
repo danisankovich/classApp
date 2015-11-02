@@ -25,7 +25,7 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
     $http.post("http://localhost:3000/institution/newalumni/" + $state.params.instituteId).success(function() {
       $http.post("http://localhost:3000/alumni/newinstitution/" + $state.params.instituteId);
     });
-    swal("Edit Success!", "You have join this institution", "success");
+    swal("Edit Success!", "You have joined this institution", "success");
   };
   $scope.joinInstitutionOpen = function() {
     $scope.showJoinForm = true;

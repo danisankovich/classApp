@@ -5,7 +5,6 @@ app.controller('mainCtrl', function($scope, $state, $http){
       $scope.user = user;
       $scope.currentUser = user.username;
       $scope.userId = user._id;
-      console.log($scope.userId);
       instvsInsts(user);
     }
   });
