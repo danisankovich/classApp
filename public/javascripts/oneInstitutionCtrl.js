@@ -55,10 +55,6 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
   };
 
   $scope.submit = function(){
-    console.log('this', this);
-    console.log('state', $state);
-    $state.go($state.current, {}, {
-      reload: true
-    });
+    $state.go('institute', {instituteId:this.urlId});
   }
 });
