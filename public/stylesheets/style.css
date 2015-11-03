@@ -33,6 +33,10 @@ a {
   color: #00B7FF;
 }
 
+.navbar {
+  margin-bottom: 1px;
+}
+
 label {
   margin-top: 1%;
 }
@@ -207,20 +211,28 @@ header p {
 .cover {
   text-align: center;
 }
+
+/*AUTO CROPPING COVER PHOTO*/
+
 #banner {
   text-align: center;
   top: 0;
-  width: 40vw;
-  height: 10vh;
+  width: 60vw;
+  height: 30vh;
   overflow: hidden;
   margin: 0;
 }
 #banner img {
   text-align: center;
-  width: 40vw;
+  width: 50vw;
+  /*height: 150vh;*/
   /*margin-left: -50%;*/
-  margin-top: -50%;
+  margin-top: -12%;
 }
+
+/*  ^^^^^^^^^ AUTO CROPPING COVER PHOTO ^^^^^^^^^^^^ */
+
+
 .alumniList {
   margin-top: 10vh;
   border: 1px solid black;
