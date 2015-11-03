@@ -32,7 +32,7 @@ var User = new Schema({
   personalWebsite: String,
   blog: String,
   github: String,
-  angelist: String,
+  angelList: String,
   stackOverflow: String,
   quora: String,
   profilePic: {type: String, default: "http://www.placehold.it/200x200"},
