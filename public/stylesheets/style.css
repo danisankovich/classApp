@@ -1,7 +1,28 @@
-/** {
+/*.col-md-12 {
   border: 1px solid red;
+}
+.col-md-4 {
+  border: 1px solid blue;
+}
+.col-md-offset-1 {
+  border: 1px solid green;
+}
+.col-md-8 {
+  border: 1px solid yellow;
 }*/
+#nomenclature {
+  /*border: 1px solid purple;*/
+  margin-left: 6vw;
+}
+#banner {
+  margin-right: 0;
+}
 
+body * {
+  padding: 0;
+}
+
+/*TEST SETTINGS ABOVE ONLY*/
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -98,11 +119,6 @@ h2 {
 .header {
   text-align: center;
 }
-#banner {
-  text-align: center;
-  width: 100%;
-  top: 0;
-}
 #bio {
   border-radius: 10px;
   background-color: rgb(235, 235, 235);
@@ -124,14 +140,18 @@ header p {
   padding-top: 10px;
   margin-left: 5px;
 }
-
+#bio p {
+  margin: 5px 20px;
+}
 .toProfile:hover {
   cursor: pointer;
 }
 #joinButton {
   width: 100%;
 }
-
+#addEventButton{
+  width: 100%;
+}
 .messageSubject {
   border: 1px solid black;
 }
@@ -183,4 +203,38 @@ header p {
 
 .senderLine {
   color: black;
+}
+.cover {
+  text-align: center;
+}
+#banner {
+  text-align: center;
+  top: 0;
+  width: 40vw;
+  height: 10vh;
+  overflow: hidden;
+  margin: 0;
+}
+#banner img {
+  text-align: center;
+  width: 40vw;
+  /*margin-left: -50%;*/
+  margin-top: -50%;
+}
+.alumniList {
+  margin-top: 10vh;
+  border: 1px solid black;
+}
+.alumniList h2 {
+  text-align: center;
+}
+.alumniList h3 {
+  text-align: center;
+}
+
+
+/*JOIN and ADD buttons!*/
+
+.hideButton {
+  display: none
 }
