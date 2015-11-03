@@ -4,17 +4,26 @@ app.controller('mainCtrl', function($scope, $state, $http){
       console.log("user", user);
       $scope.user = user;
       $scope.currentUser = user.username;
+      $scope.unreadMessages = user.unreadMessages;
       $scope.userId = user._id;
-      console.log($scope.userId);
+      instvsInsts(user);
     }
   });
+  var instvsInsts = function(user) {
+    if (user.institutions.length > 1) {
+      $scope.memberOfOne = false;
+    }
+    else {
+      $scope.memberOfOne = true;
+    }
+  };
 });
 app.controller('institutionCtrl', function($scope, $state, $http){
   $scope.alumni = [];
   $http.get('http://localhost:3000/institutions').success(function(institution) {
-      console.log("institution", institution);
-      $scope.institutions = institution;
-      console.log($scope.institutions);
+    console.log("institution", institution);
+    $scope.institutions = institution;
+    console.log($scope.institutions);
   });
 
   $scope.showOneInstitute = function() {

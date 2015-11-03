@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
     <link rel="stylesheet" href="https://bootswatch.com/spacelab/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/sweetalert-master/dist/sweetalert.css' />
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
 
@@ -27,6 +28,11 @@
           <ul class="nav navbar-nav navbar-right">
             <% if (user) { %>
               <li><a ui-sref="institutions">Institutions</a></li>
+              <% if (user.unreadMessages === true) { %>
+              <li><a ui-sref="mymail" class="unread-true">My Mail</a></li>
+              <% } else { %>
+                <li><a ui-sref="mymail">My Mail</a></li>
+                <% } %>
               <% } else { %>
                 <% } %>
                   <% if (user) { %>
@@ -61,13 +67,17 @@
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="/stylesheets/sweetalert-master/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <script src="ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+    <script src="ng-file-upload.min.js"></script>
     <script src="/javascripts/config.js"></script>
     <script src="/javascripts/controller.js"></script>
     <script src="/javascripts/editCtrl.js"></script>
     <script src="/javascripts/oneInstitutionCtrl.js"></script>
     <script src="/javascripts/oneUserCtrl.js"></script>
     <script src="/javascripts/editinstitution.js"></script>
+    <script src="/javascripts/mailCtrl.js"></script>
   </body>
 
 </html>

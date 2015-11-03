@@ -11,5 +11,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
   .state('editinstitution', { url: '/editinstitution/{instituteId}', templateUrl: 'views/institutionEdit.ejs', controller: 'editInstitutionCtrl' })
   .state('login', { url: '/login', templateUrl: 'views/login.ejs', controller: 'mainCtrl' })
   .state('register', { url: '/register', templateUrl: 'views/register.ejs', controller: 'mainCtrl' })
-  .state('oneUser', { url: '/user/{alumniId}', templateUrl: 'views/oneUser.ejs', controller: 'oneUserCtrl' });
+  .state('oneUser', { url: '/user/{alumniId}', templateUrl: 'views/oneUser.ejs', controller: 'oneUserCtrl' })
+  .state('mymail', { url: '/mymail', templateUrl: 'views/mymail.ejs', controller: 'mailCtrl' })
+  .state('oneMessage', { url: '/mymail/{msgId}', templateUrl: 'views/oneMessage.ejs', controller: 'oneMsgCtrl' });
 }]);

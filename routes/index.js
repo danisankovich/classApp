@@ -4,6 +4,7 @@ var passport = require('passport');
 var logout = require('express-passport-logout');
 var User = require('../models/user');
 var Institution = require('../models/institution');
+var Message = require('../models/message');
 
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
@@ -26,7 +27,6 @@ router.get('/register', function(req, res) {
 });
 
 router.post('/register', function(req, res) {
-  console.log("reqajsdflkjadsfg", req.body);
   User.register(new User({
     username: req.body.username,
     email: req.body.email,
@@ -42,7 +42,6 @@ router.post('/register', function(req, res) {
           if (institution[0] !== undefined) {
             institution[0].alumni.push(user._id);
             user.institutions = [{name: req.body.institution, dateGraduated: req.body.dateGraduated, instId: institution[0]._id}];
-            console.log("loook at mmeeee", institution);
             user.save();
             institution[0].save();
           }
@@ -53,7 +52,6 @@ router.post('/register', function(req, res) {
             }, function() {
               Institution.find({name: req.body.institution}, function(err, inst) {
                 user.institutions = [{name: req.body.institution, dateGraduated: req.body.dateGraduated, instId: inst[0]._id}];
-                console.log("NO MEEE", inst);
                 user.save();
               });
             });

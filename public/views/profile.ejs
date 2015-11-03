@@ -13,7 +13,8 @@
         <div class="col-sm-9" id="user-heading">
           <h2>{{user.fullName}}</h2>
           ({{currentUser}})
-          <h3>Institution(s): <span ng-repeat="n in user.institutions">{{user.institutions}}</span></h3>
+          <h3 ng-show="memberOfOne">Institution: <ul ng-repeat="n in user.institutions"><li>{{n.name}}</li></ul></h3>
+          <h3 ng-hide="memberOfOne">Institutions: <ul ng-repeat="n in user.institutions"><li>{{n.name}}</li></ul></h3>
         </div>
       </div>
       <div class="row">
