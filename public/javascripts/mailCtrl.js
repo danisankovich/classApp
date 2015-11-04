@@ -1,6 +1,7 @@
 app.controller('mailCtrl', function($scope, $state, $http){
   $scope.messages = [];
   $scope.friends = [];
+  $scope.friendsHidden = false;
   $http.get('http://localhost:3000/user').success(function(user) {
     $scope.user = user;
     $http.get('http://localhost:3000/mail/mymail').success(function(messages) {
@@ -21,6 +22,14 @@ app.controller('mailCtrl', function($scope, $state, $http){
         });
       });
     });
+    $scope.toggleFriends = function() {
+       if ($scope.friendsHidden === false) {
+         $scope.friendsHidden = true;
+       }
+       else {
+         $scope.friendsHidden = false;
+       }
+    };
 
   $scope.showOneMessage = function() {
     console.log(this);
