@@ -7,11 +7,14 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var cors = require('cors');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var edit = require('./routes/edit');
 var events = require('./routes/events');
+var mail = require('./routes/mail');
 
 var app = express();
 
@@ -38,6 +41,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/edit', edit);
 app.use('/events', events);
+app.use('/mail', mail);
 
 var User = require('./models/user');
 passport.use(new LocalStrategy(User.authenticate()));

@@ -20,6 +20,23 @@ app.controller('editInstitutionCtrl', function($scope, $state, $http){
     });
   };
 
+// NEEDS TO BE DONE ------------------------------------------------
+
+  // $scope.hideButtons = function() {
+  //   if (USER IS SIGNED IN) {
+  //     joinButton Add Class "hideButton"
+  //     addEventButton remove class "hideButton"
+  //     leaveinstitution remove class "hideButton"
+  //   }
+  //   else if (USER IS NOT SIGNED IN) {
+  //     joinButton remove class "hideButton"
+  //     addEventButton add class "hideButton"
+  //     leaveinstitution add class "hideButton"
+  //   }
+  // }
+
+// NEEDS TO BE DONE ------------------------------------------------
+
 
   $scope.showPic = function() {
     if ($scope.showPicForm === true) { return $scope.showPicForm = false;
@@ -32,8 +49,11 @@ app.controller('editInstitutionCtrl', function($scope, $state, $http){
   };
 
   $scope.showBio = function() {
-    if ($scope.showBioForm === true) { return $scope.showBioForm = false;
-    } else { return $scope.showBioForm = true; }
+    if ($scope.showBioForm === true) {
+      return $scope.showBioForm = false;
+    } else {
+      return $scope.showBioForm = true;
+    }
   };
   $scope.editBio = function(institution) {
     $http.post('http://localhost:3000/edit/institutionbio/'+ $state.params.instituteId, institution).success(function(response) {
@@ -47,8 +67,7 @@ app.controller('editInstitutionCtrl', function($scope, $state, $http){
     $http.post('http://localhost:3000/edit/institutionalumni/'+ $state.params.instituteId + "/" + this.alumni._id).success(function() {
       $http.post('http://localhost:3000/edit/leaveinstitution/' + $state.params.instituteId + "/" + this.alumni._id);
     });
+    swal("Edit Success!", "You have removed "+ this.alumni.fullName + " from the institution", "success");
   };
-
-
 
 });

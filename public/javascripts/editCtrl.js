@@ -9,108 +9,128 @@ app.controller('settingsCtrl', function($scope, $state, $http) {
   $scope.editFullName = function(user) {
     $http.post('http://localhost:3000/edit/fullname', user).success(function(response) {
       console.log(response);
-      $scope.showName();
     });
+    swal("Edit Success!", "Your name is now!"+ $scope.user.fullName, "success");
   };
   $scope.editEmail = function(user) {
     $http.post('http://localhost:3000/edit/email', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your email is now!"+ $scope.user.email, "success");
   };
   $scope.editBio = function(user) {
     $http.post('http://localhost:3000/edit/bio', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your About Me section has been changed!", "success");
   };
   $scope.editCurrentJob = function(user) {
     $http.post('http://localhost:3000/edit/currentjob', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your Current Job is now!"+ $scope.user.currentJob, "success");
   };
   $scope.editHireable = function(user) {
     $http.post('http://localhost:3000/edit/hireable', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your hireability status is now!" + $scope.user.hireable, "success");
   };
   $scope.editHiring = function(user) {
     $http.post('http://localhost:3000/edit/hiring', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your hiring status is now!"+ $scope.user.hiring, "success");
   };
   $scope.editPhoneNumber = function(user) {
     $http.post('http://localhost:3000/edit/phonenumber', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your Phone Number is now!"+ $scope.user.phoneNumber, "success");
   };
   $scope.editStreet = function(user) {
     $http.post('http://localhost:3000/edit/street', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your Street is now!"+ $scope.user.street, "success");
   };
   $scope.editCity = function(user) {
     $http.post('http://localhost:3000/edit/city', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your City is now!"+ $scope.user.city, "success");
   };
   $scope.editState= function(user) {
     $http.post('http://localhost:3000/edit/state', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your State is now!"+ $scope.user.state, "success");
   };
   $scope.editZip = function(user) {
     $http.post('http://localhost:3000/edit/zip', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your Zip Code is now!"+ $scope.user.zip, "success");
   };
   $scope.editPersonalWebsite = function(user) {
     $http.post('http://localhost:3000/edit/personal', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your Personal Website is now!"+ $scope.user.personalWebsite, "success");
   };
   $scope.editTwitter = function(user) {
     $http.post('http://localhost:3000/edit/twitter', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your Twitter is now!"+ $scope.user.twitter, "success");
   };
   $scope.editBlog = function(user) {
     $http.post('http://localhost:3000/edit/blog', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your Blog is now!"+ $scope.user.blog, "success");
   };
   $scope.editGitHub = function(user) {
     $http.post('http://localhost:3000/edit/github', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your GitHub is now!"+ $scope.user.github, "success");
   };
   $scope.editLinkedIn = function(user) {
     $http.post('http://localhost:3000/edit/linkedin', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your LinkedIn is now!"+ $scope.user.linkedIn, "success");
   };
   $scope.editFacebook = function(user) {
     $http.post('http://localhost:3000/edit/facebook', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your Facebook is now!"+ $scope.user.facebook, "success");
   };
   $scope.editAngelist = function(user) {
     $http.post('http://localhost:3000/edit/angelist', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your Angelist is now!"+ $scope.user.angelist, "success");
   };
   $scope.editStackOverflow = function(user) {
     $http.post('http://localhost:3000/edit/stackoverflow', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your Stack Overflow is now!"+ $scope.user.stackOverflow, "success");
   };
   $scope.editQuora = function(user) {
     $http.post('http://localhost:3000/edit/quora', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your Quora is now!"+ $scope.user.quora, "success");
   };
   $scope.editProfilePic = function(user) {
     $http.post('http://localhost:3000/edit/profilepic', user).success(function(response) {
       console.log(response);
     });
+    swal("Edit Success!", "Your Profile Pic is now!"+ $scope.user.profilePic, "success");
   };
   $scope.showName = function() {
     if ($scope.showNameForm === true) { return $scope.showNameForm = false;
