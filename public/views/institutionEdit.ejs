@@ -5,7 +5,7 @@
   <h1>Edit {{institution.name}}</h1>
   <div>
     <h1 ng-hide="showTagForm">tag: {{institution.tag}}</h1>
-    <button ng-click="showTag()">Edit</button>
+    <button ng-click="showTag()" class="btn btn-primary">edit</button>
     <form ng-show="showTagForm" role="form" ng-submit="editTag(institution)">
       <fieldset>
         <div class="form-group">
@@ -21,7 +21,7 @@
   </div>
   <div>
     <img ng-src="{{institution.picUrl}}" alt="">
-    <button ng-click="showPic()">Edit</button>
+    <button ng-click="showPic()" class="btn btn-primary">edit</button>
     <form ng-show="showPicForm" role="form" ng-submit="editPic(institution)">
       <fieldset>
         <div class="form-group">
@@ -38,7 +38,7 @@
   <div>
     <h1>Alumni List: </h1>
     <div ng-repeat="alumni in institutionAlumni">
-      <h2>{{alumni.fullName}}<span><button ng-click="removeAlumni()">delete</button></span><h2>
+      <h2>{{alumni.fullName}}<span><button ng-click="removeAlumni()" class="btn btn-danger">delete</button></span><h2>
     </div>
   </div>
   <div ng-repeat="event in institution.events">
@@ -52,7 +52,7 @@
     <header class="boxHeader">
       <div>
         <p ng-hide="showBioForm">Bio: {{institution.bio}}</p>
-        <button ng-hide="showBioForm" ng-click="showBio()">Edit</button>
+        <button ng-hide="showBioForm" ng-click="showBio()" class="btn btn-primary">edit</button>
         <form ng-show="showBioForm" role="form" ng-submit="editBio(institution)">
           <fieldset>
             <div class="form-group">
