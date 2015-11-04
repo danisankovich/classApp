@@ -70,6 +70,19 @@ router.post('/login', passport.authenticate('local', {
   failureRedirect: '/#/login' }
 ));
 
+router.post('/loggedIn', function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+       if (err) {
+       return next(err);
+     }
+     if (user === false) {
+       res.status(401).send(info.message);
+     } else {
+       res.status(200).send(info.message);
+     }
+   })(req, res, next);
+});
+
 router.get('/logout', function(req, res) {
   if (req.isAuthenticated()){
     req.logout();
