@@ -16,6 +16,7 @@
           <button type="button" class="btn btn-skin" id="btnContactUs" data-toggle="modal" data-target="#myModal">
             Message {{user.fullName}}
           </button>
+          <button ng-click="addFriend(friend)">Connect</button>
           <h3 ng-repeat="n in user.institutions">Institution(s): {{n.name}}</h3>
         </div>
       </div>

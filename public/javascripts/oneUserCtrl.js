@@ -6,6 +6,17 @@ app.controller('oneUserCtrl', function($scope, $state, $http){
     $scope.userId = user._id;
   });
 
+  $scope.addFriend = function(friend) {
+    var thisUserId = $scope.user._id;
+    $http.post("http://localhost:3000/addfriend/" + thisUserId);
+  };
+  // $scope.addFriend = function(friend) {
+  //   var thisUserId = $scope.user._id;
+  //   $http.post('http://localhost:3000/users/addfriend/' + thisUserId, friend).success(function() {
+  //     console.log("it worked");
+  //   });
+  // };
+
   $scope.mailUser = function(message) {
     var thisUserId = this.user._id;
     console.log("thisuserid", thisUserId);

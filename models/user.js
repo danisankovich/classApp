@@ -12,8 +12,6 @@ var User = new Schema({
     dateGraduated: {type: String, required: true}
   }],
   friends: [{
-    name: String,
-    sharedInstitution: String,
     friendId: String,
     created_at: {type: Date, default: Date.now},
   }],
