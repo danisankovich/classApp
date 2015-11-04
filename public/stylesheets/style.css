@@ -251,3 +251,11 @@ h2 {
 .hideButton {
   display: none
 }
+
+.cursor:hover {
+  cursor: pointer;
+}
+
+.friends {
+  list-style: none;
+}

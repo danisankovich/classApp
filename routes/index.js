@@ -134,7 +134,12 @@ router.post('/addfriend/:id', function(req, res, next) {
           console.log(user);
       });
     });
+});
 
+router.get('/friends/:id', function(req, res, next) {
+  User.findById(req.params.id, function(err, friend) {
+    res.json(friend);
+  });
 });
 
 module.exports = router;
