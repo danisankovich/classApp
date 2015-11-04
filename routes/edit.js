@@ -234,7 +234,6 @@ router.post('/institutionalumni/:id/:alum', function(req, res) {
       User.findById(req.params.alum, function(err, user) {
         for (var i = 0; i < institution.alumni.length; i++) {
           if (institution.alumni[i] == req.params.alum) {
-            // console.log('hello');
             var remove = institution.alumni.indexOf(institution.alumni[i]);
             institution.alumni.splice(remove, 1);
             for(var j = 0; j < user.institutions.length; j++) {

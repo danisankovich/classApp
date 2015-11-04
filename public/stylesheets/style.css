@@ -1,17 +1,4 @@
-/*.col-md-12 {
-  border: 1px solid red;
-}
-.col-md-4 {
-  border: 1px solid blue;
-}
-.col-md-offset-1 {
-  border: 1px solid green;
-}
-.col-md-8 {
-  border: 1px solid yellow;
-}*/
 #nomenclature {
-  /*border: 1px solid purple;*/
   margin-left: 6vw;
 }
 #banner {
@@ -128,7 +115,6 @@ h2 {
   background-color: rgb(235, 235, 235);
   width: 100%;
   height: auto;
-  /*margin-left: 5%;*/
 }
 .boxHeader {
   top: 0;
@@ -231,8 +217,6 @@ h2 {
 #banner img {
   text-align: center;
   width: 50vw;
-  /*height: 150vh;*/
-  /*margin-left: -50%;*/
   margin-top: -12%;
 }
 

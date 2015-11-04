@@ -8,14 +8,12 @@
     <div class="large-12 medium-12 small-12 columns">
       <div class="col-sm-2">
         <div id="container_buttons">
-            <a href="#/mymail" class="popButton" ng-click="toggleFriends()">
-                Connections
-            </a>
-
-      </div>
-      <br>
-      <br>
-
+          <a href="#/mymail" class="popButton" ng-click="toggleFriends()">
+            Connections
+          </a>
+        </div>
+        <br>
+        <br>
         <ul ng-repeat="friend in friends" ng-show="friendsHidden">
           <li class='cursor friends' ng-click='mailUser()' data-toggle="modal" data-target="#myModal">{{friend.fullName}}</li>
         </ul>

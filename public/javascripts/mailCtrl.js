@@ -73,7 +73,6 @@ app.controller('oneMsgCtrl', function($scope, $state, $http){
   $scope.replyUser = function(message) {
     console.log("thisuserid", thisUserId);
     console.log("mymessage", message);
-    //this may have to be in other controllers, based on how we are going to access another user's id.
     $http.post("http://localhost:3000/mail/reply/" + thisUserId, message).success(function(sentMessage) {
       console.log(sentMessage);
       swal("Message Sent!", "Your message has been sent and will be delivered shortly!", "success");
