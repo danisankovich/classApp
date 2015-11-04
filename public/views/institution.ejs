@@ -1,61 +1,73 @@
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <div id="banner">
-      <img src="http://www.lorempixel.com/800/200" alt="Banner">
-    </div>
-    <h1>{{institution.name}}</h1>
-    <div>
-      <button ng-click="leaveInstitution()">Leave Institution</button>
-      </span>
-      <h2>
-    </div>
-    <button ng-click="showInstitutionEdit()">Edit</button>
-    <!-- <img ng-src="{{institution.picUrl}}" alt=""> -->
-    <div ng-repeat="alumni in institutionAlumni">
-      <h2 ng-click="showOneUser()" class="toProfile">{{alumni.fullName}}</h2>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-4 col-md-offset-1">
-    <div id="bio">
-      <header class="boxHeader">
-        <p>Bio</p>
-      </header>
-      <hr>
-    </div>
-  </div>
-  <div class="col-md-4 col-md-offset-1">
-    <div id="ButtonArea">
-      <div class="socialMedia">
-        <div class="joinButton">
-          <button ng-hide="showJoinForm" ng-click="joinInstitutionOpen()" class="btn btn-primary" id="joinButton">Join!</button>
-
-          <form ng-show="showJoinForm" ng-submit="joinInstitution(user)" role="form">
-            <div class="form-group">
-              <label for="dateGraduated" class="col-lg-2 col-lg-offset-1 control-label">Graduation Date</label>
-              <div class="col-lg-7">
-                <input type="date" name="dateGraduated" ng-model="user.institution.dateGraduated" id="dateGraduated" class="form-control" />
-              </div>
-              <button ng-click="showJoinForm=false" type="submit" class="btn btn-default">Submit</button>
-              <button ng-click="showJoinForm=false" class="btn btn-danger">cancel</button>
+<div class="container-fluid">
+  <div class="col-md-12">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div id="banner">
+            <div class="cover">
+              <img align="center" src="http://static1.squarespace.com/static/5516fbf5e4b0392be7217137/t/5521c433e4b0d8eff632ea41/1428276298960/Miami_Background_Photo.png?format=2500w" alt="Banner">
             </div>
-          </form>
-        </div>
-      </div>
+          </div>
+          <div class="row" id="nomenclature">
+            <h1>{{institution.name}}</h1>
+            <div>
+              <button class="hideButton" ng-click="leaveInstitution()">Leave Institution</button>
+            </span>
+            <h2>
+            </div>
+            <button ng-click="showInstitutionEdit()">Edit</button>
+            <!-- <img ng-src="{{institution.picUrl}}" alt=""> -->
 
-    </div>
-  </div>
-</div>
+          </div>
 
 
 
+          <div class="joinContainer">
+            <div class="row">
+              <div class="col-md-4 col-md-offset-1">
+                <div id="bio">
+                  <header class="boxHeader">
+                    <p>Bio</p>
+                  </header>
+                  <hr>
+                  <p>{{institution.bio}}</p>
+                </div>
+              </div>
+              <div class="col-md-4 col-md-offset-1">
+                <div id="ButtonArea">
+                  <div class="socialMedia">
+                    <div class="joinButton eventButton">
+                      <button ng-hide="showJoinForm" ng-click="joinInstitutionOpen()" class="btn btn-primary" id="joinButton">Join!</button>
+                      <button type="button" class="hideButton btn btn-primary" id="addEventButton" data-toggle="modal" data-target="#myModal">Add Event</button>
 
-<!-- <h1>{{institution.events}}</h1> -->
-<button type="button" class="btn btn-skin" id="btnContactUs" data-toggle="modal" data-target="#myModal">
-  Add Event
-</button>
+                      <form ng-show="showJoinForm" ng-submit="joinInstitution(user)" role="form">
+                        <div class="form-group">
+                          <label for="dateGraduated" class="col-lg-2 col-lg-offset-1 control-label">Graduation Date</label>
+                          <div class="col-lg-7">
+                            <input type="date" name="dateGraduated" ng-model="user.institution.dateGraduated" id="dateGraduated" class="form-control" />
+                          </div>
+                          <button ng-click="showJoinForm=false" type="submit" class="btn btn-default">Submit</button>
+                          <button ng-click="showJoinForm=false" class="btn btn-danger">cancel</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="alumniList">
+              <h2>Alumni Members</h2>
+              <hr>
+              <div ng-repeat="alumni in institutionAlumni">
+                <h3 ng-click="showOneUser()" class="toProfile">{{alumni.fullName}}</h3>
+              </div>
+            </div>
+
+          </div>
+
+
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -104,5 +116,3 @@
         </form>
       </div>
     </div>
-  </div>
-</div>
