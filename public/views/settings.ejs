@@ -20,11 +20,12 @@
         </div>
       </div>
       <div class="col-sm-8">
-        <div class="col-sm-6 col-sm-offset-1">
+        <div class="col-sm-8">
+        <!-- <div class="col-sm-8 col-sm-offset-1"> -->
           <br>
           <br>
           <div>
-            <h1 ng-hide="showNameForm">{{user.fullName}}<button ng-click="showName()" class="btn btn-primary">edit</button></h1>
+            <div class="col-sm-12"><h1 ng-hide="showNameForm">{{user.fullName}}<button ng-click="showName()" class="btn btn-primary">edit</button></h1></div>
             <form ng-show="showNameForm" role="form" ng-submit="editFullName(user)">
               <fieldset>
                 <div class="form-group">
