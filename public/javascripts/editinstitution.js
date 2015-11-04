@@ -70,6 +70,4 @@ app.controller('editInstitutionCtrl', function($scope, $state, $http){
     swal("Edit Success!", "You have removed "+ this.alumni.fullName + " from the institution", "success");
   };
 
-
-
 });
