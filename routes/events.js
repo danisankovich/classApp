@@ -7,20 +7,43 @@ var Institution = require('../models/institution');
 var InstituteEvent = require('../models/event');
 
 
+// router.post('/new/:id', function(req, res) {
+//   console.log(req.body);
+//   console.log(req.params.id);
+//   InstituteEvent.create({
+//     name: req.body.name,
+//     creatorId: req.user._id,
+//     picUrl: req.body.picUrl,
+//     when: req.body.when,
+//     description: req.body.description,
+//     whoCanAttend: req.body.whoCanAttend,
+//     price: req.body.price,
+//     sponsor: req.params.id
+//   }, function(err, newEvent) {
+//     console.log(newEvent);
+//   });
+// });
 router.post('/new/:id', function(req, res) {
-  console.log(req.body);
-  console.log(req.params.id);
-  InstituteEvent.create({
-    name: req.body.name,
-    creatorId: req.user._id,
-    picUrl: req.body.picUrl,
-    when: req.body.when,
-    description: req.body.description,
-    whoCanAttend: req.body.whoCanAttend,
-    price: req.body.price,
-    sponsor: req.params.id
-  }, function(err, newEvent) {
-    console.log(newEvent);
+  Institution.findByIdAndUpdate(
+    req.params.id,
+    {$push: {"events": {
+      name: req.body.name,
+      creatorId: req.user._id,
+      picUrl: req.body.picUrl,
+      when: req.body.when,
+      description: req.body.description,
+      whoCanAttend: req.body.whoCanAttend,
+      price: req.body.price
+    }}},
+    {safe: true, upsert: true},
+    function(err, newEvent) {
+      console.log(newEvent);
+  });
+});
+
+router.get('/:id', function(req, res) {
+  InstitutionEvent.find({sponsor: req.params.id}, function(err, events) {
+    res.json(events);
   });
 });
 
