@@ -1,14 +1,16 @@
 app.controller('mainCtrl', function($scope, $state, $http){
-  $http.get('http://localhost:3000/user').success(function(user) {
-    if(user) {
-      console.log("user", user);
-      $scope.user = user;
-      $scope.currentUser = user.username;
-      $scope.unreadMessages = user.unreadMessages;
-      $scope.userId = user._id;
-      instvsInsts(user);
-    }
-  });
+  $http.get('http://localhost:3000/user')
+    .success(function(user) {
+      if(user) {
+        console.log("user", user);
+        $scope.user = user;
+        $scope.currentUser = user.username;
+        $scope.unreadMessages = user.unreadMessages;
+        $scope.userId = user._id;
+        instvsInsts(user);
+      }
+    })
+
   var instvsInsts = function(user) {
     if (user.institutions.length > 1) {
       $scope.memberOfOne = false;
@@ -27,14 +29,14 @@ app.controller('institutionCtrl', function($scope, $state, $http){
     console.log($scope.institutions);
   });
 
-  $http.post('http://localhost:3000/loggedIn')
-    .then(function(data){
-      console.log(data);
-    })
-    .catch(function(error){
-      console.log(error);
-      $state.go('login')
-    });
+  // $http.post('http://localhost:3000/loggedIn')
+  //   .then(function(data){
+  //     console.log(data);
+  //   })
+  //   .catch(function(error){
+  //     console.log(error);
+  //     $state.go('login')
+  //   });
 
   $scope.showOneInstitute = function() {
     instituteId = this.institution._id;

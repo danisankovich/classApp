@@ -5,15 +5,12 @@ app.controller('oneUserCtrl', function($scope, $state, $http){
     $scope.user = user;
     $scope.userId = user._id;
   });
-  
-  $http.post('http://localhost:3000/loggedIn')
-    .then(function(data){
-      console.log(data);
-    })
+
+  $http.get('http://localhost:3000/user')
     .catch(function(error){
       console.log(error);
-      $state.go('login')
-    })
+      $state.go('login');
+    });
 
   $scope.addFriend = function(friend) {
     var thisUserId = $scope.user._id;

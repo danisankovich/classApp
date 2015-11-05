@@ -12,18 +12,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/user', function(req, res, next) {
-  User.findById(req.user.id, function(err, user) {
-    if (err) {
-      console.error(err);
-    }
-    else {
-      res.json(req.user);
-    }
-  });
-});
-
-router.get('/register', function(req, res) {
-
+  if (req.user) {
+    User.findById(req.user.id, function(err, user) {
+      if (err) {
+        console.error(err);
+      }
+      else {
+        res.json(req.user);
+      }
+    });
+  } else {
+    res.send();
+  }
 });
 
 router.post('/register', function(req, res) {
@@ -60,9 +60,6 @@ router.post('/register', function(req, res) {
         res.redirect('/#/');
       });
    });
-});
-
-router.get('/login', function(req, res) {
 });
 
 router.post('/login', passport.authenticate('local', {

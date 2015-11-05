@@ -9,14 +9,13 @@ app.controller('editInstitutionCtrl', function($scope, $state, $http){
       });
     });
   });
-  $http.post('http://localhost:3000/loggedIn')
-    .then(function(data){
-      console.log(data);
-    })
+
+  $http.get('http://localhost:3000/user')
     .catch(function(error){
       console.log(error);
-      $state.go('login')
-    })
+      $state.go('login');
+    });
+
   $scope.showTag = function() {
     if ($scope.showTagForm === true) { return $scope.showTagForm = false;
     } else { return $scope.showTagForm = true; }
