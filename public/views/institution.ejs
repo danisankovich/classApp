@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  <button type="button" class="btn btn-primary" id="addEventButton" data-toggle="modal" data-target="#myModal">Add Event</button>
   <div class="col-md-12">
     <div class="col-md-12">
       <div class="row">
@@ -16,7 +17,6 @@
             <h2>
             </div>
             <button ng-click="showInstitutionEdit()">Edit</button>
-            <!-- <img ng-src="{{institution.picUrl}}" alt=""> -->
 
           </div>
 
@@ -47,7 +47,7 @@
                             <input type="date" name="dateGraduated" ng-model="user.institution.dateGraduated" id="dateGraduated" class="form-control" />
                           </div>
                           <button ng-click="showJoinForm=false" type="submit" class="btn btn-default">Submit</button>
-                          <button ng-click="showJoinForm=false" class="btn btn-danger">cancel</button>
+                          <button ng-click="showJoinForm=false" type="button" class="btn btn-danger">cancel</button>
                         </div>
                       </form>
                     </div>
@@ -79,37 +79,37 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <form class="form-horizontal" role="form" action="/events/new" method="POST">
+                    <form class="form-horizontal" role="form" ng-submit="addEvent(newEvent)">
                       <fieldset>
                         <legend>Add Event</legend>
                         <div class="form-group">
                           <label for="name" class="col-lg-4 control-label">Event Name</label>
                           <div class="col-lg-8">
-                            <input type="text" class="form-control" id="name" name="name">
+                            <input type="text" class="form-control" id="name" name="name" ng-model='newEvent.name'>
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="picUrl" class="col-lg-4 control-label">Picture URL</label>
                           <div class="col-lg-8">
-                            <input type="text" class="form-control" id="picUrl" name="picUrl" placeholder="">
+                            <input type="text" class="form-control" id="picUrl" name="picUrl" ng-model='newEvent.picUrl' placeholder="">
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="price" class="col-lg-4 control-label">Price</label>
                           <div class="col-lg-8">
-                            <input type="number" class="form-control" id="price" name="price" placeholder="">
+                            <input type="number" class="form-control" id="price" name="price" ng-model='newEvent.price'placeholder="">
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="when" class="col-lg-4 control-label">Date</label>
                           <div class="col-lg-8">
-                            <input type="date" class="form-control" id="when" name="when" placeholder="">
+                            <input type="date" class="form-control" id="when" name="when" ng-model='newEvent.when'placeholder="">
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="textArea" class="col-lg-4 control-label">Description</label>
                           <div class="col-lg-8">
-                            <textarea class="form-control" rows="3" id="description" name="description"></textarea>
+                            <textarea class="form-control" rows="3" id="description" name="description" ng-model='newEvent.description'></textarea>
                           </div>
                         </div>
                         <div class="form-group">
@@ -126,5 +126,13 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="col-sm-12">
+        <h2>Events</h2>
+        <ul ng-repeat="event in events" class="eventBox">
+          <li>{{event.name}}</li>
+          <li>{{event.price}}</li>
+          <li>{{event.when | date:'MMM d, y'}}</li>
+        </ul>
       </div>
     </div>

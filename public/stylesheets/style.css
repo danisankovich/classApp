@@ -1,17 +1,4 @@
-/*.col-md-12 {
-  border: 1px solid red;
-}
-.col-md-4 {
-  border: 1px solid blue;
-}
-.col-md-offset-1 {
-  border: 1px solid green;
-}
-.col-md-8 {
-  border: 1px solid yellow;
-}*/
 #nomenclature {
-  /*border: 1px solid purple;*/
   margin-left: 6vw;
 }
 #banner {
@@ -128,7 +115,6 @@ h2 {
   background-color: rgb(235, 235, 235);
   width: 100%;
   height: auto;
-  /*margin-left: 5%;*/
 }
 .boxHeader {
   top: 0;
@@ -173,6 +159,11 @@ h2 {
   height: 30px;
   padding-top: 3px;
   margin-top: 1%;
+}
+
+.messageBox:active {
+	top:3px;
+	box-shadow: inset 0px 1px 0px #9e8d84;
 }
 
 .messageBoxWrapper {
@@ -227,8 +218,6 @@ h2 {
 #banner img {
   text-align: center;
   width: 50vw;
-  /*height: 150vh;*/
-  /*margin-left: -50%;*/
   margin-top: -12%;
 }
 
@@ -251,4 +240,67 @@ h2 {
 
 .hideButton {
   display: none
+}
+
+.cursor:hover {
+  cursor: pointer;
+}
+
+.friends {
+  list-style: none;
+}
+
+.popButton {
+	background-color:#479AFF;
+	font-family: 'Open Sans', sans-serif;
+	font-size:12px;
+	text-decoration:none;
+	color:#fff;
+	position:relative;
+	padding:10px 20px;
+	padding-right:50px;
+	background-image: linear-gradient(bottom, rgb(62,51,46) 0%, rgb(101,86,78) 100%);
+	border-radius: 5px;
+	box-shadow: inset 0px 1px 0px #9e8d84, 0px 5px 0px 0px #322620, 0px 10px 5px #999;
+}
+
+.popButton:active {
+	top:3px;
+	box-shadow: inset 0px 1px 0px #9e8d84;
+}
+
+.popButton::before {
+	background-color: #322620;
+	background-image: url(../images/right_arrow.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	content:"";
+	width:20px;
+	height:20px;
+	position:absolute;
+	right:15px;
+	top:50%;
+	margin-top:-9px;
+	border-radius: 50%;
+}
+
+.popButton:active::before {
+	top:50%;
+	margin-top:-12px;
+}
+
+a.popButton {
+  color: white;
+}
+
+a.popButton:hover {
+  color: white;
+}
+
+.eventBox {
+  border: 1px black solid;
+}
+
+.eventBox li {
+  list-style: none;
 }

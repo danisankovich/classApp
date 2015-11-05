@@ -1,14 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var User = require('../models/user');
+var Institution = require('../models/institution');
+var Message = require('../models/message');
 
-/* GET users listing. */
-// router.post('/addfriend/:id', function(req, res, next) {
-//   console.log("hey bud", req.params.id);
-//   User.findById(req.params.id, function(err, user) {
-//     console.log(user);
-//     res.json(user);
-//   });
-// });
 
 router.post('/:id', function(req, res, next) {
   console.log("hey bud", req.params.id);
