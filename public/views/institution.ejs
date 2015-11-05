@@ -127,4 +127,12 @@
           </div>
         </div>
       </div>
+      <div class="col-sm-12">
+        <h2>Events</h2>
+        <ul ng-repeat="event in events" class="eventBox">
+          <li>{{event.name}}</li>
+          <li>{{event.price}}</li>
+          <li>{{event.when | date:'MMM d, y'}}</li>
+        </ul>
+      </div>
     </div>

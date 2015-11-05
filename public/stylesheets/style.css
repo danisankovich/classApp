@@ -295,3 +295,11 @@ a.popButton {
 a.popButton:hover {
   color: white;
 }
+
+.eventBox {
+  border: 1px black solid;
+}
+
+.eventBox li {
+  list-style: none;
+}
