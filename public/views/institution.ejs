@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  <button type="button" class="btn btn-primary" id="addEventButton" data-toggle="modal" data-target="#myModal">Add Event</button>
   <div class="col-md-12">
     <div class="col-md-12">
       <div class="row">
@@ -16,7 +17,6 @@
             <h2>
             </div>
             <button ng-click="showInstitutionEdit()">Edit</button>
-            <!-- <img ng-src="{{institution.picUrl}}" alt=""> -->
 
           </div>
 
@@ -47,7 +47,7 @@
                             <input type="date" name="dateGraduated" ng-model="user.institution.dateGraduated" id="dateGraduated" class="form-control" />
                           </div>
                           <button ng-click="showJoinForm=false" type="submit" class="btn btn-default">Submit</button>
-                          <button ng-click="showJoinForm=false" class="btn btn-danger">cancel</button>
+                          <button ng-click="showJoinForm=false" type="button" class="btn btn-danger">cancel</button>
                         </div>
                       </form>
                     </div>

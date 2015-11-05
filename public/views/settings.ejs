@@ -4,7 +4,7 @@
       <div class="col-sm-4">
         <div class="profilePic">
           <img ng-src={{user.profilePic}} style="max-height: 200px; max-width: 200px" alt="">
-          <div ng-hide="showProfilePicForm"><button ng-click="showProfilePic()">edit</button></div>
+          <div ng-hide="showProfilePicForm"><button ng-click="showProfilePic()" class="btn btn-primary">edit</button></div>
           <form ng-show="showProfilePicForm" role="form" ng-submit="editProfilePic(user)">
             <fieldset>
               <div class="form-group">
@@ -20,11 +20,11 @@
         </div>
       </div>
       <div class="col-sm-8">
-        <div class="col-sm-6 col-sm-offset-1">
+        <div class="col-sm-8">
           <br>
           <br>
           <div>
-            <h1 ng-hide="showNameForm">{{user.fullName}}<button ng-click="showName()">edit</button></h1>
+            <div class="col-sm-12"><h1 ng-hide="showNameForm">{{user.fullName}}<button ng-click="showName()" class="btn btn-primary">edit</button></h1></div>
             <form ng-show="showNameForm" role="form" ng-submit="editFullName(user)">
               <fieldset>
                 <div class="form-group">
@@ -44,7 +44,7 @@
       <div class="col-sm-12">
         <div class="col-sm-12">
           <div>
-            <h4 ng-hide="showEmailForm">Email: {{user.email}}<span><button ng-click="showEmail()">edit</button></span></h4>
+            <h4 ng-hide="showEmailForm">Email: {{user.email}}<span><button ng-click="showEmail()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showEmailForm" role="form" ng-submit="editEmail(user)">
               <fieldset>
                 <div class="form-group">
@@ -60,7 +60,7 @@
           </div>
 
           <div>
-            <h4 ng-hide="showPhoneForm">Phone: {{user.phoneNumber}}<span><button ng-click="showPhone()">edit</button></span></h4>
+            <h4 ng-hide="showPhoneForm">Phone: {{user.phoneNumber}}<span><button ng-click="showPhone()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showPhoneForm" role="form" ng-submit="editPhoneNumber(user)">
               <fieldset>
                 <div class="form-group">
@@ -79,7 +79,7 @@
 
 
           <div>
-            <h4 ng-hide="showStreetForm">Street: {{user.street}}<span><button ng-click="showStreet()">edit</button></span></h4>
+            <h4 ng-hide="showStreetForm">Street: {{user.street}}<span><button ng-click="showStreet()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showStreetForm" role="form" ng-submit="editStreet(user)">
               <fieldset>
                 <div class="form-group">
@@ -96,7 +96,7 @@
             </form>
           </div>
           <div>
-            <h4 ng-hide="showCityForm">City: {{user.city}}<span><button ng-click="showCity()">edit</button></span></h4>
+            <h4 ng-hide="showCityForm">City: {{user.city}}<span><button ng-click="showCity()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showCityForm" role="form" ng-submit="editCity(user)">
               <fieldset>
                 <div class="form-group">
@@ -113,7 +113,7 @@
             </form>
           </div>
           <div>
-            <h4 ng-hide="showStateForm">State: {{user.state}}<span><button ng-click="showState()">edit</button></span></h4>
+            <h4 ng-hide="showStateForm">State: {{user.state}}<span><button ng-click="showState()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showStateForm" role="form" ng-submit="editState(user)">
               <fieldset>
                 <div class="form-group">
@@ -130,7 +130,7 @@
             </form>
           </div>
           <div>
-            <h4 ng-hide="showZipForm">Zip: {{user.zip}}<span><button ng-click="showZip()">edit</button></span></h4>
+            <h4 ng-hide="showZipForm">Zip: {{user.zip}}<span><button ng-click="showZip()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showZipForm" role="form" ng-submit="editZip(user)">
               <fieldset>
                 <div class="form-group">
@@ -148,7 +148,7 @@
           </div>
 
           <div>
-            <h4 ng-hide="showJobForm">Employer: {{user.currentJob}}<span><button ng-click="showCurrentJob()">edit</button></span></h4>
+            <h4 ng-hide="showJobForm">Employer: {{user.currentJob}}<span><button ng-click="showCurrentJob()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showJobForm" role="form" ng-submit="editCurrentJob(user)">
               <fieldset>
                 <div class="form-group">
@@ -163,7 +163,7 @@
             </form>
           </div>
           <div>
-            <h4 ng-hide="showFacebookForm">facebook: {{user.facebook}}<span><button ng-click="showFacebook()">edit</button></span></h4>
+            <h4 ng-hide="showFacebookForm">facebook: {{user.facebook}}<span><button ng-click="showFacebook()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showFacebookForm" role="form" ng-submit="editFacebook(user)">
               <fieldset>
                 <div class="form-group">
@@ -178,7 +178,7 @@
             </form>
           </div>
           <div>
-            <h4 ng-hide="showTwitterForm">twitter: {{user.twitter}}<span><button ng-click="showTwitter()">edit</button></span></h4>
+            <h4 ng-hide="showTwitterForm">twitter: {{user.twitter}}<span><button ng-click="showTwitter()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showTwitterForm" role="form" ng-submit="editTwitter(user)">
               <fieldset>
                 <div class="form-group">
@@ -193,7 +193,7 @@
             </form>
           </div>
           <div>
-            <h4 ng-hide="showGitHubForm">github: {{user.github}}<span><button ng-click="showGitHub()">edit</button></span></h4>
+            <h4 ng-hide="showGitHubForm">github: {{user.github}}<span><button ng-click="showGitHub()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showGitHubForm" role="form" ng-submit="editGitHub(user)">
               <fieldset>
                 <div class="form-group">
@@ -209,7 +209,7 @@
             </form>
           </div>
           <div>
-            <h4 ng-hide="showQuoraForm">quora: {{user.quora}}<span><button ng-click="showQuora()">edit</button></span></h4>
+            <h4 ng-hide="showQuoraForm">quora: {{user.quora}}<span><button ng-click="showQuora()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showQuoraForm" role="form" ng-submit="editQuora(user)">
               <fieldset>
                 <div class="form-group">
@@ -224,7 +224,7 @@
             </form>
           </div>
           <div>
-            <h4 ng-hide="showAngelistForm">angelist: {{user.angelist}}<span><button ng-click="showAngelist()">edit</button></span></h4>
+            <h4 ng-hide="showAngelistForm">angelist: {{user.angelist}}<span><button ng-click="showAngelist()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showAngelistForm" role="form" ng-submit="editAngelist(user)">
               <fieldset>
                 <div class="form-group">
@@ -239,7 +239,7 @@
             </form>
           </div>
           <div>
-            <h4 ng-hide="showBlogForm">blog: {{user.blog}}<span><button ng-click="showBlog()">edit</button></span></h4>
+            <h4 ng-hide="showBlogForm">blog: {{user.blog}}<span><button ng-click="showBlog()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showBlogForm" role="form" ng-submit="editBlog(user)">
               <fieldset>
                 <div class="form-group">
@@ -254,7 +254,7 @@
             </form>
           </div>
           <div>
-            <h4 ng-hide="showPersonalWebsiteForm">site: {{user.personalWebsite}}<span><button ng-click="showPersonalWebsite()">edit</button></span></h4>
+            <h4 ng-hide="showPersonalWebsiteForm">site: {{user.personalWebsite}}<span><button ng-click="showPersonalWebsite()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showPersonalWebsiteForm" role="form" ng-submit="editPersonalWebsite(user)">
               <fieldset>
                 <div class="form-group">
@@ -270,7 +270,7 @@
 
           </div>
           <div>
-            <h4 ng-hide="showHireableForm">hireable: {{user.hireable}}<span><button ng-click="showHireable()">edit</button></span></h4>
+            <h4 ng-hide="showHireableForm">hireable: {{user.hireable}}<span><button ng-click="showHireable()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showHireableForm" role="form" ng-submit="editHireable(user)">
               <fieldset>
                 <div class="form-group">
@@ -285,7 +285,7 @@
             </form>
           </div>
           <div>
-            <h4 ng-hide="showHiringForm">hiring: {{user.hiring}}<span><button ng-click="showHiring()">edit</button></span></h4>
+            <h4 ng-hide="showHiringForm">hiring: {{user.hiring}}<span><button ng-click="showHiring()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showHiringForm" role="form" ng-submit="editHiring(user)">
               <fieldset>
                 <div class="form-group">
@@ -300,7 +300,7 @@
             </form>
           </div>
           <div>
-            <h4 ng-hide="showLinkedInForm">linkedIn: {{user.linkedIn}}<span><button ng-click="showLinkedIn()">edit</button></span></h4>
+            <h4 ng-hide="showLinkedInForm">linkedIn: {{user.linkedIn}}<span><button ng-click="showLinkedIn()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showLinkedInForm" role="form" ng-submit="editLinkedIn(user)">
               <fieldset>
                 <div class="form-group">
@@ -316,7 +316,7 @@
           </div>
 
           <div>
-            <h4 ng-hide="showBioForm">Bio: {{user.bio}}<span><button ng-click="showBio()">edit</button></span></h4>
+            <h4 ng-hide="showBioForm">Bio: {{user.bio}}<span><button ng-click="showBio()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showBioForm" role="form" ng-submit="editBio(user)">
               <fieldset>
                 <div class="form-group">
@@ -331,7 +331,7 @@
             </form>
           </div>
           <div>
-            <h4 ng-hide="showStackOverflowForm">Stack Overflow: {{user.stackOverflow}}<span><button ng-click="showStackOverflow()">Edit</button></span></h4>
+            <h4 ng-hide="showStackOverflowForm">Stack Overflow: {{user.stackOverflow}}<span><button ng-click="showStackOverflow()" class="btn btn-primary">edit</button></span></h4>
             <form ng-show="showStackOverflowForm" role="form" ng-submit="editStackOverflow(user)">
               <fieldset>
                 <div class="form-group">

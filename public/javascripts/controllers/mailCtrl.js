@@ -1,5 +1,7 @@
 app.controller('mailCtrl', function($scope, $state, $http){
   $scope.messages = [];
+  $scope.friends = [];
+  $scope.friendsHidden = false;
   $http.get('http://localhost:3000/user').success(function(user) {
     $scope.user = user;
     $http.get('http://localhost:3000/mail/mymail').success(function(messages) {
@@ -13,7 +15,21 @@ app.controller('mailCtrl', function($scope, $state, $http){
           }
         });
       });
+      user.friends.forEach(function(friend) {
+        $http.get('http://localhost:3000/friends/' + friend.friendId, friend).success(function(friend) {
+          $scope.friends.push(friend);
+          console.log("my friends", $scope.friends);
+        });
+      });
     });
+    $scope.toggleFriends = function() {
+       if ($scope.friendsHidden === false) {
+         $scope.friendsHidden = true;
+       }
+       else {
+         $scope.friendsHidden = false;
+       }
+    };
     
     $http.post('http://localhost:3000/loggedIn')
       .then(function(data){
@@ -30,9 +46,16 @@ app.controller('mailCtrl', function($scope, $state, $http){
     $state.go('oneMessage', {msgId: msgId});
   };
 
-  $scope.sendMail = function() {
-    //this may have to be in other controllers, based on how we are going to access another user's id.
-    $http.post("http://localhost:3000/send/:id").success(function(sentMessage) {
+  $scope.mailUser = function() {
+    $scope.friendId = this.friend._id;
+    console.log($scope.friendId);
+    $scope.msgdUser = this.friend.fullName;
+  };
+  $scope.sendMail = function(message) {
+    var thisUserId = $scope.friendId;
+    console.log("thisuserid", thisUserId);
+    console.log("mymessage", message);
+    $http.post("http://localhost:3000/mail/send/" + thisUserId, message).success(function(sentMessage) {
       console.log(sentMessage);
       swal("Message Sent!", "Your message has been sent and will be delivered shortly!", "success");
     });
@@ -59,7 +82,6 @@ app.controller('oneMsgCtrl', function($scope, $state, $http){
   $scope.replyUser = function(message) {
     console.log("thisuserid", thisUserId);
     console.log("mymessage", message);
-    //this may have to be in other controllers, based on how we are going to access another user's id.
     $http.post("http://localhost:3000/mail/reply/" + thisUserId, message).success(function(sentMessage) {
       console.log(sentMessage);
       swal("Message Sent!", "Your message has been sent and will be delivered shortly!", "success");

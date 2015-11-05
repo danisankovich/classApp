@@ -7,8 +7,9 @@ var Institution = require('../models/institution');
 var InstituteEvent = require('../models/event');
 
 
-router.post('/new', function(req, res) {
-  console.log("event form data", req.body);
+router.post('/new/:id', function(req, res) {
+  console.log(req.body);
+  console.log(req.params.id);
   InstituteEvent.create({
     name: req.body.name,
     creatorId: req.user._id,
@@ -17,7 +18,7 @@ router.post('/new', function(req, res) {
     description: req.body.description,
     whoCanAttend: req.body.whoCanAttend,
     price: req.body.price,
-    sponsor: req.body.sponsor
+    sponsor: req.params.id
   }, function(err, newEvent) {
     //why is newEvent undefined here????
     console.log('saved event', newEvent);

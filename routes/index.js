@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var logout = require('express-passport-logout');
+var cors = require('cors');
 var User = require('../models/user');
 var Institution = require('../models/institution');
 var Message = require('../models/message');
@@ -127,6 +128,30 @@ router.post("/alumni/newinstitution/:id", function(req, res) {
       function(err, user) {
         // console.log(user);
     });
+  });
+});
+
+router.post('/addfriend/:id', function(req, res, next) {
+  console.log('yo');
+  User.findByIdAndUpdate(
+    req.params.id,
+    {$push: {"friends": {friendId: req.user._id}}},
+    {safe: true, upsert: true},
+    function(err, newFriend) {
+      console.log("newFriend", newFriend);
+      User.findByIdAndUpdate(
+        req.user._id,
+        {$push: {"friends": {friendId: req.params.id}}},
+        {safe: true, upsert: true},
+        function(err, user) {
+          console.log(user);
+      });
+    });
+});
+
+router.get('/friends/:id', function(req, res, next) {
+  User.findById(req.params.id, function(err, friend) {
+    res.json(friend);
   });
 });
 
