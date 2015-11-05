@@ -4,7 +4,7 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
   console.log($scope.urlId);
   $http.get('http://localhost:3000/institute/' + $state.params.instituteId).success(function(institution) {
     $scope.institution = institution;
-    console.log(institution);
+    $scope.events = institution.events;
     institution.alumni.forEach(function(e) {
       $http.get('http://localhost:3000/' + e).success(function(user) {
         $scope.institutionAlumni.push(user);
@@ -51,6 +51,7 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
     $scope.newEvent = newEvent;
     $http.post("http://localhost:3000/events/new/"+ $state.params.instituteId, newEvent).success(function(newEvent) {
       console.log(newEvent);
+      swal("Success!", "You have created an event", "success");
     });
   };
 

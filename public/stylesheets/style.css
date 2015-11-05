@@ -140,6 +140,7 @@ h2 {
 #joinButton {
   width: 100%;
 }
+
 #addEventButton{
   width: 100%;
 }
@@ -294,4 +295,12 @@ a.popButton {
 
 a.popButton:hover {
   color: white;
+}
+
+.eventBox {
+  border: 1px black solid;
+}
+
+.eventBox li {
+  list-style: none;
 }
