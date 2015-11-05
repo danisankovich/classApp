@@ -7,13 +7,10 @@ var Institution = require('../models/institution');
 var Message = require('../models/message');
 
 router.get('/mymail', function(req, res) {
-  // User.findById(req.user._id, function(err, user) {
     Message.find({recipientId: req.user._id}, function(err, messages) {
-    // Message.find({recipientId: user._id}, function(err, messages) {
       console.log("messages", messages);
       res.json(messages);
     });
-  // });
 });
 router.get('/markread/:id', function(req, res) { //when message is opened, mark unread/new messages as false.
   Message.findByIdAndUpdate(
@@ -34,13 +31,10 @@ router.post('/send/:id', function(req, res) { //:id --> if you are on the person
     subject: req.body.subject,
     message: req.body.message
   }, function(err, newMessage) {
-    // console.log('find way to make this refresh');
-    // console.log("newMessage", newMessage);
     res.send(newMessage);
   });
 });
-router.post('/reply/:id', function(req, res) { //:id --> if you are on the person's profile, comes from the state params.
-//If you are sending from your navbar (friends list), you'll have to do a find to grab their user._id
+router.post('/reply/:id', function(req, res) {
   console.log("reqbody", req.body);
   Message.create({
     senderId: req.user._id,
@@ -48,8 +42,6 @@ router.post('/reply/:id', function(req, res) { //:id --> if you are on the perso
     subject: "re: " + req.body.subject,
     message: req.body.message
   }, function(err, newMessage) {
-    // console.log('find way to make this refresh');
-    // console.log("newMessage", newMessage);
     res.send(newMessage);
   });
 });
