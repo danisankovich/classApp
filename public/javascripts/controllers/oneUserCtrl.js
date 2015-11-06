@@ -14,7 +14,20 @@ app.controller('oneUserCtrl', function($scope, $state, $http){
 
   $scope.addFriend = function(friend) {
     var thisUserId = $scope.user._id;
-    $http.post("http://localhost:3000/addfriend/" + thisUserId);
+    $http.post("http://localhost:3000/addfriend/" + thisUserId)
+      .success(function(data){
+        swal({
+          title: "Success!",
+          text: "You have added " + $scope.user.fullName + " as a friend!",
+          type: "success",
+        },
+        function(){
+          $state.go($state.current, {}, {reload: true});
+        });
+      })
+      .error(function(error){
+        console.log(error);
+      });
   };
 
   $scope.mailUser = function(message) {
