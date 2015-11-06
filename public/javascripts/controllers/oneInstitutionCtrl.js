@@ -40,10 +40,20 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
 
   $scope.addEvent = function(newEvent) {
     console.log(newEvent);
-    $scope.newEvent = newEvent;
+    // $scope.newEvent = newEvent;
     $http.post("http://localhost:3000/events/new/"+ $state.params.instituteId, newEvent).success(function(newEvent) {
       console.log(newEvent);
+      // $state.go($state.current, {}, {reload: true});
+
       swal("Success!", "You have created an event", "success");
+      // swal({
+      //   title: "Success!",
+      //   text: "You have created a new event",
+      //   type: "success",
+      // },
+      // function(){
+      //   // $state.go($state.current, {}, {reload: true});
+      // });
     });
   };
 

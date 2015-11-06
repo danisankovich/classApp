@@ -119,7 +119,6 @@ router.post("/alumni/newinstitution/:id", function(req, res) {
 });
 
 router.post('/addfriend/:id', function(req, res, next) {
-  console.log('yo');
   User.findByIdAndUpdate(
     req.params.id,
     {$push: {"friends": {friendId: req.user._id}}},
@@ -132,6 +131,8 @@ router.post('/addfriend/:id', function(req, res, next) {
         {safe: true, upsert: true},
         function(err, user) {
           console.log(user);
+          res.status(err ? 400 : 200).send(err || user)
+
       });
     });
 });
