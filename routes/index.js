@@ -66,28 +66,28 @@ router.post('/register', function(req, res, next) {
    });
 });
 
-// router.post('/login', passport.authenticate('local', {
-//   successRedirect: '/#/',
-//   failureRedirect: '/#/login' }
-// ));
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/#/',
+  failureRedirect: '/#/login' }
+));
 
-router.post('/login', function(req, res, next){
-  if(!req.body.username || !req.body.password){
-    return res.status(400).json({message: 'Missing required fields username and password.'});
-  }
-
-  passport.authenticate('local', function(err, user, info){
-    if(err){
-      return res.status(400).json({error: err});
-    }
-    
-    if(user){
-      res.redirect('/#/')
-    } else {
-      return res.status(401).json(info);
-    }
-  })(req, res, next);
-});
+// router.post('/login', function(req, res, next){
+//   if(!req.body.username || !req.body.password){
+//     return res.status(400).json({message: 'Missing required fields username and password.'});
+//   }
+//
+//   passport.authenticate('local', function(err, user, info){
+//     if(err){
+//       return res.status(400).json({error: err});
+//     }
+//
+//     if(user){
+//       res.redirect('/#/')
+//     } else {
+//       return res.status(401).json(info);
+//     }
+//   })(req, res, next);
+// });
 
 router.get('/logout', function(req, res) {
   if (req.isAuthenticated()){
