@@ -4,7 +4,9 @@
 #banner {
   margin-right: 0;
 }
-
+.vertPanel {
+  background-color: white;
+}
 hr {
   border-top: 1px solid black;
 }
