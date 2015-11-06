@@ -2,26 +2,32 @@ app.controller('mailCtrl', function($scope, $state, $http){
   $scope.messages = [];
   $scope.friends = [];
   $scope.friendsHidden = false;
-  $http.get('http://localhost:3000/user').success(function(user) {
-    $scope.user = user;
-    $http.get('http://localhost:3000/mail/mymail').success(function(messages) {
-        messages.forEach(function(e) {
-          if (e.recipientId === $scope.user._id) {
-            $http.get("http://localhost:3000/mail/sender/" + e.senderId).success(function(sender) {
-              e.senderName = sender.fullName;
-              $scope.messages.push(e);
-              console.log(messages);
-            });
-          }
+  $http.get('http://localhost:3000/user')
+    .success(function(user) {
+      $scope.user = user;
+      $http.get('http://localhost:3000/mail/mymail').success(function(messages) {
+          messages.forEach(function(e) {
+            if (e.recipientId === $scope.user._id) {
+              $http.get("http://localhost:3000/mail/sender/" + e.senderId).success(function(sender) {
+                e.senderName = sender.fullName;
+                $scope.messages.push(e);
+                console.log(messages);
+              });
+            }
+          });
         });
-      });
-      user.friends.forEach(function(friend) {
-        $http.get('http://localhost:3000/friends/' + friend.friendId, friend).success(function(friend) {
-          $scope.friends.push(friend);
-          console.log("my friends", $scope.friends);
+        user.friends.forEach(function(friend) {
+          $http.get('http://localhost:3000/friends/' + friend.friendId, friend).success(function(friend) {
+            $scope.friends.push(friend);
+            console.log("my friends", $scope.friends);
+          });
         });
-      });
+    })
+    .catch(function(error){
+      console.log(error);
+      $state.go('login');
     });
+    
     $scope.toggleFriends = function() {
        if ($scope.friendsHidden === false) {
          $scope.friendsHidden = true;
@@ -30,6 +36,15 @@ app.controller('mailCtrl', function($scope, $state, $http){
          $scope.friendsHidden = false;
        }
     };
+    //
+    // $http.post('http://localhost:3000/loggedIn')
+    //   .then(function(data){
+    //     console.log(data);
+    //   })
+    //   .catch(function(error){
+    //     console.log(error);
+    //     $state.go('login')
+    //   });
 
   $scope.showOneMessage = function() {
     console.log(this);

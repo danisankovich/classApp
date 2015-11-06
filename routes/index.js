@@ -22,15 +22,15 @@ router.get('/user', function(req, res, next) {
       }
     });
   } else {
-    res.status(400).send('no user found!');
+    res.status(400).send('no user found!')
   }
 });
 
 router.get('/register', function(req, res) {
-
+  res.redirect('/');
 });
 
-router.post('/register', function(req, res) {
+router.post('/register', function(req, res, next) {
   User.register(new User({
     username: req.body.username,
     email: req.body.email,
@@ -39,7 +39,7 @@ router.post('/register', function(req, res) {
   }),
     req.body.password, function(err, user) {
       if (err) {
-        console.error(err);
+        res.status(400).send(err);
       }
       passport.authenticate('local', {failureRedirect: '/#/register' })(req, res, function() {
         Institution.find({name: req.body.institution}, function(err, institution) {
@@ -66,13 +66,28 @@ router.post('/register', function(req, res) {
    });
 });
 
-router.get('/login', function(req, res) {
-});
+// router.post('/login', passport.authenticate('local', {
+//   successRedirect: '/#/',
+//   failureRedirect: '/#/login' }
+// ));
 
-router.post('/login', passport.authenticate('local', {
-  successRedirect: '/#/',
-  failureRedirect: '/#/login' }
-));
+router.post('/login', function(req, res, next){
+  if(!req.body.username || !req.body.password){
+    return res.status(400).json({message: 'Missing required fields username and password.'});
+  }
+
+  passport.authenticate('local', function(err, user, info){
+    if(err){
+      return res.status(400).json({error: err});
+    }
+    
+    if(user){
+      res.redirect('/#/')
+    } else {
+      return res.status(401).json(info);
+    }
+  })(req, res, next);
+});
 
 router.get('/logout', function(req, res) {
   if (req.isAuthenticated()){
