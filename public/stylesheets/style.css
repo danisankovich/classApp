@@ -36,7 +36,9 @@ h2 {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-
+.error {
+  color: red;
+}
 .about-me, .profile-pic, .icons {
   text-align: center;
   margin: auto;
