@@ -4,6 +4,7 @@
 #banner {
   margin-right: 0;
 }
+<<<<<<< HEAD
 .vertPanel {
   background-color: white;
 }
@@ -13,6 +14,8 @@ hr {
 .alumniList hr {
   margin-right: 30px;
 }
+=======
+>>>>>>> c2eacde4321f508c379620a8e943fd574adfb65c
 
 body * {
   padding: 0;

@@ -48,9 +48,13 @@
           <br>
           <br>
           <div class="col-lg-4 col-lg-offset-8">
+<<<<<<< HEAD
+            <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+=======
             <!-- <p class="error" ng-show="{{error !== undefined}}">{{error}}</p> -->
             <p class="error">{{error}}</p>
             <button class="btn btn-default">Submit</button>&nbsp;
+>>>>>>> c2eacde4321f508c379620a8e943fd574adfb65c
             <a ui-sref="/"><button type="button" class="btn btn-primary">Cancel</button></a>
           </div>
         </form>
