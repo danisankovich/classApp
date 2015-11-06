@@ -20,8 +20,8 @@ app.controller('mainCtrl', function($scope, $state, $http){
 
   $scope.register = function(newUser) {
     $scope.newUser = newUser;
-    $http.post('http://localhost:3000/register', $scope.newUser).success(function(yes) {
-      console.log(yes);
+    $http.post('http://localhost:3000/register', $scope.newUser).success(function() {
+      location.reload();
     });
   };
 
