@@ -9,7 +9,7 @@ var Message = require('../models/message');
 
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
-  res.send();
+  // res.send();
 });
 
 router.get('/user', function(req, res, next) {
