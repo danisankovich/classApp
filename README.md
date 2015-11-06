@@ -6,7 +6,7 @@ MEAN stack app providing users with the ability to connect with fellow alumni.
 MongoDb, ExpressJs, AngularJs, Node.js, angular ui-router, passport.js, bootstrap, Javascript, SweetAlerts
 
 ~ Features
-- Regist/login
+- Register/login
   --Passport.js
 - Search institutions
   -- view and connect with other alumni

@@ -1,11 +1,17 @@
 app.controller('settingsCtrl', function($scope, $state, $http) {
-  $http.get('http://localhost:3000/user').success(function(user) {
-    if (user) {
-      $scope.user = user;
-      $scope.currentUser = user.username;
-      $scope.userId = user._id;
-    }
-  });
+  $http.get('http://localhost:3000/user')
+    .then(function (user) {
+      if (user) {
+        $scope.user = user;
+        $scope.currentUser = user.username;
+        $scope.userId = user._id;
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+      $state.go('login');
+    });
+
   $scope.editFullName = function(user) {
     $http.post('http://localhost:3000/edit/fullname', user).success(function(response) {
       console.log(response);
