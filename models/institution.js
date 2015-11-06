@@ -1,7 +1,7 @@
 var Mongoose = require('mongoose');
 
 var institution = Mongoose.Schema({
-  name: {type: String, unique: true},
+  name: {type: String},
   alumni: [],
   picUrl: {type: String, default: "http://edukasyon.ph/assets/institution-default-logo-e8e6823adee81942cd3d2c9fd0161f87.png"},
   bannerUrl: {type: String, default: "http://edukasyon.ph/assets/institution-default-logo-e8e6823adee81942cd3d2c9fd0161f87.png"},
