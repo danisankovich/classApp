@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var logout = require('express-passport-logout');
-var cors = require('cors');
 var User = require('../models/user');
 var Institution = require('../models/institution');
 var Message = require('../models/message');
@@ -13,14 +12,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/user', function(req, res, next) {
-  User.findById(req.user.id, function(err, user) {
-    if (err) {
-      console.error(err);
-    }
-    else {
-      res.json(req.user);
-    }
-  });
+  if (req.user) {
+    User.findById(req.user.id, function(err, user) {
+      if (err) {
+        console.error(err);
+      }
+      else {
+        res.json(req.user);
+      }
+    });
+  } else {
+    res.status(400).send('no user found!');
+  }
 });
 
 router.get('/register', function(req, res) {
