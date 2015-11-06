@@ -1,0 +1,90 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+<<<<<<< HEAD
+      <form ng-submit="register(user)">
+=======
+      <form role="form" ng-submit="register(newUser)">
+      <!-- <form role="form" action="/register" method="post"> -->
+>>>>>>> michael
+        <fieldset>
+          <div class="col-lg-10 col-lg-offset-2">
+            <legend>Registration</legend>
+          </div>
+          <div class="form-group">
+            <label for="username" class="col-lg-2 col-lg-offset-1 control-label">Username</label>
+            <div class="col-lg-7">
+<<<<<<< HEAD
+              <input type="text" id="username" ng-model="user.username" placeholder="Enter Username" class="form-control"/>
+=======
+              <input type="text" id="username" name="username" placeholder="Enter Username" ng-model="newUser.username" class="form-control"/>
+>>>>>>> michael
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fullName" class="col-lg-2 col-lg-offset-1 control-label">Full Name</label>
+            <div class="col-lg-7">
+<<<<<<< HEAD
+              <input type="text" id="fullName" ng-model="user.fullName" placeholder="Enter Full Name" class="form-control"/>
+=======
+              <input type="text" id="fullName" name="fullName" placeholder="Enter Full Name" ng-model="newUser.fullName" class="form-control"/>
+>>>>>>> michael
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-lg-2 col-lg-offset-1 control-label">Email</label>
+            <div class="col-lg-7">
+<<<<<<< HEAD
+              <input type="email" ng-model="user.email" placeholder="Enter Email" id="email" class="form-control"/>
+=======
+              <input type="email" name="email" placeholder="Enter Email" id="email" ng-model="newUser.email" class="form-control"/>
+>>>>>>> michael
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-lg-2 col-lg-offset-1 control-label">Password</label>
+            <div class="col-lg-7">
+<<<<<<< HEAD
+              <input type="password" ng-model="user.password" placeholder="Password" id="password" class="form-control"/>
+=======
+              <input type="password" name="password" placeholder="Password" id="password" ng-model="newUser.password" class="form-control"/>
+>>>>>>> michael
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="institution" class="col-lg-2 col-lg-offset-1 control-label">Institution</label>
+            <div class="col-lg-7">
+<<<<<<< HEAD
+              <input type="text" ng-model="user.institution" placeholder="Enter Institution Name" id="institution" class="form-control"/>
+=======
+              <input type="text" name="institution" placeholder="Enter Institution Name" id="institution" ng-model="newUser.institution" class="form-control"/>
+>>>>>>> michael
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dateGraduated" class="col-lg-2 col-lg-offset-1 control-label">Graduation Date</label>
+            <div class="col-lg-7">
+<<<<<<< HEAD
+              <input type="date" ng-model="user.dateGraduated" id="dateGraduated" class="form-control"/>
+=======
+              <input type="date" name="dateGraduated" id="dateGraduated" ng-model="newUser.dateGraduated" class="form-control"/>
+>>>>>>> michael
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="col-lg-4 col-lg-offset-8">
+            <!-- <p class="error" ng-show="{{error !== undefined}}">{{error}}</p> -->
+            <p class="error">{{error}}</p>
+            <button ng-click="register(user)" class="btn btn-default">Submit</button>&nbsp;
+            <a ui-sref="/"><button type="button" class="btn btn-primary">Cancel</button></a>
+          </div>
+        </form>
+      </fieldset>
+      <hr>
+      <div><span>Already Signed Up? </span><a ui-sref="login">Login</a></div>
+    </form>
+  </div>
+</div>
+</div>
