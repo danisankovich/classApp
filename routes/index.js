@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var logout = require('express-passport-logout');
+var cors = require('cors');
 var User = require('../models/user');
 var Institution = require('../models/institution');
 var Message = require('../models/message');
@@ -12,25 +13,21 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/user', function(req, res, next) {
-  if (req.user) {
-    User.findById(req.user.id, function(err, user) {
-      if (err) {
-        console.error(err);
-      }
-      else {
-        res.json(req.user);
-      }
-    });
-  } else {
-    res.status(400).send('no user found!')
-  }
+  User.findById(req.user.id, function(err, user) {
+    if (err) {
+      console.error(err);
+    }
+    else {
+      res.json(req.user);
+    }
+  });
 });
 
 router.get('/register', function(req, res) {
-  res.redirect('/');
+
 });
 
-router.post('/register', function(req, res, next) {
+router.post('/register', function(req, res) {
   User.register(new User({
     username: req.body.username,
     email: req.body.email,
@@ -39,7 +36,7 @@ router.post('/register', function(req, res, next) {
   }),
     req.body.password, function(err, user) {
       if (err) {
-        res.status(400).send(err);
+        console.error(err);
       }
       passport.authenticate('local', {failureRedirect: '/#/register' })(req, res, function() {
         Institution.find({name: req.body.institution}, function(err, institution) {
@@ -66,28 +63,13 @@ router.post('/register', function(req, res, next) {
    });
 });
 
+router.get('/login', function(req, res) {
+});
+
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/#/',
   failureRedirect: '/#/login' }
 ));
-
-// router.post('/login', function(req, res, next){
-//   if(!req.body.username || !req.body.password){
-//     return res.status(400).json({message: 'Missing required fields username and password.'});
-//   }
-//
-//   passport.authenticate('local', function(err, user, info){
-//     if(err){
-//       return res.status(400).json({error: err});
-//     }
-//
-//     if(user){
-//       res.redirect('/#/')
-//     } else {
-//       return res.status(401).json(info);
-//     }
-//   })(req, res, next);
-// });
 
 router.get('/logout', function(req, res) {
   if (req.isAuthenticated()){

@@ -22,7 +22,7 @@ body * {
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #E8E8E5;
+  background-color: #FAFFFD;
 }
 
 a {
@@ -44,9 +44,6 @@ label {
 h2 {
   margin-top: 0px;
   margin-bottom: 0px;
-}
-.error {
-  color: red;
 }
 
 .about-me, .profile-pic, .icons {
@@ -124,7 +121,6 @@ h2 {
 }
 #bio {
   border-radius: 10px;
-  border: 1px solid black;
   background-color: rgb(235, 235, 235);
   width: 100%;
   height: auto;
@@ -175,8 +171,8 @@ h2 {
 }
 
 .messageBox:active {
-  top:3px;
-  box-shadow: inset 0px 1px 0px #9e8d84;
+	top:3px;
+	box-shadow: inset 0px 1px 0px #9e8d84;
 }
 
 .messageBoxWrapper {
@@ -238,7 +234,8 @@ h2 {
 
 
 .alumniList {
-  border-right: 1px solid gray;
+  margin-top: 10vh;
+  border: 1px solid black;
 }
 .alumniList h2 {
   text-align: center;
@@ -263,42 +260,42 @@ h2 {
 }
 
 .popButton {
-  background-color:#479AFF;
-  font-family: 'Open Sans', sans-serif;
-  font-size:12px;
-  text-decoration:none;
-  color:#fff;
-  position:relative;
-  padding:10px 20px;
-  padding-right:50px;
-  background-image: linear-gradient(bottom, rgb(62,51,46) 0%, rgb(101,86,78) 100%);
-  border-radius: 5px;
-  box-shadow: inset 0px 1px 0px #9e8d84, 0px 5px 0px 0px #322620, 0px 10px 5px #999;
+	background-color:#479AFF;
+	font-family: 'Open Sans', sans-serif;
+	font-size:12px;
+	text-decoration:none;
+	color:#fff;
+	position:relative;
+	padding:10px 20px;
+	padding-right:50px;
+	background-image: linear-gradient(bottom, rgb(62,51,46) 0%, rgb(101,86,78) 100%);
+	border-radius: 5px;
+	box-shadow: inset 0px 1px 0px #9e8d84, 0px 5px 0px 0px #322620, 0px 10px 5px #999;
 }
 
 .popButton:active {
-  top:3px;
-  box-shadow: inset 0px 1px 0px #9e8d84;
+	top:3px;
+	box-shadow: inset 0px 1px 0px #9e8d84;
 }
 
 .popButton::before {
-  background-color: #322620;
-  background-image: url(../images/right_arrow.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  content:"";
-  width:20px;
-  height:20px;
-  position:absolute;
-  right:15px;
-  top:50%;
-  margin-top:-9px;
-  border-radius: 50%;
+	background-color: #322620;
+	background-image: url(../images/right_arrow.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	content:"";
+	width:20px;
+	height:20px;
+	position:absolute;
+	right:15px;
+	top:50%;
+	margin-top:-9px;
+	border-radius: 50%;
 }
 
 .popButton:active::before {
-  top:50%;
-  margin-top:-12px;
+	top:50%;
+	margin-top:-12px;
 }
 
 a.popButton {
@@ -309,15 +306,10 @@ a.popButton:hover {
   color: white;
 }
 
+.eventBox {
+  border: 1px black solid;
+}
 
 .eventBox li {
   list-style: none;
-}
-.contentBox {
-  border-radius: 10px;
-  margin-top: 5vh;
-  border: 1px solid black;
-}
-.eventList {
-  text-align: center;
 }
