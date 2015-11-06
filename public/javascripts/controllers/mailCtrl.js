@@ -25,9 +25,9 @@ app.controller('mailCtrl', function($scope, $state, $http){
     })
     .catch(function(error){
       console.log(error);
-      $state.go('login');
+      // $state.go('login');
     });
-    
+
     $scope.toggleFriends = function() {
        if ($scope.friendsHidden === false) {
          $scope.friendsHidden = true;

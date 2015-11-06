@@ -9,7 +9,7 @@ app.controller('settingsCtrl', function($scope, $state, $http) {
     })
     .catch(function (error) {
       console.log(error);
-      $state.go('login');
+      // $state.go('login');
     });
 
   $scope.editFullName = function(user) {

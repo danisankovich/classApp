@@ -6,12 +6,17 @@ var User = require('../models/user');
 var Institution = require('../models/institution');
 var Message = require('../models/message');
 
+function authenticated(req, res, next) {
+    if (req.isAuthenticated()) { return next(); }
+    res.redirect('/login');
+};
+
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
   res.send();
 });
 
-router.get('/user', function(req, res, next) {
+router.get('/user', authenticated, function(req, res, next) {
   if (req.user) {
     User.findById(req.user.id, function(err, user) {
       if (err) {
@@ -22,7 +27,7 @@ router.get('/user', function(req, res, next) {
       }
     });
   } else {
-    res.status(400).send('no user found!')
+    res.status(400).send('no user found!');
   }
 });
 
@@ -73,16 +78,21 @@ router.post('/register', function(req, res, next) {
 
 router.post('/login', function(req, res, next){
   if(!req.body.username || !req.body.password){
-    return res.status(400).json({message: 'Missing required fields username and password.'});
+    return res.status(400).json({message: 'Missing required fields, username or password.'});
   }
+  // else {
+  //   passport.authenticate('local', {successRedirect: '/#/'});
+  // }
+
 
   passport.authenticate('local', function(err, user, info){
     if(err){
       return res.status(400).json({error: err});
     }
-    
+
     if(user){
-      res.redirect('/#/')
+      console.log('user found');
+      res.redirect('/#/');
     } else {
       return res.status(401).json(info);
     }
@@ -96,26 +106,26 @@ router.get('/logout', function(req, res) {
   res.redirect('/#/');
 });
 
-router.get('/institutions', function(req, res) {
+router.get('/institutions', authenticated, function(req, res) {
   Institution.find({}, function(err, institution) {
     res.json(institution);
   });
 });
 
-router.get('/institute/:id', function(req, res) {
+router.get('/institute/:id', authenticated, function(req, res) {
   console.log(req.params.id);
   Institution.findById(req.params.id, function(err, institution) {
     res.json(institution);
   });
 });
 
-router.get('/:id', function(req, res) {
+router.get('/:id', authenticated, function(req, res) {
   User.findById(req.params.id, function(err, user) {
     res.json(user);
   });
 });
 
-router.post("/institution/newalumni/:id", function(req, res) {
+router.post("/institution/newalumni/:id", authenticated, function(req, res) {
   Institution.findById(req.params.id, function(err, institution) {
     institution.alumni.push(req.user._id);
     institution.save();
@@ -123,7 +133,7 @@ router.post("/institution/newalumni/:id", function(req, res) {
   });
 });
 
-router.post("/alumni/newinstitution/:id", function(req, res) {
+router.post("/alumni/newinstitution/:id", authenticated, function(req, res) {
   console.log(req.body);
   Institution.findById(req.params.id, function(err, institution) {
     User.findByIdAndUpdate(
@@ -136,7 +146,7 @@ router.post("/alumni/newinstitution/:id", function(req, res) {
   });
 });
 
-router.post('/addfriend/:id', function(req, res, next) {
+router.post('/addfriend/:id', authenticated, function(req, res, next) {
   console.log('yo');
   User.findByIdAndUpdate(
     req.params.id,
@@ -154,7 +164,7 @@ router.post('/addfriend/:id', function(req, res, next) {
     });
 });
 
-router.get('/friends/:id', function(req, res, next) {
+router.get('/friends/:id', authenticated, function(req, res, next) {
   User.findById(req.params.id, function(err, friend) {
     res.json(friend);
   });

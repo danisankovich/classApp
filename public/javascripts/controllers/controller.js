@@ -9,14 +9,12 @@ app.controller('mainCtrl', function ($scope, $state, $http) {
         $scope.unreadMessages = user.unreadMessages;
         $scope.userId = user._id;
         instvsInsts(user);
-        $scope.test = 'test';
       }
     }).catch(function (error) {
       console.log(error);
     });
 
   $scope.register = function (user) {
-    console.log(user);
     $http.post('http://localhost:3000/register', user)
       .success(function (data) {
         console.log(data);
@@ -28,15 +26,16 @@ app.controller('mainCtrl', function ($scope, $state, $http) {
   };
 
   $scope.login = function (user) {
-    console.log(user);
     $http.post('http://localhost:3000/login', user)
       .success(function (data) {
         console.log(data);
+
+        // $state.go('/');
       })
       .error(function (error) {
         console.log(error);
         $scope.error = error.message;
-      })
+      });
   };
 
   var instvsInsts = function (user) {

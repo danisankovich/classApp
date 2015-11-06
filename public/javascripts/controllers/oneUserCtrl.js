@@ -9,7 +9,7 @@ app.controller('oneUserCtrl', function($scope, $state, $http){
   $http.get('http://localhost:3000/user')
     .catch(function(error){
       console.log(error);
-      $state.go('login');
+      // $state.go('login');
     });
 
   $scope.addFriend = function(friend) {
