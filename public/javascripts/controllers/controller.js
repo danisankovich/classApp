@@ -50,11 +50,18 @@ app.controller('mainCtrl', function ($scope, $state, $http) {
 
 app.controller('institutionCtrl', function ($scope, $state, $http) {
   $scope.alumni = [];
-  $http.get('http://localhost:3000/institutions').success(function (institution) {
-    console.log("institution", institution);
-    $scope.institutions = institution;
-    console.log($scope.institutions);
-  });
+  $http.get('http://localhost:3000/institutions')
+    .success(function (institution) {
+      console.log("institution", institution);
+      $scope.institutions = institution;
+      console.log($scope.institutions);
+    });
+
+    $http.get('http://localhost:3000/user')
+      .catch(function(error){
+        console.log(error);
+        $state.go('login');
+      });
 
   // $http.post('http://localhost:3000/loggedIn')
   //   .then(function(data){
