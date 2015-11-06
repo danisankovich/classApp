@@ -1,0 +1,67 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <form role="form" ng-submit="register(newUser)">
+      <!-- <form role="form" action="/register" method="post"> -->
+        <fieldset>
+          <div class="col-lg-10 col-lg-offset-2">
+            <legend>Registration</legend>
+          </div>
+          <div class="form-group">
+            <label for="username" class="col-lg-2 col-lg-offset-1 control-label">Username</label>
+            <div class="col-lg-7">
+              <input type="text" id="username" name="username" placeholder="Enter Username" ng-model="newUser.username" class="form-control"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fullName" class="col-lg-2 col-lg-offset-1 control-label">Full Name</label>
+            <div class="col-lg-7">
+              <input type="text" id="fullName" name="fullName" placeholder="Enter Full Name" ng-model="newUser.fullName" class="form-control"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-lg-2 col-lg-offset-1 control-label">Email</label>
+            <div class="col-lg-7">
+              <input type="email" name="email" placeholder="Enter Email" id="email" ng-model="newUser.email" class="form-control"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-lg-2 col-lg-offset-1 control-label">Password</label>
+            <div class="col-lg-7">
+              <input type="password" name="password" placeholder="Password" id="password" ng-model="newUser.password" class="form-control"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="institution" class="col-lg-2 col-lg-offset-1 control-label">Institution</label>
+            <div class="col-lg-7">
+              <input type="text" name="institution" placeholder="Enter Institution Name" id="institution" ng-model="newUser.institution" class="form-control"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dateGraduated" class="col-lg-2 col-lg-offset-1 control-label">Graduation Date</label>
+            <div class="col-lg-7">
+              <input type="date" name="dateGraduated" id="dateGraduated" ng-model="newUser.dateGraduated" class="form-control"/>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="col-lg-4 col-lg-offset-8">
+<<<<<<< HEAD
+            <button type="submit" class="btn btn-default">Submit</button>&nbsp;
+=======
+            <!-- <p class="error" ng-show="{{error !== undefined}}">{{error}}</p> -->
+            <p class="error">{{error}}</p>
+            <button class="btn btn-default">Submit</button>&nbsp;
+>>>>>>> c2eacde4321f508c379620a8e943fd574adfb65c
+            <a ui-sref="/"><button type="button" class="btn btn-primary">Cancel</button></a>
+          </div>
+        </form>
+      </fieldset>
+      <hr>
+      <div><span>Already Signed Up? </span><a ui-sref="login">Login</a></div>
+    </form>
+  </div>
+</div>
+</div>

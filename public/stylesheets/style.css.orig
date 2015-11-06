@@ -1,0 +1,318 @@
+#nomenclature {
+  margin-left: 6vw;
+}
+#banner {
+  margin-right: 0;
+}
+<<<<<<< HEAD
+.vertPanel {
+  background-color: white;
+}
+hr {
+  border-top: 1px solid black;
+}
+.alumniList hr {
+  margin-right: 30px;
+}
+=======
+>>>>>>> c2eacde4321f508c379620a8e943fd574adfb65c
+
+body * {
+  padding: 0;
+}
+
+/*TEST SETTINGS ABOVE ONLY*/
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #FAFFFD;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.navbar {
+  margin-bottom: 1px;
+}
+
+label {
+  margin-top: 1%;
+}
+
+.mainDiv {
+  padding: 10px;
+}
+
+h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.about-me, .profile-pic, .icons {
+  text-align: center;
+  margin: auto;
+}
+
+#user-heading {
+  margin: auto;
+}
+
+.profile-pic {
+  height: 150px;
+  width: 150px;
+}
+
+.comments {
+  margin: auto;
+  text-align: right;
+}
+
+.iconthing {
+  width: 35px;
+  height: 35px;
+  margin: 5px;
+}
+
+.iconpadding {
+  margin-left: 10px;
+}
+
+.icons {
+  float: right;
+}
+
+.right-border {
+  border-right: 1px black solid;
+}
+
+.blurb {
+  padding: 15px 10px 15px 10px;
+}
+
+.institutionbox {
+  border: 3px solid black;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px #888888;
+  margin-top: 15%;
+}
+
+.boxWrapper {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.institutionbox .institutedisplay {
+  text-align: center;
+  border-bottom: 2px black solid;
+}
+.blurb {
+  height: 125px;
+}
+
+.blurb h2 {
+  font-size: 28px;
+  text-align: center;
+}
+.blurb h4 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+}
+#bio {
+  border-radius: 10px;
+  background-color: rgb(235, 235, 235);
+  width: 100%;
+  height: auto;
+}
+.boxHeader {
+  top: 0;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-bottom: 0%;
+}
+#bio hr {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  color: black;
+}
+.boxHeader p {
+  padding-top: 5px;
+  margin: 0;
+}
+#bio p {
+  padding: 10px 20px 10px 10px;
+}
+.toProfile:hover {
+  cursor: pointer;
+}
+#joinButton {
+  width: 100%;
+}
+
+#addEventButton{
+  width: 100%;
+}
+.messageSubject {
+  border: 1px solid black;
+}
+
+.messageContent {
+  border: 1px solid black;
+}
+
+.messageBox {
+  border: 3px solid black;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px #888888;
+  height: 30px;
+  padding-top: 3px;
+  margin-top: 1%;
+}
+
+.messageBox:active {
+	top:3px;
+	box-shadow: inset 0px 1px 0px #9e8d84;
+}
+
+.messageBoxWrapper {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+}
+
+.messageBox .messageDisplay {
+  text-align: center;
+  border-bottom: 2px black solid;
+}
+
+.oneMsgWrapper {
+  border: 3px solid black;
+  height: 100%;
+  min-height: 100px;
+  padding: 15px 15px 15px 15px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px #888888;
+}
+
+.color-false {
+  background-color: red;
+  font-weight: bolder;
+}
+
+.unread-true {
+  color: red !important;
+}
+.unread-false {
+  color: black !important;
+}
+
+.senderLine {
+  color: black;
+}
+.cover {
+  text-align: center;
+}
+
+/*AUTO CROPPING COVER PHOTO*/
+
+#banner {
+  text-align: center;
+  top: 0;
+  width: 60vw;
+  height: 30vh;
+  overflow: hidden;
+  margin: 0;
+}
+#banner img {
+  text-align: center;
+  width: 50vw;
+  margin-top: -12%;
+}
+
+/*  ^^^^^^^^^ AUTO CROPPING COVER PHOTO ^^^^^^^^^^^^ */
+
+
+.alumniList {
+  margin-top: 10vh;
+  border: 1px solid black;
+}
+.alumniList h2 {
+  text-align: center;
+}
+.alumniList h3 {
+  text-align: center;
+}
+
+
+/*JOIN and ADD buttons!*/
+
+.hideButton {
+  display: none
+}
+
+.cursor:hover {
+  cursor: pointer;
+}
+
+.friends {
+  list-style: none;
+}
+
+.popButton {
+	background-color:#479AFF;
+	font-family: 'Open Sans', sans-serif;
+	font-size:12px;
+	text-decoration:none;
+	color:#fff;
+	position:relative;
+	padding:10px 20px;
+	padding-right:50px;
+	background-image: linear-gradient(bottom, rgb(62,51,46) 0%, rgb(101,86,78) 100%);
+	border-radius: 5px;
+	box-shadow: inset 0px 1px 0px #9e8d84, 0px 5px 0px 0px #322620, 0px 10px 5px #999;
+}
+
+.popButton:active {
+	top:3px;
+	box-shadow: inset 0px 1px 0px #9e8d84;
+}
+
+.popButton::before {
+	background-color: #322620;
+	background-image: url(../images/right_arrow.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	content:"";
+	width:20px;
+	height:20px;
+	position:absolute;
+	right:15px;
+	top:50%;
+	margin-top:-9px;
+	border-radius: 50%;
+}
+
+.popButton:active::before {
+	top:50%;
+	margin-top:-12px;
+}
+
+a.popButton {
+  color: white;
+}
+
+a.popButton:hover {
+  color: white;
+}
+
+.eventBox {
+  border: 1px black solid;
+}
+
+.eventBox li {
+  list-style: none;
+}
