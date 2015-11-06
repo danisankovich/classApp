@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var logout = require('express-passport-logout');
-var cors = require('cors');
 var User = require('../models/user');
 var Institution = require('../models/institution');
 var Message = require('../models/message');
