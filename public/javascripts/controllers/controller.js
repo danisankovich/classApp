@@ -46,6 +46,14 @@ app.controller('mainCtrl', function ($scope, $state, $http) {
       $scope.memberOfOne = true;
     }
   };
+
+  $scope.register = function(newUser) {
+    $scope.newUser = newUser;
+    $http.post('http://localhost:3000/register', $scope.newUser).success(function(yes) {
+      console.log(yes);
+    });
+  };
+
 });
 
 app.controller('institutionCtrl', function ($scope, $state, $http) {
