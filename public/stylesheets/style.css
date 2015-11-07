@@ -1,7 +1,7 @@
 #nomenclature {
   margin-left: 6vw;
 }
-.homeContainer {
+/*.homeContainer {
   margin: 0;
   background-image: url(https://images.unsplash.com/photo-1416453072034-c8dbfa2856b5?ixlib=rb-0.3.5&q=80&fm=jpg&s=d1948dc8e0c0d814431f58ac8aeef764);
   background-size: cover;
@@ -10,12 +10,12 @@
   width: 110vw;
   margin-top: -10vh;
   /*z-index: -1;*/
-}
-.homeContainer h1 {
+/*}*/
+/*.homeContainer h1 {
   position: absolute;
-  z-index: 1;
+  /*z-index: 1;*/
 
-}
+/*}*/
 .na
 /*.backgroundImage {
   margin-left: -5%;
