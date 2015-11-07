@@ -1,4 +1,5 @@
 app.controller('mainCtrl', function($scope, $state, $http){
+  $scope.institutions = [];
   $http.get('http://localhost:3000/user').success(function(user) {
     if(user) {
       console.log("user", user);
@@ -6,11 +7,18 @@ app.controller('mainCtrl', function($scope, $state, $http){
       $scope.currentUser = user.username;
       $scope.unreadMessages = user.unreadMessages;
       $scope.userId = user._id;
-      instvsInsts(user);
+      $http.get('http://localhost:3000/institutions').success(function(institutions) {
+        institutions.forEach(function(e) {
+          if (e.alumni.indexOf($scope.userId) > -1) {
+            $scope.institutions.push(e);
+          }
+        });
+        console.log("inst", $scope.institutions);
+      });
     }
   });
-  var instvsInsts = function(user) {
-    if (user.institutions.length > 1) {
+  $scope.instvsInsts = function() {
+    if ($scope.institutions.length > 1) {
       $scope.memberOfOne = false;
     }
     else {
@@ -21,7 +29,11 @@ app.controller('mainCtrl', function($scope, $state, $http){
   $scope.register = function(newUser) {
     $scope.newUser = newUser;
     $http.post('http://localhost:3000/register', $scope.newUser).success(function() {
-      location.reload();
+      (function() {
+        $scope.user = $scope.newUser;
+        $state.go('/');
+        location.reload();
+      })();
     });
   };
 

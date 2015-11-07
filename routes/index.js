@@ -104,18 +104,26 @@ router.post("/institution/newalumni/:id", function(req, res) {
   });
 });
 
-router.post("/alumni/newinstitution/:id", function(req, res) {
-  console.log(req.body);
-  Institution.findById(req.params.id, function(err, institution) {
-    User.findByIdAndUpdate(
-      req.user._id,
-      {$push: {"institutions": {name: institution.name, dateGraduated: req.body.dateGraduated}}},
-      {safe: true, upsert: true},
-      function(err, user) {
-        // console.log(user);
-    });
-  });
-});
+// router.post("/alumni/newinstitution/:id", function(req, res) {
+//   console.log(req.body);
+//
+//   Institution.findById(req.params.id, function(err, institution) {
+//     // console.log("NOONONONONONON", req.user._id);
+//     // User.findById(req.user._id, function(err, user) {
+//     //   user.institutions.push({name: institution.name, dateGraduated: req.body.dateGraduated});
+//     //   console.log(user);
+//     //   user.save();
+//     //   res.send(user);
+//     // });
+//     User.findByIdAndUpdate(
+//       req.user._id,
+//       {$push: {"institutions": {"name": institution.name, "dateGraduated": req.body.dateGraduated}}},
+//       {safe: true, upsert: true},
+//       function(err, updated) {
+//         console.log("LOOK AT ME", updated);
+//     });
+//   });
+// });
 
 router.post('/addfriend/:id', function(req, res, next) {
   User.findByIdAndUpdate(
