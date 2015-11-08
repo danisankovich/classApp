@@ -29,9 +29,7 @@ app.controller('mainCtrl', function($scope, $state, $http){
   $scope.register = function(newUser) {
     $scope.newUser = newUser;
     $http.post('http://localhost:3000/register', $scope.newUser).success(function(err, data) {
-      // console.log('err', err, 'data', data);
       if(err.hasOwnProperty('name') === true) {
-        console.log(err);
         sweetAlert("Uh Oh", err.message, "error");
         return;
       }
@@ -48,7 +46,6 @@ app.controller('mainCtrl', function($scope, $state, $http){
       }
     });
   };
-
 });
 app.controller('institutionCtrl', function($scope, $state, $http){
   $scope.alumni = [];

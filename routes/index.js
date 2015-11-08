@@ -5,6 +5,7 @@ var logout = require('express-passport-logout');
 var User = require('../models/user');
 var Institution = require('../models/institution');
 var Message = require('../models/message');
+var flash = require('connect-flash');
 
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
@@ -69,7 +70,7 @@ router.get('/login', function(req, res) {
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/#/',
-  failureRedirect: '/#/login' }
+  failureRedirect: '/#/loginfail'}
 ));
 
 router.get('/logout', function(req, res) {
