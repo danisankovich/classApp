@@ -5,6 +5,7 @@ var logout = require('express-passport-logout');
 var User = require('../models/user');
 var Institution = require('../models/institution');
 var Message = require('../models/message');
+var flash = require('connect-flash');
 
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
@@ -34,10 +35,11 @@ router.post('/register', function(req, res) {
     institutions: []
   }),
     req.body.password, function(err, user) {
-      if (err) {
-        console.error(err);
+      if(user === undefined){
+        res.send(err);
       }
-      passport.authenticate('local', {failureRedirect: '/#/register' })(req, res, function() {
+      else {
+        passport.authenticate('local', {failureRedirect: '/#/register' })(req, res, function() {
         Institution.find({name: req.body.institution}, function(err, institution) {
           if (institution[0] !== undefined) {
             institution[0].alumni.push(user._id);
@@ -59,6 +61,7 @@ router.post('/register', function(req, res) {
         });
         res.redirect('/#/');
       });
+    }
    });
 });
 
@@ -67,7 +70,7 @@ router.get('/login', function(req, res) {
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/#/',
-  failureRedirect: '/#/login' }
+  failureRedirect: '/#/loginfail'}
 ));
 
 router.get('/logout', function(req, res) {
@@ -104,18 +107,26 @@ router.post("/institution/newalumni/:id", function(req, res) {
   });
 });
 
-router.post("/alumni/newinstitution/:id", function(req, res) {
-  console.log(req.body);
-  Institution.findById(req.params.id, function(err, institution) {
-    User.findByIdAndUpdate(
-      req.user._id,
-      {$push: {"institutions": {name: institution.name, dateGraduated: req.body.dateGraduated}}},
-      {safe: true, upsert: true},
-      function(err, user) {
-        // console.log(user);
-    });
-  });
-});
+// router.post("/alumni/newinstitution/:id", function(req, res) {
+//   console.log(req.body);
+//
+//   Institution.findById(req.params.id, function(err, institution) {
+//     // console.log("NOONONONONONON", req.user._id);
+//     // User.findById(req.user._id, function(err, user) {
+//     //   user.institutions.push({name: institution.name, dateGraduated: req.body.dateGraduated});
+//     //   console.log(user);
+//     //   user.save();
+//     //   res.send(user);
+//     // });
+//     User.findByIdAndUpdate(
+//       req.user._id,
+//       {$push: {"institutions": {"name": institution.name, "dateGraduated": req.body.dateGraduated}}},
+//       {safe: true, upsert: true},
+//       function(err, updated) {
+//         console.log("LOOK AT ME", updated);
+//     });
+//   });
+// });
 
 router.post('/addfriend/:id', function(req, res, next) {
   User.findByIdAndUpdate(

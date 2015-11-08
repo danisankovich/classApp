@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
+var flash = require('connect-flash');
 var LocalStrategy = require('passport-local').Strategy;
 
 var routes = require('./routes/index');
@@ -31,6 +32,8 @@ app.use(require('express-session')({
   resave: false,
   saveUninitialized: false
 }));
+app.use(flash());
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
