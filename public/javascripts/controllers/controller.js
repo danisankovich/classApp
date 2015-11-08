@@ -28,12 +28,24 @@ app.controller('mainCtrl', function($scope, $state, $http){
 
   $scope.register = function(newUser) {
     $scope.newUser = newUser;
-    $http.post('http://localhost:3000/register', $scope.newUser).success(function() {
-      (function() {
+    $http.post('http://localhost:3000/register', $scope.newUser).success(function(err, data) {
+      // console.log('err', err, 'data', data);
+      if(err.hasOwnProperty('name') === true) {
+        console.log(err);
+        sweetAlert("Uh Oh", err.message, "error");
+        return;
+      }
+      else if(err.hasOwnProperty('errmsg')) {
+        console.log(err);
+        sweetAlert("Uh Oh", newUser.email + "is already registered", "error");
+        return;
+      }
+      else {
         $scope.user = $scope.newUser;
-        $state.go('/');
-        location.reload();
-      })();
+        $state.go('/').then(function() {
+          location.reload();
+        });
+      }
     });
   };
 

@@ -34,10 +34,11 @@ router.post('/register', function(req, res) {
     institutions: []
   }),
     req.body.password, function(err, user) {
-      if (err) {
-        console.error(err);
+      if(user === undefined){
+        res.send(err);
       }
-      passport.authenticate('local', {failureRedirect: '/#/register' })(req, res, function() {
+      else {
+        passport.authenticate('local', {failureRedirect: '/#/register' })(req, res, function() {
         Institution.find({name: req.body.institution}, function(err, institution) {
           if (institution[0] !== undefined) {
             institution[0].alumni.push(user._id);
@@ -59,6 +60,7 @@ router.post('/register', function(req, res) {
         });
         res.redirect('/#/');
       });
+    }
    });
 });
 
