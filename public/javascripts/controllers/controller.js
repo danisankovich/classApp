@@ -24,8 +24,8 @@ app.controller('mainCtrl', function($scope, $state, $http){
       location.reload();
     });
   };
-
 });
+
 app.controller('institutionCtrl', function($scope, $state, $http){
   $scope.alumni = [];
   $http.get('http://localhost:3000/institutions').success(function(institution) {
