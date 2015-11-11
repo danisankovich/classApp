@@ -1,17 +1,61 @@
 #nomenclature {
   margin-left: 6vw;
 }
+/*.homeContainer {
+  margin: 0;
+  background-image: url(https://images.unsplash.com/photo-1416453072034-c8dbfa2856b5?ixlib=rb-0.3.5&q=80&fm=jpg&s=d1948dc8e0c0d814431f58ac8aeef764);
+  background-size: cover;
+  position: fixed;
+  height: 110vh;
+  width: 110vw;
+  margin-top: -10vh;
+  /*z-index: -1;*/
+/*}*/
+/*.homeContainer h1 {
+  position: absolute;
+  /*z-index: 1;*/
+
+/*}*/
+.na
+/*.backgroundImage {
+  margin-left: -5%;
+  margin-top: -10vh;
+  height: 110vh;
+  width: 110vw;
+  background-image: url(https://images.unsplash.com/photo-1416453072034-c8dbfa2856b5?ixlib=rb-0.3.5&q=80&fm=jpg&s=d1948dc8e0c0d814431f58ac8aeef764);
+  background-size: cover;
+  position: fixed;
+  z-index: -1;
+
+}*/
 #banner {
   margin-right: 0;
 }
 .vertPanel {
   background-color: white;
+  box-shadow: 5px 5px 50px 5px #888888;
+}
+.panel {
+  margin-top: 5%;
+}
+.colHeader>h1 {
+  color: white;
+  position: absolute;
+}
+h1 span {
+  text-decoration: underline;
 }
 hr {
   border-top: 1px solid black;
 }
-.alumniList hr {
-  margin-right: 30px;
+h4 {
+  border-bottom: 1px solid gray;
+}
+h4 button {
+  margin-top: 2px;
+  float: right;
+  /*width: 25px;*/
+  height: 25px;
 }
 
 body * {
@@ -22,7 +66,7 @@ body * {
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #FAFFFD;
+  background-color: #d0d0d0;
 }
 
 a {
@@ -103,6 +147,9 @@ h2 {
   text-align: center;
   border-bottom: 2px black solid;
 }
+.institutedisplay img{
+  width: 100%;
+}
 .blurb {
   height: 125px;
 }
@@ -147,11 +194,13 @@ h2 {
   cursor: pointer;
 }
 #joinButton {
+  margin-top: 5%;
   width: 100%;
 }
 
 #addEventButton{
   width: 100%;
+  margin-top: 10%;
 }
 .messageSubject {
   border: 1px solid black;
@@ -171,8 +220,8 @@ h2 {
 }
 
 .messageBox:active {
-	top:3px;
-	box-shadow: inset 0px 1px 0px #9e8d84;
+  top:3px;
+  box-shadow: inset 0px 1px 0px #9e8d84;
 }
 
 .messageBoxWrapper {
@@ -234,8 +283,6 @@ h2 {
 
 
 .alumniList {
-  margin-top: 10vh;
-  border: 1px solid black;
 }
 .alumniList h2 {
   text-align: center;
@@ -260,42 +307,45 @@ h2 {
 }
 
 .popButton {
-	background-color:#479AFF;
-	font-family: 'Open Sans', sans-serif;
-	font-size:12px;
-	text-decoration:none;
-	color:#fff;
-	position:relative;
-	padding:10px 20px;
-	padding-right:50px;
-	background-image: linear-gradient(bottom, rgb(62,51,46) 0%, rgb(101,86,78) 100%);
-	border-radius: 5px;
-	box-shadow: inset 0px 1px 0px #9e8d84, 0px 5px 0px 0px #322620, 0px 10px 5px #999;
+  background-color:#479AFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size:12px;
+  text-decoration:none;
+  color:#fff;
+  position:relative;
+  padding:10px 20px;
+  padding-right:50px;
+  background-image: linear-gradient(bottom, rgb(62,51,46) 0%, rgb(101,86,78) 100%);
+  border-radius: 5px;
+  box-shadow: inset 0px 1px 0px #9e8d84, 0px 5px 0px 0px #322620, 0px 10px 5px #999;
 }
 
 .popButton:active {
-	top:3px;
-	box-shadow: inset 0px 1px 0px #9e8d84;
+  top:3px;
+  box-shadow: inset 0px 1px 0px #9e8d84;
 }
 
 .popButton::before {
-	background-color: #322620;
-	background-image: url(../images/right_arrow.png);
-	background-repeat: no-repeat;
-	background-position: center;
-	content:"";
-	width:20px;
-	height:20px;
-	position:absolute;
-	right:15px;
-	top:50%;
-	margin-top:-9px;
-	border-radius: 50%;
+  background-color: #322620;
+  background-image: url(../images/right_arrow.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  content:"";
+  width:20px;
+  height:20px;
+  position:absolute;
+  right:15px;
+  top:50%;
+  margin-top:-9px;
+  border-radius: 50%;
 }
 
 .popButton:active::before {
-	top:50%;
-	margin-top:-12px;
+  top:50%;
+  margin-top:-12px;
+}
+#alumni hr {
+  border-top: 1px solid #E1DBD8;
 }
 
 a.popButton {
@@ -305,11 +355,17 @@ a.popButton {
 a.popButton:hover {
   color: white;
 }
-
-.eventBox {
-  border: 1px black solid;
+h2 {
+  text-align: center;
 }
-
 .eventBox li {
   list-style: none;
+}
+.eventBox {
+  text-align: center;
+}
+.contentBox {
+  border: 1px solid #4A6B97;
+  border-radius: 5px;
+  margin-bottom: 5%;
 }

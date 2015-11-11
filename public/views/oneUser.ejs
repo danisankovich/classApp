@@ -11,7 +11,6 @@
         </div>
         <div class="col-sm-9" id="user-heading">
           <h2>{{user.fullName}}</h2>
-          <button ng-click="addFriend(friend)">Connect</button>
           <h3 ng-repeat="n in user.institutions">Institution(s): {{n.name}}</h3>
         </div>
       </div>
@@ -22,6 +21,7 @@
             <button type="button" class="btn btn-primary" id="btnContactUs" data-toggle="modal" data-target="#myModal">
               Message {{user.fullName}}
             </button>
+            <button ng-click="addFriend(friend)" type="button" class="btn btn-success">Connect</button>
             <br>
             <h5>Contact Info</h5>
             <h6>Email: {{user.email}}</h6>

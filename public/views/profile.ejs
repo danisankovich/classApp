@@ -6,14 +6,14 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="profile-pic">
-            <img src="http://www.placehold.it/150x150?text=Profile+Pic" alt="">            
+            <img src="http://www.placehold.it/150x150?text=Profile+Pic" alt="">
           </div>
         </div>
         <div class="col-sm-9" id="user-heading">
           <h2>{{user.fullName}}</h2>
           ({{currentUser}})
-          <h3 ng-show="memberOfOne">Institution: <ul ng-repeat="n in user.institutions"><li>{{n.name}}</li></ul></h3>
-          <h3 ng-hide="memberOfOne">Institutions: <ul ng-repeat="n in user.institutions"><li>{{n.name}}</li></ul></h3>
+          <h3 ng-show="instvsInsts()">Institution: <ul ng-repeat="n in institutions"><li>{{n.name}}</li></ul></h3>
+          <h3 ng-hide="instvsInsts()">Institutions: <ul ng-repeat="n in institutions"><li>{{n.name}}</li></ul></h3>
         </div>
       </div>
       <div class="row">

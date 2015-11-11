@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Class App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://bootswatch.com/spacelab/bootstrap.min.css">
-    <link rel='stylesheet' href='/stylesheets/sweetalert-master/dist/sweetalert.css' />
-    <link rel="stylesheet" href="/stylesheets/style.css">
-  </head>
+<head>
+  <title>Class App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://bootswatch.com/spacelab/bootstrap.min.css">
+  <!-- sweet alerts -->
+  <link rel='stylesheet' href='/stylesheets/sweetalert-master/dist/sweetalert.css' />
+  <!-- project css -->
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
 
-  <body ng-app="mainApp">
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a ui-sref="/" class="navbar-brand" href="#">InstaKnow</a>
-        </div>
+<body ng-app="mainApp">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a ui-sref="/" class="navbar-brand" href="#">Recon</a>
+      </div>
 
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-          <ul class="nav navbar-nav navbar-right">
-            <% if (user) { %>
-              <li><a ui-sref="institutions">Institutions</a></li>
-              <% if (user.unreadMessages === true) { %>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+        <ul class="nav navbar-nav navbar-right">
+          <% if (user) { %>
+            <li><a ui-sref="institutions">Institutions</a></li>
+            <% if (user.unreadMessages === true) { %>
               <li><a ui-sref="mymail" class="unread-true">My Mail</a></li>
               <% } else { %>
                 <li><a ui-sref="mymail">My Mail</a></li>
                 <% } %>
-              <% } else { %>
-                <% } %>
+                <% } else { %>
+                  <% } %>
                   <% if (user) { %>
                     <li>
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <%= user.fullName %>&nbsp;
-                          <span class="caret"></span>
+                        <span class="caret"></span>
                       </a>
                       <ul class="dropdown-menu">
                         <li><a ui-sref="profile">Profile</a></li>
@@ -53,31 +56,32 @@
                       <li><a ui-sref="login">Login</a></li>
                       <li><a ui-sref="register">Register</a></li>
                       <% } %>
-          </ul>
-        </div>
-      </div>
-    </nav>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
 
-    <div ui-view></div>
+              <div ui-view></div>
 
-    <hr>
-    <footer>
+              <hr>
+              <footer>
 
-    </footer>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <script src="/stylesheets/sweetalert-master/dist/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
-    <script src="ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
-    <script src="ng-file-upload.min.js"></script>
-    <script src="/javascripts/config.js"></script>
-    <script src="/javascripts/controllers/controller.js"></script>
-    <script src="/javascripts/controllers/editCtrl.js"></script>
-    <script src="/javascripts/controllers/oneInstitutionCtrl.js"></script>
-    <script src="/javascripts/controllers/oneUserCtrl.js"></script>
-    <script src="/javascripts/controllers/editinstitution.js"></script>
-    <script src="/javascripts/controllers/mailCtrl.js"></script>
-  </body>
+              </footer>
+              <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+              <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+              <script src="/stylesheets/sweetalert-master/dist/sweetalert.min.js"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+              <script src="ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+              <script src="ng-file-upload.min.js"></script>
 
-</html>
+              <script src="/javascripts/config.js"></script>
+              <script src="/javascripts/controllers/controller.js"></script>
+              <script src="/javascripts/controllers/editCtrl.js"></script>
+              <script src="/javascripts/controllers/oneInstitutionCtrl.js"></script>
+              <script src="/javascripts/controllers/oneUserCtrl.js"></script>
+              <script src="/javascripts/controllers/editinstitution.js"></script>
+              <script src="/javascripts/controllers/mailCtrl.js"></script>
+            </body>
+
+            </html>
