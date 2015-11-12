@@ -2,16 +2,16 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
   $scope.institutionAlumni = [];
   $scope.urlId = $state.params.instituteId;
   console.log($scope.urlId);
-  $http.get('http://localhost:3000/institute/' + $state.params.instituteId).success(function(institution) {
+  $http.get('https://alumni-network.herokuapp.com/institute/' + $state.params.instituteId).success(function(institution) {
     $scope.institution = institution;
     $scope.events = institution.events;
     institution.alumni.forEach(function(e) {
-      $http.get('http://localhost:3000/' + e).success(function(user) {
+      $http.get('https://alumni-network.herokuapp.com/' + e).success(function(user) {
         $scope.institutionAlumni.push(user);
       });
     });
   });
-  $http.get('http://localhost:3000/user').success(function(user) {
+  $http.get('https://alumni-network.herokuapp.com/user').success(function(user) {
     if(user) {
       console.log("user", user);
       $scope.user = user;
@@ -22,7 +22,7 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
   });
   $scope.joinInstitution = function(user) {
     console.log($state.params.instituteId);
-    $http.post("http://localhost:3000/institution/newalumni/" + $state.params.instituteId, user).success(function() {
+    $http.post("https://alumni-network.herokuapp.com/institution/newalumni/" + $state.params.instituteId, user).success(function() {
     });
     swal("Edit Success!", "You have joined this institution", "success");
   };
@@ -31,16 +31,18 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
   };
 
   $scope.leaveInstitution = function() {
+    mixpanel.track("Institution Left");
     console.log($scope.user._id);
-    $http.post('http://localhost:3000/edit/institutionalumni/'+ $state.params.instituteId + "/" + $scope.user._id).success(function() {
-      $http.post('http://localhost:3000/edit/leaveinstitution/' + $state.params.instituteId + "/" + $scope.user._id);
+    $http.post('https://alumni-network.herokuapp.com/edit/institutionalumni/'+ $state.params.instituteId + "/" + $scope.user._id).success(function() {
+      $http.post('https://alumni-network.herokuapp.com/edit/leaveinstitution/' + $state.params.instituteId + "/" + $scope.user._id);
     });
   };
 
   $scope.addEvent = function(newEvent) {
     console.log(newEvent);
     // $scope.newEvent = newEvent;
-    $http.post("http://localhost:3000/events/new/"+ $state.params.instituteId, newEvent).success(function(newEvent) {
+    $http.post("https://alumni-network.herokuapp.com/events/new/"+ $state.params.instituteId, newEvent).success(function(newEvent) {
+      mixpanel.track("New Event Sucessfully Created");
       console.log(newEvent);
       // $state.go($state.current, {}, {reload: true});
 

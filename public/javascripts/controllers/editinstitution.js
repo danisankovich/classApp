@@ -1,10 +1,10 @@
 app.controller('editInstitutionCtrl', function($scope, $state, $http){
   $scope.institutionAlumni = [];
-  $http.get('http://localhost:3000/institute/' + $state.params.instituteId).success(function(institution) {
+  $http.get('https://alumni-network.herokuapp.com/institute/' + $state.params.instituteId).success(function(institution) {
     $scope.institution = institution;
     console.log(institution);
     institution.alumni.forEach(function(e) {
-      $http.get('http://localhost:3000/' + e).success(function(user) {
+      $http.get('https://alumni-network.herokuapp.com/' + e).success(function(user) {
         $scope.institutionAlumni.push(user);
       });
     });
@@ -15,7 +15,7 @@ app.controller('editInstitutionCtrl', function($scope, $state, $http){
     } else { return $scope.showTagForm = true; }
   };
   $scope.editTag = function(institution) {
-    $http.post('http://localhost:3000/edit/institutiontag/'+ $state.params.instituteId, institution).success(function(response) {
+    $http.post('https://alumni-network.herokuapp.com/edit/institutiontag/'+ $state.params.instituteId, institution).success(function(response) {
       console.log(response);
     });
   };
@@ -43,7 +43,7 @@ app.controller('editInstitutionCtrl', function($scope, $state, $http){
     } else { return $scope.showPicForm = true; }
   };
   $scope.editPic = function(institution) {
-    $http.post('http://localhost:3000/edit/institutionpic/'+ $state.params.instituteId, institution).success(function(response) {
+    $http.post('https://alumni-network.herokuapp.com/edit/institutionpic/'+ $state.params.instituteId, institution).success(function(response) {
       console.log(response);
     });
   };
@@ -56,16 +56,17 @@ app.controller('editInstitutionCtrl', function($scope, $state, $http){
     }
   };
   $scope.editBio = function(institution) {
-    $http.post('http://localhost:3000/edit/institutionbio/'+ $state.params.instituteId, institution).success(function(response) {
+    $http.post('https://alumni-network.herokuapp.com/edit/institutionbio/'+ $state.params.instituteId, institution).success(function(response) {
       console.log(response);
     });
   };
 
 
   $scope.removeAlumni = function() {
+    mixpanel.track("Alumni Removed");
     console.log(this.alumni._id);
-    $http.post('http://localhost:3000/edit/institutionalumni/'+ $state.params.instituteId + "/" + this.alumni._id).success(function() {
-      $http.post('http://localhost:3000/edit/leaveinstitution/' + $state.params.instituteId + "/" + this.alumni._id);
+    $http.post('https://alumni-network.herokuapp.com/edit/institutionalumni/'+ $state.params.instituteId + "/" + this.alumni._id).success(function() {
+      $http.post('https://alumni-network.herokuapp.com/edit/leaveinstitution/' + $state.params.instituteId + "/" + this.alumni._id);
     });
     swal("Edit Success!", "You have removed "+ this.alumni.fullName + " from the institution", "success");
   };
