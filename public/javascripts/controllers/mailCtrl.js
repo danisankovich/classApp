@@ -43,11 +43,11 @@ app.controller('mailCtrl', function($scope, $state, $http){
     $scope.msgdUser = this.friend.fullName;
   };
   $scope.sendMail = function(message) {
-    mixpanel.track("New Mail Sent");
     var thisUserId = $scope.friendId;
     console.log("thisuserid", thisUserId);
     console.log("mymessage", message);
     $http.post("https://alumni-network.herokuapp.com/mail/send/" + thisUserId, message).success(function(sentMessage) {
+    mixpanel.track("New Mail Sent");
       console.log(sentMessage);
       swal("Message Sent!", "Your message has been sent and will be delivered shortly!", "success");
     });
