@@ -31,6 +31,7 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
   };
 
   $scope.leaveInstitution = function() {
+    mixpanel.track("Institution Left");
     console.log($scope.user._id);
     $http.post('https://alumni-network.herokuapp.com/edit/institutionalumni/'+ $state.params.instituteId + "/" + $scope.user._id).success(function() {
       $http.post('https://alumni-network.herokuapp.com/edit/leaveinstitution/' + $state.params.instituteId + "/" + $scope.user._id);
@@ -41,6 +42,7 @@ app.controller('oneInstitutionCtrl', function($scope, $state, $http){
     console.log(newEvent);
     // $scope.newEvent = newEvent;
     $http.post("https://alumni-network.herokuapp.com/events/new/"+ $state.params.instituteId, newEvent).success(function(newEvent) {
+      mixpanel.track("New Event Sucessfully Created");
       console.log(newEvent);
       // $state.go($state.current, {}, {reload: true});
 

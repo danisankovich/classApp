@@ -63,6 +63,7 @@ app.controller('editInstitutionCtrl', function($scope, $state, $http){
 
 
   $scope.removeAlumni = function() {
+    mixpanel.track("Alumni Removed");
     console.log(this.alumni._id);
     $http.post('https://alumni-network.herokuapp.com/edit/institutionalumni/'+ $state.params.instituteId + "/" + this.alumni._id).success(function() {
       $http.post('https://alumni-network.herokuapp.com/edit/leaveinstitution/' + $state.params.instituteId + "/" + this.alumni._id);

@@ -43,6 +43,7 @@ app.controller('mailCtrl', function($scope, $state, $http){
     $scope.msgdUser = this.friend.fullName;
   };
   $scope.sendMail = function(message) {
+    mixpanel.track("New Mail Sent");
     var thisUserId = $scope.friendId;
     console.log("thisuserid", thisUserId);
     console.log("mymessage", message);

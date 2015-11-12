@@ -10,6 +10,7 @@ app.controller('oneUserCtrl', function($scope, $state, $http){
     var thisUserId = $scope.user._id;
     $http.post("https://alumni-network.herokuapp.com/addfriend/" + thisUserId)
       .success(function(data){
+        mixpanel.track("New connection added");
         swal({
           title: "Success!",
           text: "You have added " + $scope.user.fullName + " as a friend!",
@@ -30,6 +31,7 @@ app.controller('oneUserCtrl', function($scope, $state, $http){
     console.log("mymessage", message);
     $http.post("https://alumni-network.herokuapp.com/mail/send/" + thisUserId, message).success(function(sentMessage) {
       console.log(sentMessage);
+      mixpanel.track("New Message Sent");
       swal("Message Sent!", "Your message has been sent and will be delivered shortly!", "success");
     });
   };

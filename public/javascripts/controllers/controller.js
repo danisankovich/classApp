@@ -27,6 +27,7 @@ app.controller('mainCtrl', function($scope, $state, $http){
   };
 
   $scope.register = function(newUser) {
+    mixpanel.track("New User Registered");
     $scope.newUser = newUser;
     $http.post('https://alumni-network.herokuapp.com/register', $scope.newUser).success(function(err, data) {
       if(err.hasOwnProperty('name') === true) {
