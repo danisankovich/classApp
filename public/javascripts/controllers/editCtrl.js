@@ -1,5 +1,5 @@
 app.controller('settingsCtrl', function($scope, $state, $http) {
-  $http.get('https://alumni-network.herokuapp.com/user').success(function(user) {
+  $http.get('https://stormy-woodland-5266.herokuapp.com/user').success(function(user) {
     if (user) {
       $scope.user = user;
       $scope.currentUser = user.username;
@@ -7,127 +7,127 @@ app.controller('settingsCtrl', function($scope, $state, $http) {
     }
   });
   $scope.editFullName = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/fullname', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/fullname', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your name is now!"+ $scope.user.fullName, "success");
   };
   $scope.editEmail = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/email', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/email', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your email is now!"+ $scope.user.email, "success");
   };
   $scope.editBio = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/bio', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/bio', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your About Me section has been changed!", "success");
   };
   $scope.editCurrentJob = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/currentjob', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/currentjob', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your Current Job is now!"+ $scope.user.currentJob, "success");
   };
   $scope.editHireable = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/hireable', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/hireable', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your hireability status is now!" + $scope.user.hireable, "success");
   };
   $scope.editHiring = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/hiring', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/hiring', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your hiring status is now!"+ $scope.user.hiring, "success");
   };
   $scope.editPhoneNumber = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/phonenumber', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/phonenumber', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your Phone Number is now!"+ $scope.user.phoneNumber, "success");
   };
   $scope.editStreet = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/street', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/street', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your Street is now!"+ $scope.user.street, "success");
   };
   $scope.editCity = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/city', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/city', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your City is now!"+ $scope.user.city, "success");
   };
   $scope.editState= function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/state', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/state', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your State is now!"+ $scope.user.state, "success");
   };
   $scope.editZip = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/zip', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/zip', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your Zip Code is now!"+ $scope.user.zip, "success");
   };
   $scope.editPersonalWebsite = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/personal', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/personal', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your Personal Website is now!"+ $scope.user.personalWebsite, "success");
   };
   $scope.editTwitter = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/twitter', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/twitter', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your Twitter is now!"+ $scope.user.twitter, "success");
   };
   $scope.editBlog = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/blog', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/blog', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your Blog is now!"+ $scope.user.blog, "success");
   };
   $scope.editGitHub = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/github', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/github', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your GitHub is now!"+ $scope.user.github, "success");
   };
   $scope.editLinkedIn = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/linkedin', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/linkedin', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your LinkedIn is now!"+ $scope.user.linkedIn, "success");
   };
   $scope.editFacebook = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/facebook', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/facebook', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your Facebook is now!"+ $scope.user.facebook, "success");
   };
   $scope.editAngelist = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/angelist', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/angelist', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your Angelist is now!"+ $scope.user.angelist, "success");
   };
   $scope.editStackOverflow = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/stackoverflow', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/stackoverflow', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your Stack Overflow is now!"+ $scope.user.stackOverflow, "success");
   };
   $scope.editQuora = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/quora', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/quora', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your Quora is now!"+ $scope.user.quora, "success");
   };
   $scope.editProfilePic = function(user) {
-    $http.post('https://alumni-network.herokuapp.com/edit/profilepic', user).success(function(response) {
+    $http.post('https://stormy-woodland-5266.herokuapp.com/edit/profilepic', user).success(function(response) {
       console.log(response);
     });
     swal("Edit Success!", "Your Profile Pic is now!"+ $scope.user.profilePic, "success");
