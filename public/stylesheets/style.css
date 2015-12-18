@@ -16,7 +16,6 @@
   /*z-index: 1;*/
 
 /*}*/
-.na
 /*.backgroundImage {
   margin-left: -5%;
   margin-top: -10vh;
@@ -65,8 +64,9 @@ body * {
 /*TEST SETTINGS ABOVE ONLY*/
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #d0d0d0;
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #337AB7;
+  color: #4d4d4d;
 }
 
 a {

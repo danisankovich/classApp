@@ -27,16 +27,16 @@ app.controller('mainCtrl', function($scope, $state, $http){
   };
 
   $scope.register = function(newUser) {
-    mixpanel.track("New User Registered");
     $scope.newUser = newUser;
-    $http.post('https://alumni-network.herokuapp.com/register', $scope.newUser).success(function(err, data) {
+    $http.post('http://localhost:3000/register', $scope.newUser).success(function(err, data) {
+    mixpanel.track("New User Registered");
       if(err.hasOwnProperty('name') === true) {
         sweetAlert("Uh Oh", err.message, "error");
         return;
       }
       else if(err.hasOwnProperty('errmsg')) {
         console.log(err);
-        sweetAlert("Uh Oh", newUser.email + "is already registered", "error");
+        sweetAlert("Uh Oh", newUser.email + " is already registered", "error");
         return;
       }
       else {

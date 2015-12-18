@@ -50,7 +50,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //connect to mongo
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/classApp');
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

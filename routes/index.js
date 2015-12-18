@@ -7,10 +7,15 @@ var Institution = require('../models/institution');
 var Message = require('../models/message');
 var flash = require('connect-flash');
 
+var api_key = 'key-f0c0e64aba88b4c21dab2ea2888ccd66';
+var domain = 'classapp.com';
+var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
   // res.send();
 });
+
 
 router.get('/user', function(req, res, next) {
   User.findById(req.user.id, function(err, user) {
@@ -28,6 +33,7 @@ router.get('/register', function(req, res) {
 });
 
 router.post('/register', function(req, res) {
+  console.log(req.body);
   User.register(new User({
     username: req.body.username,
     email: req.body.email,
@@ -35,6 +41,7 @@ router.post('/register', function(req, res) {
     institutions: []
   }),
     req.body.password, function(err, user) {
+      console.log(user);
       if(user === undefined){
         res.send(err);
       }
@@ -58,6 +65,15 @@ router.post('/register', function(req, res) {
               });
             });
           }
+          var data = {
+            from: 'Admin <admin@classapp.com>',
+            to: req.body.email,
+            subject: 'Hello',
+            text: 'Thanks for registering with ClassApp!'
+          };
+          mailgun.messages().send(data, function (error, body) {
+            console.log(body);
+          });
         });
         res.redirect('/#/');
       });
