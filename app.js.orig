@@ -51,10 +51,10 @@ passport.deserializeUser(User.deserializeUser());
 
 //connect to mongo
 <<<<<<< HEAD
-mongoose.connect(process.env.MONGOLAB || 'mongodb://localhost/classApp');
+mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/classApp');
 =======
-mongoose.connect(process.env.MONGO_URL);
->>>>>>> 21aa911fd0bc7cec07e9a256a1b5eab87fb0b03a
+mongoose.connect(process.env.MONGOLAB || 'mongodb://localhost/classApp');
+>>>>>>> 99942ea870d6178a41837e00944461de90a0ab03
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
