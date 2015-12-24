@@ -1,13 +1,13 @@
 app.controller('mainCtrl', function($scope, $state, $http){
   $scope.institutions = [];
-  $http.get('https://alumni-network.herokuapp.com/user').success(function(user) {
+  $http.get(url + 'user').success(function(user) {
     if(user) {
       console.log("user", user);
       $scope.user = user;
       $scope.currentUser = user.username;
       $scope.unreadMessages = user.unreadMessages;
       $scope.userId = user._id;
-      $http.get('https://alumni-network.herokuapp.com/institutions').success(function(institutions) {
+      $http.get(url + 'institutions').success(function(institutions) {
         institutions.forEach(function(e) {
           if (e.alumni.indexOf($scope.userId) > -1) {
             $scope.institutions.push(e);
@@ -28,7 +28,7 @@ app.controller('mainCtrl', function($scope, $state, $http){
 
   $scope.register = function(newUser) {
     $scope.newUser = newUser;
-    $http.post('http://localhost:3000/register', $scope.newUser).success(function(err, data) {
+    $http.post(url + 'register', $scope.newUser).success(function(err, data) {
     mixpanel.track("New User Registered");
       if(err.hasOwnProperty('name') === true) {
         sweetAlert("Uh Oh", err.message, "error");
@@ -51,7 +51,7 @@ app.controller('mainCtrl', function($scope, $state, $http){
 
 app.controller('institutionCtrl', function($scope, $state, $http){
   $scope.alumni = [];
-  $http.get('https://alumni-network.herokuapp.com/institutions').success(function(institution) {
+  $http.get(url + 'institutions').success(function(institution) {
     console.log("institution", institution);
     $scope.institutions = institution;
     console.log($scope.institutions);

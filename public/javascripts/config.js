@@ -1,4 +1,6 @@
 var app = angular.module('mainApp', ['ui.router']);
+// window.url = 'https://alumni-network.herokuapp.com/';
+window.url = 'http://localhost:3000/';
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
